@@ -13,12 +13,14 @@ app.use(express.json())
 
 const authRouter = require('./routes/authRouter')
 const postRouter = require('./routes/postRouter')
+const commentRouter = require('./routes/commentRouter')
 
 
 app.use(express.static(path.join(__dirname, 'build')))
 
-app.use('/api/users', authRouter)
+app.use('/api/auth', authRouter)
 app.use('/api/posts', postRouter)
+app.use('/api/comments', commentRouter)
 
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))

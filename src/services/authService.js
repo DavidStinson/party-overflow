@@ -1,5 +1,5 @@
 import tokenService from './tokenService'
-const BASE_URL = '/api/users/'
+const BASE_URL = '/api/auth/'
 
 export function getUser() {
     return tokenService.getUserFromToken()
