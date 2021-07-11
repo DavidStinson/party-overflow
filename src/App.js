@@ -45,10 +45,9 @@ const App = () => {
   return (
     <div className="App">
       <NavBar authenticated={authenticated} handleLogout={handleLogout} ></NavBar>
-      {/* <Switch>
-
-
-      </Switch> */}
+      <Switch>
+        <Route path="/home" component={(props) => (<Home {...props} currentUser={currentUser} />)} />
+      </Switch>
     </div>
   )
 }

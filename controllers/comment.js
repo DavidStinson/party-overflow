@@ -2,10 +2,11 @@ const Post = require('../models/post')
 
 async function createComment(req, res) {
     try {
-        const post = Post.findById(req.params.id)
+        const post = await Post.findById(req.params.post_id)
         post.comments.push(req.body)
-        post.save()
-        res.json(post)
+        await post.save()
+        const newComment = post.comments[post.comments.length - 1]
+        res.json(newComment)
     } catch (err) {
         res.status(400).send(err.message)
     }
@@ -13,10 +14,10 @@ async function createComment(req, res) {
 
 async function deleteComment(req, res) {
     try {
-        const post = Post.findById(req.params.post_id)
-        const idx = post.comments.findIndex((comment) => comment._id === req.params.comment_id)
+        const post = await Post.findById(req.params.post_id)
+        const idx = post.comments.findIndex((comment) => comment._id.equals(req.params.comment_id))
         const removedComment = post.comments.splice(idx, 1)
-        post.save()
+        await post.save()
         res.json(removedComment)
     } catch (err) {
         res.json(err)
@@ -25,12 +26,11 @@ async function deleteComment(req, res) {
 
 async function updateComment(req, res) {
     try {
-        const post = Post.findById(req.params.post_id)
-        const idx = post.comments.findIndex((comment) => comment._id === req.params.comment_id)
-        const updatedComment = post.comments[idx]
-        updatedComment.is_solution = true
-        post.save()
-        res.json(updatedComment)
+        const post = await Post.findById(req.params.post_id)
+        const idx = post.comments.findIndex((comment) => comment._id.equals(req.params.comment_id))
+        post.comments[idx].is_solution = true
+        await post.save()
+        res.json(post.comments[idx])
     } catch (err) {
         res.json(err)
     }

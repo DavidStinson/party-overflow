@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react'
 import '../../styles/App.css'
 
 //Components
-
+import Feed from './Feed'
+import CreatePost from './CreatePost'
 
 //Services
-import { getRecent, createPost } from '../../services/postService'
+import { getRecent } from '../../services/postService'
 
 const Main = (props) => {
-    const { display, setDisplay, currentUser } = props
-    
+    const { display } = props
+
     const [posts, setPosts] = useState([])
     const [currentPage, setCurrentPage] = useState(0)
 
@@ -30,7 +31,11 @@ const Main = (props) => {
 
     return (
         <div className="layout">
-            Main
+            {display ?
+                <Feed></Feed>
+                :
+                <CreatePost></CreatePost>
+            }
         </div>
     )
 }

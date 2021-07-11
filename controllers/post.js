@@ -3,10 +3,11 @@ const User = require('../models/user')
 
 async function createPost(req, res) {
     try {
+        console.log('HERE',req.body)
         const post = await new Post(req.body)
         await post.save()
         await User.updateOne(
-            { _id: req.body.user_id },
+            { _id: req.body.added_by },
             { $push: { posts: post } }
         )
         return res.status(201).json({ post })
@@ -34,6 +35,7 @@ function getRecent(req, res) {
 }
 
 function updatePost(req, res) {
+    console.log(req.params.id)
     const updateData = { is_resolved: true }
     Post.findByIdAndUpdate(req.params.id, updateData, { new: true })
         .then(post => { res.json(post) })

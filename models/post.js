@@ -19,11 +19,7 @@ const commentSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
     },
-    user_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    addedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    added_by: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 }, { timestamps: true })
 
 
@@ -41,11 +37,7 @@ const postSchema = new Schema({
         type: Boolean,
         default: false,
     },
-    user_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    addedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    added_by: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     comments: [commentSchema]
 }, { timestamps: true })
 
