@@ -19,6 +19,14 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState()
   const [authenticated, setAuthenticated] = useState(false)
 
+  console.log(currentUser)
+
+  const handleSignupOrLogin = async () => {
+    const user = getUser()
+    setCurrentUser(user)
+    setAuthenticated(true)
+  }
+
   const handleLogout = () => {
     logout()
     setCurrentUser(null)
@@ -47,6 +55,8 @@ const App = () => {
       <NavBar authenticated={authenticated} handleLogout={handleLogout} ></NavBar>
       <Switch>
         <Route path="/home" component={(props) => (<Home {...props} currentUser={currentUser} />)} />
+        <Route path="/login" component={(props) => (<Login {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
+        <Route path="/register" component={(props) => (<Register {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
       </Switch>
     </div>
   )

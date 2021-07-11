@@ -1,7 +1,7 @@
 import tokenService from '../services/tokenService'
 const BASE_URL = '/api/comments/'
 
-export function createComment(comment, postId) {
+export function createComment(postId, comment) {
     return fetch(`${BASE_URL}${postId}`, {
         method: "POST",
         headers: {
@@ -13,7 +13,7 @@ export function createComment(comment, postId) {
         .then(res => res.json())
 }
 
-export function updateComment(postId, commentId) {
+export function updateComment(postId, commentId, comment) {
     console.log(comment)
     return fetch(`${BASE_URL}${postId}/${commentId}`, {
         method: "PUT",
