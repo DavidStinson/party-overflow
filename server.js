@@ -13,7 +13,7 @@ app.use(express.json())
 
 const userRouter = require('./routes/userRouter')
 const postRouter = require('./routes/postRouter')
-const commentRouter = require('./routes/commentRouter')
+
 
 app.use(express.static(path.join(__dirname, 'build')))
 
