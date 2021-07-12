@@ -3,7 +3,6 @@ const User = require('../models/user')
 
 async function createPost(req, res) {
     try {
-        console.log('HERE',req.body)
         const post = await new Post(req.body)
         await post.save()
         await User.updateOne(

@@ -1,9 +1,9 @@
 import React from 'react'
 
 //Components
-import PostCard from '../Post/PostCard'
+import PostCard from './PostCard'
 
-const Feed = (props) => {
+const PostList = (props) => {
     const { posts } = props
 
     return (
@@ -11,11 +11,10 @@ const Feed = (props) => {
             {posts ?
                 posts.map((post, index) => (
                     <PostCard
-                        // key={index}
-                        // post={post}
-                        // posts={posts}
-                        // setPosts={setPosts}
-                        // currentUser={currentUser}
+                        key={index}
+                        post={post}
+                        markPostResolved={props.markPostResolved}
+                        handleDeletePost={props.handleDeletePost}
                     />
                 ))
                 :
@@ -25,4 +24,4 @@ const Feed = (props) => {
     )
 }
 
-export default Feed
+export default PostList

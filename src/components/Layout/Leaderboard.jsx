@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import '../../styles/App.css'
 
-//Components
-// import UserCard from './UserCard'
+// Components
+import UserCard from '../misc/UserCard'
 
 //Services
 import { getTopUsers } from '../../services/authService'
@@ -23,16 +23,16 @@ const Leaderboard = () => {
     return (
         <div className="leaderboard">
             <p>Leaderboard</p>
-            {/* {userList ?
+            {userList ?
                 userList.map((user, index) => (
-                    <div key={index} style={{display: 'flex'}}>
+                    <div key={index} style={{ display: 'flex' }}>
                         <UserCard user={user}></UserCard>
                         <p>Solution Count: {user.solution_count}</p>
                     </div>
                 ))
                 :
                 null
-            } */}
+            }
         </div>
     )
 }

@@ -13,7 +13,7 @@ const Login = (props) => {
         e.preventDefault()
         const formData = {
             email: email,
-            pw: password,
+            password: password,
         }
         try {
             await login(formData)
@@ -37,7 +37,7 @@ const Login = (props) => {
         <div>
             <form onSubmit={handleSubmit}>
                 <input name="email" type="email" placeholder="email" value={email} onChange={handleEmail}></input>
-                <input name="password" type="password" placeholder="passord" value={password} onChange={handlePassword}></input>
+                <input name="password" type="password" placeholder="password" value={password} onChange={handlePassword}></input>
                 <button>Submit</button>
             </form>
         </div>

@@ -2,21 +2,57 @@ import React, { useState, useEffect } from 'react'
 import '../../styles/App.css'
 
 //Components
-import Feed from './Feed'
-import CreatePost from './CreatePost'
+import PostList from '../Post/PostList'
+import PostForm from './PostForm'
+import Pagination from '../misc/Pagination'
 
 //Services
-import { getRecent } from '../../services/postService'
+import { getRecent, updatePost, deletePost, createPost } from '../../services/postService'
 
 const Main = (props) => {
-    const { display } = props
-
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([]) //set limit on post length
     const [currentPage, setCurrentPage] = useState(0)
 
     const changePage = (e) => {
+        e.preventDefault()
         setCurrentPage(currentPage + parseInt(e.target.value))
     }
+
+    const handleCreatePost = async (formData) => {
+        try {
+            const response = await createPost(formData)
+            response.post.added_by = props.currentUser
+            setPosts(posts => [response.post, ...posts])
+            props.setDisplay(true)
+        } catch (error) {
+            throw error
+        }
+    }
+
+    const handleDeletePost = async (postData) => {
+        try {
+            await deletePost(postData._id)
+            setPosts(posts.filter((post) => post._id !== postData._id))
+        } catch (error) {
+            throw error
+        }
+    }
+
+    const markPostResolved = async (postData) => {
+        try {
+            const updatedPost = await updatePost(postData)
+            const updatedPostArray = posts.map((post) => {
+                if (post._id === postData._id) {
+                    return updatedPost
+                }
+                return post
+            })
+            setPosts(updatedPostArray)
+        } catch (error) {
+            throw error
+        }
+    }
+
 
     useEffect(() => {
         let componentMounted = true
@@ -31,10 +67,15 @@ const Main = (props) => {
 
     return (
         <div className="layout">
-            {display ?
-                <Feed></Feed>
+            {props.display ?
+                <div>
+                    <Pagination changePage={changePage} currentPage={currentPage} posts={posts}></Pagination>
+                    <PostList posts={posts} markPostResolved={markPostResolved} handleDeletePost={handleDeletePost} ></PostList>
+                </div>
                 :
-                <CreatePost></CreatePost>
+                <div>
+                    <PostForm handleCreatePost={handleCreatePost} currentUser={props.currentUser}></PostForm>
+                </div>
             }
         </div>
     )

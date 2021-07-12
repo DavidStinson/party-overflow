@@ -54,6 +54,7 @@ const App = () => {
     <div className="App">
       <NavBar authenticated={authenticated} handleLogout={handleLogout} ></NavBar>
       <Switch>
+        <Route exact path="/" component={(props) => (<Landing {...props} />)} />
         <Route path="/home" component={(props) => (<Home {...props} currentUser={currentUser} />)} />
         <Route path="/login" component={(props) => (<Login {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
         <Route path="/register" component={(props) => (<Register {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />

@@ -1,0 +1,10 @@
+.user-card{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.user-card img{
+    width: 35px;
+    height: 35px;
+}

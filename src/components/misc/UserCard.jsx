@@ -1,5 +1,5 @@
 import React from 'react'
-// import '../style/UserCard.css'
+import '../../styles/UserCard.css'
 
 const UserCard = (props) => {
     const { user } = props

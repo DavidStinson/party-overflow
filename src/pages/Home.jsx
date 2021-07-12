@@ -11,8 +11,8 @@ const Home = (props) => {
 
     return (
         <div className="home-page">
-            <SideMenu></SideMenu>
-            <Main></Main>
+            <SideMenu display={display} setDisplay={setDisplay} currentUser={props.currentUser}></SideMenu>
+            <Main display={display} setDisplay={setDisplay} currentUser={props.currentUser}></Main>
             <Leaderboard></Leaderboard>
         </div>
     )
