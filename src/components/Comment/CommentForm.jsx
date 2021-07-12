@@ -1,8 +1,11 @@
 import React, { useState } from "react"
 
+// Components
+import CodeEditor from '../Code/CodeEditor'
+
 const CommentForm = (props) => {
     const [text, setText] = useState('')
-    const [codeblock, setCodeblock] = useState('b')
+    const [codeblock, setCodeblock] = useState('')
 
     console.log(props)
     const handleSubmit = (e) => {
@@ -27,11 +30,11 @@ const CommentForm = (props) => {
                 onChange={(e) => setText(e.target.value)}
             />
             <label>Codeblock</label>
-            {/* <CodeEditor
+            <CodeEditor
                 name="code-editor"
                 codeblock={codeblock}
                 setCodeblock={setCodeblock}
-            ></CodeEditor> */}
+            ></CodeEditor>
             <button>Submit</button>
         </form>
     )

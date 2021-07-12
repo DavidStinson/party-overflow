@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
+import '../../styles/PostForm.css'
 
-//Components
-// import CodeEditor from './CodeComponents/CodeEditor'
+// Components
+import CodeEditor from '../Code/CodeEditor'
 
 const PostForm = (props) => {
     const [question, setQuestion] = useState('')
-    const [codeblock, setCodeblock] = useState('b')
-
-
+    const [codeblock, setCodeblock] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -31,7 +30,8 @@ const PostForm = (props) => {
                 onChange={(e) => setQuestion(e.target.value)}
             ></input>
 
-
+            <CodeEditor codeblock={codeblock} setCodeblock={setCodeblock}></CodeEditor>
+            
             <button>Submit</button>
         </form>
     )

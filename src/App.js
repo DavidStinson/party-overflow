@@ -7,7 +7,7 @@ import { getUser, logout } from './services/authService'
 
 //Pages + Components
 import NavBar from './components/misc/NavBar'
-// import ProtectedRoute from '../components/ProtectedRoute'
+import ProtectedRoute from './components/misc/ProtectedRoute'
 import Landing from './pages/Landing'
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -19,7 +19,7 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState()
   const [authenticated, setAuthenticated] = useState(false)
 
-  console.log('YO',currentUser)
+  console.log('YO', currentUser)
 
   const handleSignupOrLogin = async () => {
     const user = getUser()
@@ -58,6 +58,12 @@ const App = () => {
         <Route path="/home" component={(props) => (<Home {...props} currentUser={currentUser} />)} />
         <Route path="/login" component={(props) => (<Login {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
         <Route path="/register" component={(props) => (<Register {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
+
+        <ProtectedRoute authenticated={authenticated} path='/profile' component={(props) => (
+          <Profile currentUser={currentUser} {...props} />
+        )}>
+        </ProtectedRoute>
+
       </Switch>
     </div>
   )

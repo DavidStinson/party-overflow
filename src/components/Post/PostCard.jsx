@@ -5,11 +5,10 @@ import '../../styles/PostCard.css'
 import Check from '../../assets/check.png'
 import Remove from '../../assets/remove.png'
 
-
-
 //Components
 import UserCard from '../misc/UserCard'
 import CommentSection from '../Comment/CommentSection'
+import Codeblock from '../Code/Codeblock'
 
 const PostCard = (props) => {
     const [showComments, setShowComments] = useState(false)
@@ -18,9 +17,8 @@ const PostCard = (props) => {
     return (
         <div className="post-card">
             <UserCard user={props.currentUser}></UserCard>
-
             <p>{props.post.question}</p>
-            <p>{props.post.codeblock}</p>
+            <Codeblock codeblock={props.post.codeblock}></Codeblock>
             <img className="resolution-icon" src={icon} alt="resolution symbol"></img>
 
             <button onClick={() => props.markPostResolved(props.post)}>Resolve</button>
