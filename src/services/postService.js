@@ -22,7 +22,7 @@ export function updatePost(post) {
     return fetch(`${BASE_URL}${post._id}`, {
         method: "PUT",
         headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
-        body: JSON.stringify(post)
+        body: JSON.stringify(post) //remove?
     }, { mode: "cors" })
         .then(res => res.json())
 }
