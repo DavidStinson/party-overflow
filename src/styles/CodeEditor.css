@@ -1,0 +1,31 @@
+.code-editor{
+    position: relative;
+    width: 100%;
+}
+
+.input-field{
+    display: block;
+    width: 100%;
+    top: 0; 
+    left: 0; 
+    opacity: 0;
+    padding: 1em;
+    margin: .5em 0;
+    min-height: 100px;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.display-field{
+    display: block;
+    width: 100%;
+    top: 0; 
+    left: 0; 
+    min-height: 100px;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.display-field code {
+    width: inherit;
+}
