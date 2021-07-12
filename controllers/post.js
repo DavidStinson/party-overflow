@@ -22,8 +22,16 @@ function getRecent(req, res) {
         .populate([
             {
                 model: 'User',
-                path: 'user_id',
+                path: 'added_by',
                 select: '_id name avatar'
+            },
+            {
+                path: 'comments',
+                populate: {
+                    path: 'added_by',
+                    model: 'User',
+                    select: '_id name avatar'
+                }
             }
         ])
         .limit(limitNum)

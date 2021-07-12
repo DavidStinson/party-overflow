@@ -8,9 +8,7 @@ import Remove from '../../assets/remove.png'
 
 
 //Components
-// import PostDetails from './PostDetails'
-// import CommentSection from '../CommentComponents/CommentSection'
-// import PostHeader from './PostHeader'
+import UserCard from '../misc/UserCard'
 import CommentSection from '../Comment/CommentSection'
 
 const PostCard = (props) => {
@@ -19,6 +17,7 @@ const PostCard = (props) => {
 
     return (
         <div className="post-card">
+            <UserCard user={props.currentUser}></UserCard>
 
             <p>{props.post.question}</p>
             <p>{props.post.codeblock}</p>
@@ -26,11 +25,9 @@ const PostCard = (props) => {
 
             <button onClick={() => props.markPostResolved(props.post)}>Resolve</button>
             <button onClick={() => props.handleDeletePost(props.post)}>Delete</button>
+
             <button onClick={() => setShowComments(!showComments)}>Comments</button>
-            {showComments ?
-                <CommentSection></CommentSection>
-                :
-                null}
+            {showComments ? <CommentSection post={props.post} currentUser={props.currentUser}></CommentSection> : null}
         </div>
     )
 }

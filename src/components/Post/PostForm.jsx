@@ -9,7 +9,7 @@ const PostForm = (props) => {
 
 
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         //make sure fields are filled out before allowing submit, if not display error message
         const formData = {
@@ -31,11 +31,6 @@ const PostForm = (props) => {
                 onChange={(e) => setQuestion(e.target.value)}
             ></input>
 
-            {/* <CodeEditor
-                name="code-editor"
-                codeblock={codeblock}
-                setCodeblock={setCodeblock}
-            ></CodeEditor> */}
 
             <button>Submit</button>
         </form>

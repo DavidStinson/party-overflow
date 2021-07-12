@@ -19,7 +19,7 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState()
   const [authenticated, setAuthenticated] = useState(false)
 
-  console.log(currentUser)
+  console.log('YO',currentUser)
 
   const handleSignupOrLogin = async () => {
     const user = getUser()

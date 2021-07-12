@@ -3,7 +3,7 @@ import '../../styles/App.css'
 
 //Components
 import PostList from '../Post/PostList'
-import PostForm from './PostForm'
+import PostForm from '../Post/PostForm'
 import Pagination from '../misc/Pagination'
 
 //Services
@@ -12,6 +12,8 @@ import { getRecent, updatePost, deletePost, createPost } from '../../services/po
 const Main = (props) => {
     const [posts, setPosts] = useState([]) //set limit on post length
     const [currentPage, setCurrentPage] = useState(0)
+
+    console.log(props.currentUser)
 
     const changePage = (e) => {
         e.preventDefault()
@@ -69,8 +71,17 @@ const Main = (props) => {
         <div className="layout">
             {props.display ?
                 <div>
-                    <Pagination changePage={changePage} currentPage={currentPage} posts={posts}></Pagination>
-                    <PostList posts={posts} markPostResolved={markPostResolved} handleDeletePost={handleDeletePost} ></PostList>
+                    <Pagination
+                        changePage={changePage}
+                        currentPage={currentPage}
+                        posts={posts}
+                    ></Pagination>
+                    <PostList
+                        posts={posts}
+                        markPostResolved={markPostResolved}
+                        handleDeletePost={handleDeletePost}
+                        currentUser={props.currentUser}
+                    ></PostList>
                 </div>
                 :
                 <div>
