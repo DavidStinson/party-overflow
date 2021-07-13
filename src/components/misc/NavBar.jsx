@@ -7,6 +7,7 @@ import Logo from '../../assets/logo-rough.png'
 const NavBar = (props) => {
     const { authenticated, handleLogout } = props
 
+
     return (
         <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid lightGrey', padding: '16px', width: '100%' }}>
 
