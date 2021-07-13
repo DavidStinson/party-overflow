@@ -19,7 +19,6 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState()
   const [authenticated, setAuthenticated] = useState(false)
 
-  console.log('YO', currentUser)
 
   const handleSignupOrLogin = async () => {
     const user = getUser()
@@ -50,6 +49,8 @@ const App = () => {
     verifyToken()
   }, [authenticated])
 
+
+
   return (
     <div className="App">
       <NavBar authenticated={authenticated} handleLogout={handleLogout} ></NavBar>
@@ -70,3 +71,4 @@ const App = () => {
 }
 
 export default App
+

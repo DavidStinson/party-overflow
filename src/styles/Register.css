@@ -1,0 +1,64 @@
+.signup-page{
+    display: flex;
+    background: green;
+    height: 94vh;
+}
+
+.left-container{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-container{
+    background: red;
+    width: 50%;
+
+}
+
+.title-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+}
+
+h1, h3 {
+    margin: 0;
+}
+
+.form-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-container input, select, button {
+    padding: 16px;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 750px) {
+    .auth-page{
+        flex-direction: column;
+    }
+
+    .reg-form{
+        width: 100%;
+    }
+  }
+  

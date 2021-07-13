@@ -21,8 +21,8 @@ function getRecent(req, res) {
     Post.find({})
         .populate([
             {
-                model: 'User',
                 path: 'added_by',
+                model: 'User',
                 select: '_id name avatar'
             },
             {
