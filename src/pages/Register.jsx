@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import '../styles/Register.css'
 
 //Assets
 import coder from '../assets/coder.json'
+import desk from '../assets/desk.json'
+
 
 //Components
 import Animation from '../components/Lottie/Animation'
@@ -12,7 +15,7 @@ import { signup } from '../services/authService'
 
 const Register = (props) => {
 
-    const [name, setName] = useState('')
+    // const [name, setName] = useState('')
     const [handle, setHandle] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -22,7 +25,7 @@ const Register = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const formData = {
-            name: name,
+            // name: name,
             handle: handle,
             email: email,
             password: password,
@@ -37,11 +40,6 @@ const Register = (props) => {
             alert('Invalid Credentials')
             throw error
         }
-    }
-
-
-    const handleName = (e) => {
-        setName(e.target.value)
     }
 
     const handleHandle = (e) => {
@@ -64,17 +62,15 @@ const Register = (props) => {
         <div className="signup-page">
             <div className='left-container'>
                 <div className='form-container'>
-                    <div className="avatar-container"></div>
-                    {/* <div className="title-container">
+                    <div className="title-container">
                         <h1>Create an Account</h1>
-                        <h3>Subheader text</h3>
-                    </div> */}
+                        <h3>Social media for developers.</h3>
+                    </div>
                     <form name="register" onSubmit={handleSubmit}>
-                        <input placeholder="name" onChange={handleName} value={name}></input>
-                        <input placeholder="handle" onChange={handleHandle} value={handle}></input>
-                        <input placeholder="email" onChange={handleEmail} value={email}></input>
-                        <input placeholder="password" onChange={handlePassword} value={password}></input>
-                        <select form="register" onChange={handleAvatar} value={avatar}>
+                        <input placeholder="Username" onChange={handleHandle} value={handle}></input>
+                        <input placeholder="Email" onChange={handleEmail} value={email}></input>
+                        <input placeholder="Password" onChange={handlePassword} value={password}></input>
+                        {/* <select form="register" onChange={handleAvatar} value={avatar}>
                             <option value='https://i.imgur.com/Wdyo4ow.png'>Cat</option>
                             <option value='https://i.imgur.com/74imy42.png'>Bear</option>
                             <option value='https://i.imgur.com/51nVPDR.png'>Monkey</option>
@@ -84,13 +80,17 @@ const Register = (props) => {
                             <option value='https://i.imgur.com/ydToVuJ.png'>Raccoon</option>
                             <option value='https://i.imgur.com/ut1szAk.png'>Panda</option>
                             <option value='https://i.imgur.com/MULaROr.png'>Wolf</option>
-                        </select>
+                        </select> */}
                         <button type="submit">SIGN UP</button>
                     </form>
+                    <div className="redirect-container">
+                        <p>Already have an account?</p>
+                        <Link className="redirect-link" to="/login"><p>Login</p></Link>
+                    </div>
                 </div>
             </div>
             <div className="right-container">
-                    <Animation animData={coder}></Animation>
+                <Animation animData={coder}></Animation>
             </div>
         </div>
     )
