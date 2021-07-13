@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import '../styles/Register.css'
 
+//Assets
+import coder from '../assets/coder.json'
+
+//Components
+import Animation from '../components/Lottie/Animation'
+
 //Services
 import { signup } from '../services/authService'
 
@@ -58,10 +64,11 @@ const Register = (props) => {
         <div className="signup-page">
             <div className='left-container'>
                 <div className='form-container'>
-                    <div className="title-container">
+                    <div className="avatar-container"></div>
+                    {/* <div className="title-container">
                         <h1>Create an Account</h1>
                         <h3>Subheader text</h3>
-                    </div>
+                    </div> */}
                     <form name="register" onSubmit={handleSubmit}>
                         <input placeholder="name" onChange={handleName} value={name}></input>
                         <input placeholder="handle" onChange={handleHandle} value={handle}></input>
@@ -82,7 +89,9 @@ const Register = (props) => {
                     </form>
                 </div>
             </div>
-            <div className="right-container"></div>
+            <div className="right-container">
+                    <Animation animData={coder}></Animation>
+            </div>
         </div>
     )
 }

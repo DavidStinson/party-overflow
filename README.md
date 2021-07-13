@@ -34,4 +34,19 @@ TBD
 
 ---
 
+### Credits
+
+
+Lottie
+Max Shturma
+https://assets7.lottiefiles.com/packages/lf20_bp5lntrf.json
+
+---
+
+
+
+
+
+
+
 
