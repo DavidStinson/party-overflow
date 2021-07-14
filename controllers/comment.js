@@ -15,6 +15,7 @@ async function createComment(req, res) {
 async function deleteComment(req, res) {
     try {
         const post = await Post.findById(req.params.post_id)
+        //update
         const idx = post.comments.findIndex((comment) => parseInt(comment._id) === parseInt(req.params.comment_id))
         const removedComment = post.comments.splice(idx, 1)
         await post.save()
@@ -27,6 +28,7 @@ async function deleteComment(req, res) {
 async function updateComment(req, res) {
     try {
         const post = await Post.findById(req.params.post_id)
+        //update
         const idx = post.comments.findIndex((comment) => parseInt(comment._id) === parseInt(req.params.comment_id))
         post.comments[idx].is_solution = true
         await post.save()

@@ -11,8 +11,8 @@ const AvatarList = (props) => {
         <div className="background-overlay">
 
             <img src={props.avatar}></img>
-
-            <select onChange={props.handleAvatar} value={props.avatar}>
+            
+            <select onChange={handleAvatar} value={avatar}>
                 <option value='https://i.imgur.com/Wdyo4ow.png'>Cat</option>
                 <option value='https://i.imgur.com/74imy42.png'>Bear</option>
                 <option value='https://i.imgur.com/51nVPDR.png'>Monkey</option>
