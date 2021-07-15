@@ -13,6 +13,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Profile from './pages/Profile'
+import PostDetails from './pages/PostDetails'
 
 
 const App = () => {
@@ -59,6 +60,9 @@ const App = () => {
         <Route path="/home" component={(props) => (<Home {...props} currentUser={currentUser} />)} />
         <Route path="/login" component={(props) => (<Login {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
         <Route path="/register" component={(props) => (<Register {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
+
+        <Route path="/post/:id" component={(props) => (<PostDetails {...props} />)} />
+
 
         <ProtectedRoute authenticated={authenticated} path='/profile' component={(props) => (
           <Profile currentUser={currentUser} {...props} />

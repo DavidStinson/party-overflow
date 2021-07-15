@@ -9,10 +9,11 @@ router.get('/questions/search', postCtrl.searchPosts)
 // ========= Protected Routes ========= 
 
 router.use(require('../config/auth'))
-router.get('/user/:user_id', postCtrl.getPostsByUserId)
+router.get('/details/:id', postCtrl.getPostById)
 router.post('/', checkAuth, postCtrl.createPost)
 router.put('/:id', checkAuth, postCtrl.updatePost)
 router.delete('/:id', checkAuth, postCtrl.deletePost)
+router.get('/user/:user_id', postCtrl.getPostsByUserId)
 
 
 function checkAuth(req, res, next) {
