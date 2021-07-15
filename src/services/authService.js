@@ -20,8 +20,6 @@ export function updateUser(formData, id) {
         .then(res => res.json())
 }
 
-
-
 export function signup(user) {
     return fetch(`${BASE_URL}signup`, {
         method: 'POST',

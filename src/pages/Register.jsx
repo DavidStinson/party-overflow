@@ -17,7 +17,7 @@ const Register = (props) => {
         email: '',
         password: '',
         passwordConf: '',
-        avatar: 'https://i.imgur.com/Wdyo4ow.png'
+        avatar: 'default'
     })
 
     const handleChange = ({ target }) => {
@@ -48,9 +48,9 @@ const Register = (props) => {
                     </div>
 
                     <form name="register" onSubmit={handleSubmit}>
-                        <input name="handle" placeholder="Username" onChange={handleChange} value={formData.handle}></input>
-                        <input name="email" placeholder="Email" onChange={handleChange} value={formData.email}></input>
-                        <input name="password" placeholder="Password" onChange={handleChange} value={formData.password}></input>
+                        <input required name="handle" placeholder="Username" onChange={handleChange} value={formData.handle}></input>
+                        <input required name="email" placeholder="Email" onChange={handleChange} value={formData.email}></input>
+                        <input required name="password" placeholder="Password" onChange={handleChange} value={formData.password}></input>
                         <button type="submit">SIGN UP</button>
                     </form>
 
