@@ -1,6 +1,27 @@
 const Post = require('../models/post')
 const User = require('../models/user')
 
+
+const getPostsByUserId = async (req, res) => {
+    try {
+        const posts = await Post.find({ added_by: { $eq: req.params.user_id } })
+        return res.status(200).json({ posts })
+    } catch (error) {
+        return res.status(500).send(error.message, 'No Posts Were Found')
+    }
+}
+
+//options i matches upper and lower cases
+const searchPosts = async (req, res) => {
+    try {
+        const posts = await Post.find({ question: { $regex: req.query.keyword, $options: "i" } })
+        return res.status(200).json({ posts })
+    } catch (error) {
+        return res.status(500).send(error.message, 'No Results Found')
+    }
+}
+
+
 async function createPost(req, res) {
     try {
         const post = await new Post(req.body)
@@ -55,13 +76,13 @@ function deletePost(req, res) {
         .catch(err => { res.json(err) })
 }
 
-
-
 module.exports = {
     createPost,
     getRecent,
     updatePost,
     deletePost,
+    getPostsByUserId,
+    searchPosts
 }
 
 
