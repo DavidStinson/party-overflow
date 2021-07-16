@@ -17,7 +17,7 @@ const AvatarSelection = (props) => {
 
                 <div>
 
-                    <img src={selection}></img>
+                    <img src={selection} alt="animal-avatar"></img>
 
                     <select onChange={selectAvatar} value={selection}>
                         <option value='https://i.imgur.com/Wdyo4ow.png'>Cat</option>

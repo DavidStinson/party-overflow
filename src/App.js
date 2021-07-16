@@ -7,6 +7,7 @@ import { getUser, logout } from './services/authService'
 
 //Pages + Components
 import NavBar from './components/misc/NavBar'
+import Layout from './components/Layout/Layout'
 import ProtectedRoute from './components/misc/ProtectedRoute'
 import Landing from './pages/Landing'
 import Home from './pages/Home'
@@ -14,11 +15,13 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Profile from './pages/Profile'
 import PostDetails from './pages/PostDetails'
+// import Main from './components/Layout/Main'
 
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState()
   const [authenticated, setAuthenticated] = useState(false)
+  const [display, setDisplay] = useState(true)
 
 
   const handleSignupOrLogin = async () => {
@@ -57,17 +60,25 @@ const App = () => {
       <NavBar authenticated={authenticated} handleLogout={handleLogout} ></NavBar>
       <Switch>
         <Route exact path="/" component={(props) => (<Landing {...props} />)} />
-        <Route path="/home" component={(props) => (<Home {...props} currentUser={currentUser} />)} />
         <Route path="/login" component={(props) => (<Login {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
         <Route path="/register" component={(props) => (<Register {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
-
-        <Route path="/post/:id" component={(props) => (<PostDetails {...props} />)} />
-
 
         <ProtectedRoute authenticated={authenticated} path='/profile' component={(props) => (
           <Profile currentUser={currentUser} {...props} />
         )}>
         </ProtectedRoute>
+
+        <Route path="/home" component={(props) => (
+          <Layout currentUser={currentUser} display={display} setDisplay={setDisplay}>
+            <Home {...props} display={display} setDisplay={setDisplay} currentUser={currentUser}></Home>
+          </Layout>
+        )} />
+
+        <Route path="/post/:id" component={(props) => (
+          <Layout currentUser={currentUser} display={display} setDisplay={setDisplay}>
+            <PostDetails {...props} />
+          </Layout>
+        )} />
 
       </Switch>
     </div>

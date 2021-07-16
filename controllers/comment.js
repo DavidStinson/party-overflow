@@ -45,3 +45,30 @@ module.exports = {
 }
 
 
+
+// const UpdateComment = async (req, res) => {
+//     const updateData = { is_solution: true }
+//     try {
+//         const comment = await Comment.findByIdAndUpdate(req.params.comment_id, updateData, { new: true },
+//             (error, comment) => {
+//                 if (error) {
+//                     res.status(500).send(error)
+//                 }
+//                 if (!comment) {
+//                     res.status(500).send('Comment not found.')
+//                 }
+//             }
+//         )
+//         await User.updateOne(
+//             { _id: req.params.user_id },
+//             { $inc: { solution_count: 1 } }
+//         )
+//         return res.status(200).json(comment)
+//     } catch (error) {
+//         return res.status(500).send(error.message)
+//     }
+// }
+
+
+
+// Router.put('/:comment_id/:user_id', CommentController.UpdateComment)
