@@ -4,7 +4,7 @@ import '../styles/App.css'
 // Components
 
 //Services
-import { getPostById } from '../services/postService'
+import { getPostById, updatePost, deletePost } from '../services/postService'
 
 const PostDetails = (props) => {
     const { id } = props.match.params

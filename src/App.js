@@ -4,6 +4,7 @@ import './styles/App.css'
 
 //Services
 import { getUser, logout } from './services/authService'
+import { getRecent } from './services/postService'
 
 //Pages + Components
 import NavBar from './components/misc/NavBar'
@@ -22,6 +23,14 @@ const App = () => {
   const [authenticated, setAuthenticated] = useState(false)
   const [display, setDisplay] = useState(true)
 
+  const [posts, setPosts] = useState([]) //set limit on post length
+  const [currentPage, setCurrentPage] = useState(0)
+
+
+  const changePage = (e) => {
+    e.preventDefault()
+    setCurrentPage(currentPage + parseInt(e.target.value))
+}
 
   const handleSignupOrLogin = async () => {
     const user = getUser()
@@ -52,7 +61,16 @@ const App = () => {
     verifyToken()
   }, [authenticated])
 
-  console.log(currentUser)
+
+
+
+  useEffect(() => {
+    const fetchAllPosts = async (page) => {
+      const posts = await getRecent(page)
+      setPosts(posts)
+    }
+    fetchAllPosts(currentPage)
+  }, [currentPage])
 
 
   return (
@@ -70,7 +88,15 @@ const App = () => {
 
         <Route path="/home" component={(props) => (
           <Layout currentUser={currentUser} display={display} setDisplay={setDisplay}>
-            <Home {...props} display={display} setDisplay={setDisplay} currentUser={currentUser}></Home>
+            <Home {...props}
+              posts={posts}
+              setPosts={setPosts}
+              display={display}
+              setDisplay={setDisplay}
+              currentUser={currentUser}
+              changePage={changePage}
+              currentPage={currentPage}
+            ></Home>
           </Layout>
         )} />
 

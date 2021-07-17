@@ -7,18 +7,10 @@ import PostForm from '../components/Post/PostForm'
 import Pagination from '../components/misc/Pagination'
 
 //Services
-import { getRecent, updatePost, deletePost, createPost } from '../services/postService'
+import { updatePost, deletePost, createPost } from '../services/postService'
 
 const Home = (props) => {
-    const [posts, setPosts] = useState([]) //set limit on post length
-    const [currentPage, setCurrentPage] = useState(0)
-
-    console.log(props.currentUser)
-
-    const changePage = (e) => {
-        e.preventDefault()
-        setCurrentPage(currentPage + parseInt(e.target.value))
-    }
+    const {posts, setPosts} = props
 
     const handleCreatePost = async (formData) => {
         try {
@@ -55,25 +47,13 @@ const Home = (props) => {
         }
     }
 
-
-    useEffect(() => {
-        let componentMounted = true
-        getRecent(currentPage).then((posts) => {
-            if (componentMounted) {
-                setPosts(posts)
-            }
-        })
-        return () => { componentMounted = false }
-    }, [currentPage])
-
-
     return (
         <div className="layout">
             {props.display ?
                 <div>
                     <Pagination
-                        changePage={changePage}
-                        currentPage={currentPage}
+                        changePage={props.changePage}
+                        currentPage={props.currentPage}
                         posts={posts}
                     ></Pagination>
                     <PostList

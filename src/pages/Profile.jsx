@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 //Services
-import { updateUser } from '../services/authService'
 import { getUserPosts } from '../services/postService'
-import { getUser } from '../services/authService'
 
 //Components
 import PostCard from '../components/Post/PostCard'
@@ -12,10 +10,7 @@ import PostCard from '../components/Post/PostCard'
 
 const Profile = (props) => {
     const { _id, avatar, handle } = props.currentUser
-
     const [userPosts, setUserPosts] = useState([])
-
-
 
     //will fetch data once component mounts
     useEffect(() => {
