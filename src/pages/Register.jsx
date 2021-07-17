@@ -7,21 +7,27 @@ import coder from '../assets/coder.json'
 
 //Components
 import Animation from '../components/Lottie/Animation'
+import AvatarSelection from '../components/misc/AvatarSelection'
 
 //Services
 import { signup } from '../services/authService'
 
 const Register = (props) => {
+    const [popup, setPopup] = useState(false)
     const [formData, setFormData] = useState({
         handle: '',
         email: '',
         password: '',
         passwordConf: '',
-        avatar: 'default'
+        avatar: 'https://i.imgur.com/Wdyo4ow.png'
     })
 
     const handleChange = ({ target }) => {
         setFormData({ ...formData, [target.name]: target.value })
+    }
+
+    const handlePopup = () => {
+        setPopup(!popup)
     }
 
     const handleSubmit = async (e) => {
@@ -39,6 +45,7 @@ const Register = (props) => {
 
     return (
         <div className="signup-page">
+            {popup ? <AvatarSelection formData={formData} handleChange={handleChange} handlePopup={handlePopup}></AvatarSelection> : null}
 
             <div className='left-container'>
                 <div className='form-container'>
@@ -51,6 +58,7 @@ const Register = (props) => {
                         <input required name="handle" placeholder="Username" onChange={handleChange} value={formData.handle}></input>
                         <input required name="email" placeholder="Email" onChange={handleChange} value={formData.email}></input>
                         <input required name="password" placeholder="Password" onChange={handleChange} value={formData.password}></input>
+                        <input placeholder="Select Avatar" onClick={handlePopup}></input>
                         <button type="submit">SIGN UP</button>
                     </form>
 

@@ -15,7 +15,6 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Profile from './pages/Profile'
 import PostDetails from './pages/PostDetails'
-// import Main from './components/Layout/Main'
 
 
 const App = () => {
@@ -53,6 +52,7 @@ const App = () => {
     verifyToken()
   }, [authenticated])
 
+  console.log(currentUser)
 
 
   return (
@@ -64,7 +64,7 @@ const App = () => {
         <Route path="/register" component={(props) => (<Register {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
 
         <ProtectedRoute authenticated={authenticated} path='/profile' component={(props) => (
-          <Profile currentUser={currentUser} {...props} />
+          <Profile verifyToken={verifyToken} currentUser={currentUser} {...props} />
         )}>
         </ProtectedRoute>
 

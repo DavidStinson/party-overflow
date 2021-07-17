@@ -8,18 +8,14 @@ import { getUser } from '../services/authService'
 
 //Components
 import PostCard from '../components/Post/PostCard'
-import AvatarSelection from '../components/misc/AvatarSelection'
+
 
 const Profile = (props) => {
     const { _id, avatar, handle } = props.currentUser
+
     const [userPosts, setUserPosts] = useState([])
 
-    const updateAvatar = async (selection) => {
-        const formData = { avatar: selection }
-        const response = await updateUser(formData, _id)
-        await getUser()
-        console.log(response)
-    }
+
 
     //will fetch data once component mounts
     useEffect(() => {
@@ -33,7 +29,6 @@ const Profile = (props) => {
 
     return (
         <div>
-            <AvatarSelection avatar={avatar} updateAvatar={updateAvatar}></AvatarSelection>
             <img src={avatar} alt="user avatar"></img>
             <p>{handle}</p>
             <div>
