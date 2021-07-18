@@ -8,11 +8,11 @@ import Remove from '../../assets/remove.png'
 
 //Components
 import UserCard from '../misc/UserCard'
-import CommentSection from '../Comment/CommentSection'
+// import CommentSection from '../Comment/CommentSection'
 import Codeblock from '../Code/Codeblock'
 
 const PostCard = (props) => {
-    const [showComments, setShowComments] = useState(false)
+    // const [showComments, setShowComments] = useState(false)
     const icon = props.post.is_resolved ? Check : Remove
 
     return (
@@ -27,8 +27,8 @@ const PostCard = (props) => {
             <button onClick={() => props.markPostResolved(props.post)}>Resolve</button>
             <button onClick={() => props.handleDeletePost(props.post)}>Delete</button>
 
-            <button onClick={() => setShowComments(!showComments)}>Comments</button>
-            {showComments ? <CommentSection post={props.post} currentUser={props.currentUser}></CommentSection> : null}
+            {/* <button onClick={() => setShowComments(!showComments)}>Comments</button>
+            {showComments ? <CommentSection post={props.post} currentUser={props.currentUser}></CommentSection> : null} */}
         </div>
     )
 }

@@ -4,7 +4,7 @@ import './styles/App.css'
 
 //Services
 import { getUser, logout } from './services/authService'
-import { getRecent, updatePost, deletePost, createPost } from './services/postService'
+import { getRecent, updatePost, deletePost, createPost, search } from './services/postService'
 
 //Pages + Components
 import NavBar from './components/misc/NavBar'
@@ -26,17 +26,27 @@ const App = () => {
   const [posts, setPosts] = useState([]) //set limit on post length
   const [currentPage, setCurrentPage] = useState(0)
 
-
+  
   const changePage = (e) => {
     e.preventDefault()
     setCurrentPage(currentPage + parseInt(e.target.value))
   }
 
+  const handleSearch = async (keyword) => {
+    try {
+      const response = await search(formData)
+      setPosts(response.posts)
+    } catch (error) {
+      throw error
+    }
+  }
+
+
   const handleCreatePost = async (formData) => {
     try {
       const response = await createPost(formData)
       response.post.added_by = currentUser
-      setPosts(posts => [response.post, ...posts])
+      setPosts((posts) => [response.post, ...posts])
       setDisplay(true)
     } catch (error) {
       throw error
@@ -95,8 +105,6 @@ const App = () => {
   useEffect(() => {
     verifyToken()
   }, [authenticated])
-
-
 
 
   useEffect(() => {
