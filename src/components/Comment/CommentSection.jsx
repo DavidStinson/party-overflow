@@ -35,7 +35,6 @@ const CommentSection = (props) => {
 
 
     const handleSolution = async (comment) => {
-        console.log(comment)
         try {
             const commentId = comment._id
             const userId = comment.commenter._id
@@ -47,6 +46,7 @@ const CommentSection = (props) => {
                 }
                 return comment
             })
+            //props.post.is_resolved = true
             setCommentArray(updatedCommentArray)
         } catch (error) {
             throw error

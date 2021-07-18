@@ -30,7 +30,7 @@ const App = () => {
   const changePage = (e) => {
     e.preventDefault()
     setCurrentPage(currentPage + parseInt(e.target.value))
-}
+  }
 
   const handleSignupOrLogin = async () => {
     const user = getUser()
@@ -102,7 +102,7 @@ const App = () => {
 
         <Route path="/post/:id" component={(props) => (
           <Layout currentUser={currentUser} display={display} setDisplay={setDisplay}>
-            <PostDetails {...props} />
+            <PostDetails {...props} currentUser={currentUser} />
           </Layout>
         )} />
 

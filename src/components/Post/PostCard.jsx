@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import '../../styles/PostCard.css'
 
 // Assets
@@ -21,6 +22,8 @@ const PostCard = (props) => {
             <Codeblock codeblock={props.post.codeblock}></Codeblock>
             <img className="resolution-icon" src={icon} alt="resolution symbol"></img>
 
+            <Link to={`/post/${props.post._id}`}>Details</Link>
+            
             <button onClick={() => props.markPostResolved(props.post)}>Resolve</button>
             <button onClick={() => props.handleDeletePost(props.post)}>Delete</button>
 

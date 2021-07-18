@@ -4,13 +4,26 @@ const User = require('../models/user')
 
 const getPostById = async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id)
+        const post = await Post.findById(req.params.id).populate([
+            {
+                path: 'added_by',
+                model: 'User',
+                select: '_id name avatar'
+            },
+            {
+                path: 'comments',
+                populate: {
+                    path: 'commenter',
+                    model: 'User',
+                    select: '_id name avatar'
+                }
+            }
+        ])
         return res.status(200).json({ post })
     } catch (error) {
         return res.status(500).send(error.message, 'Could not locate post')
     }
 }
-
 
 const getPostsByUserId = async (req, res) => {
     try {
@@ -20,6 +33,7 @@ const getPostsByUserId = async (req, res) => {
         return res.status(500).send(error.message, 'No Posts Were Found')
     }
 }
+
 
 //options i matches upper and lower cases
 const searchPosts = async (req, res) => {
@@ -93,7 +107,7 @@ module.exports = {
     deletePost,
     getPostsByUserId,
     searchPosts,
-    getPostById 
+    getPostById
 }
 
 
