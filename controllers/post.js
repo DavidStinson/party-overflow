@@ -27,7 +27,12 @@ const getPostById = async (req, res) => {
 
 const getPostsByUserId = async (req, res) => {
     try {
-        const posts = await Post.find({ added_by: { $eq: req.params.user_id } })
+        const posts = await Post.find({ added_by: { $eq: req.params.user_id } }).populate(
+            {
+                path: 'added_by',
+                model: 'User',
+                select: '_id name avatar'
+            })
         return res.status(200).json({ posts })
     } catch (error) {
         return res.status(500).send(error.message, 'No Posts Were Found')

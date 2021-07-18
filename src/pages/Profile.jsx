@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom'
 import { getUserPosts } from '../services/postService'
 
 //Components
-import PostCard from '../components/Post/PostCard'
+import PostList from '../components/Post/PostList'
 
 
 const Profile = (props) => {
     const { _id, avatar, handle } = props.currentUser
     const [userPosts, setUserPosts] = useState([])
+
+    console.log(userPosts)
 
     //will fetch data once component mounts
     useEffect(() => {

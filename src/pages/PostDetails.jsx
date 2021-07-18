@@ -11,6 +11,10 @@ const PostDetails = (props) => {
     const { id } = props.match.params
     const [post, setPost] = useState()
 
+
+    //delete post, just need to remove and push to home page
+    //
+
     console.log(post)
 
     useEffect(() => {

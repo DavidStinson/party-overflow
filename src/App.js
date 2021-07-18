@@ -4,7 +4,7 @@ import './styles/App.css'
 
 //Services
 import { getUser, logout } from './services/authService'
-import { getRecent } from './services/postService'
+import { getRecent, updatePost, deletePost, createPost } from './services/postService'
 
 //Pages + Components
 import NavBar from './components/misc/NavBar'
@@ -30,6 +30,41 @@ const App = () => {
   const changePage = (e) => {
     e.preventDefault()
     setCurrentPage(currentPage + parseInt(e.target.value))
+  }
+
+  const handleCreatePost = async (formData) => {
+    try {
+      const response = await createPost(formData)
+      response.post.added_by = currentUser
+      setPosts(posts => [response.post, ...posts])
+      setDisplay(true)
+    } catch (error) {
+      throw error
+    }
+  }
+
+  const handleDeletePost = async (postData) => {
+    try {
+      await deletePost(postData._id)
+      setPosts(posts.filter((post) => post._id !== postData._id))
+    } catch (error) {
+      throw error
+    }
+  }
+
+  const markPostResolved = async (postData) => {
+    try {
+      const updatedPost = await updatePost(postData)
+      const updatedPostArray = posts.map((post) => {
+        if (post._id === postData._id) {
+          return updatedPost
+        }
+        return post
+      })
+      setPosts(updatedPostArray)
+    } catch (error) {
+      throw error
+    }
   }
 
   const handleSignupOrLogin = async () => {
@@ -82,7 +117,14 @@ const App = () => {
         <Route path="/register" component={(props) => (<Register {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
 
         <ProtectedRoute authenticated={authenticated} path='/profile' component={(props) => (
-          <Profile verifyToken={verifyToken} currentUser={currentUser} {...props} />
+          <Profile
+            {...props}
+            posts={posts}
+            verifyToken={verifyToken}
+            currentUser={currentUser}
+            handleDeletePost={handleDeletePost}
+            markPostResolved={markPostResolved}
+          />
         )}>
         </ProtectedRoute>
 
@@ -90,19 +132,25 @@ const App = () => {
           <Layout currentUser={currentUser} display={display} setDisplay={setDisplay}>
             <Home {...props}
               posts={posts}
-              setPosts={setPosts}
               display={display}
-              setDisplay={setDisplay}
               currentUser={currentUser}
-              changePage={changePage}
               currentPage={currentPage}
+              changePage={changePage}
+              handleCreatePost={handleCreatePost}
+              handleDeletePost={handleDeletePost}
+              markPostResolved={markPostResolved}
             ></Home>
           </Layout>
         )} />
 
         <Route path="/post/:id" component={(props) => (
           <Layout currentUser={currentUser} display={display} setDisplay={setDisplay}>
-            <PostDetails {...props} currentUser={currentUser} />
+            <PostDetails
+              {...props}
+              currentUser={currentUser}
+              handleDeletePost={handleDeletePost}
+              markPostResolved={markPostResolved}
+            />
           </Layout>
         )} />
 
