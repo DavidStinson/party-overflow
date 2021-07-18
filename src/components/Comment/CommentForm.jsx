@@ -8,6 +8,7 @@ const CommentForm = (props) => {
     const [codeblock, setCodeblock] = useState('')
 
     console.log(props)
+    
     const handleSubmit = (e) => {
         e.preventDefault()
         //make sure fields are filled out before allowing submit, if not display error message
@@ -15,7 +16,7 @@ const CommentForm = (props) => {
             comment_text: text,
             codeblock: codeblock,
             post_id: props.post._id,
-            added_by: props.currentUser._id,
+            commenter: props.currentUser._id,
         }
         props.handleCreateComment(formData)
     }

@@ -59,7 +59,7 @@ function getRecent(req, res) {
             {
                 path: 'comments',
                 populate: {
-                    path: 'added_by',
+                    path: 'commenter',
                     model: 'User',
                     select: '_id name avatar'
                 }

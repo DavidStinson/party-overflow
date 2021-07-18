@@ -15,7 +15,7 @@ const CommentSection = (props) => {
     const handleCreateComment = async (formData) => {
         try {
             const response = await createComment(props.post._id, formData)
-            response.added_by = props.currentUser
+            response.commenter = props.currentUser
             setCommentArray(commentArray => [...commentArray, response])
             setShowNewComment(false)
         } catch (error) {
@@ -32,14 +32,17 @@ const CommentSection = (props) => {
         }
     }
 
+
+
     const handleSolution = async (comment) => {
+        console.log(comment)
         try {
             const commentId = comment._id
-            const commenter = comment.added_by
-            const updatedComment = await updateComment(props.post._id, commentId)
+            const userId = comment.commenter._id
+            const updatedComment = await updateComment(commentId, props.post._id, userId)
             const updatedCommentArray = commentArray.map((comment) => {
                 if (comment._id === commentId) {
-                    updatedComment.added_by = commenter
+                    updatedComment.commenter = comment.commenter
                     return updatedComment
                 }
                 return comment
@@ -52,7 +55,7 @@ const CommentSection = (props) => {
 
     return (
         <div className="comment-section">
-            
+
             <CommentList
                 comments={commentArray}
                 post={props.post}
@@ -71,7 +74,7 @@ const CommentSection = (props) => {
                 :
                 null
             }
-            
+
         </div>
     )
 }

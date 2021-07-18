@@ -13,8 +13,9 @@ export function createComment(postId, comment) {
         .then(res => res.json())
 }
 
-export function updateComment(postId, commentId) {
-    return fetch(`${BASE_URL}${postId}/${commentId}`, {
+
+export function updateComment(commentId, postId, userId) {
+    return fetch(`${BASE_URL}${commentId}/${postId}/${userId}`, {
         method: "PUT",
         headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
     }, { mode: "cors" })

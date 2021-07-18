@@ -19,7 +19,7 @@ const commentSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
     },
-    added_by: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    commenter: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 }, { timestamps: true })
 
 
