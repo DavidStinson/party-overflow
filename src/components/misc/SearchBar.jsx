@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+import '../../styles/NavBar.css'
+
+
+//Services
 import { search } from '../../services/postService'
 
 const SearchBar = (props) => {
@@ -22,7 +26,7 @@ const SearchBar = (props) => {
     }
 
     return (
-        <form onSubmit={handleSearch}>
+        <form className="search" onSubmit={handleSearch}>
             <input
                 autoComplete="off"
                 placeholder="Search By Keyword"

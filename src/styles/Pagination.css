@@ -10,8 +10,18 @@
 }
   
 
-.pagination img{
-    height: 20px;
-    width: 20px;
+.pagination button{
+    box-sizing: border-box;
+    height: 10px;
+    margin: 0;
+    padding: 12px 15px 12px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7450E9;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 12px;
 }
-

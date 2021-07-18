@@ -14,7 +14,7 @@ const NavBar = (props) => {
 
     return (
         <div className="nav-bar">
-            <Link to='/'><img style={{ width: '13em' }} src={Logo} alt="party-hat"></img></Link>
+            <Link className="logo" to='/'>party overflow</Link>
             <Link to='/home'>Home</Link>
             {authenticated ?
                 <p onClick={handleLogout}>Sign Out</p>
