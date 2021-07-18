@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 
 //Services
 import { getUserPosts } from '../services/postService'
@@ -23,22 +22,18 @@ const Profile = (props) => {
         fetchUserPosts(_id)
     }, [_id])
 
-
     return (
         <div>
             <img src={avatar} alt="user avatar"></img>
             <p>{handle}</p>
             <div>
                 {userPosts.length ?
-
-                    userPosts.map((post, index) => (
-                        <Link key={index} to={`/post/${post._id}`} >
-                            <div>
-                                <p>{post.question}</p>
-                            </div>
-                        </Link>
-
-                    ))
+                    <PostList
+                        posts={userPosts}
+                        markPostResolved={props.markPostResolved}
+                        handleDeletePost={props.handleDeletePost}
+                        currentUser={props.currentUser}
+                    ></PostList>
                     : null}
             </div>
         </div>

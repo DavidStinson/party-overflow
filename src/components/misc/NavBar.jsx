@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../../styles/NavBar.css'
 
 //Components
 import SearchBar from './SearchBar'
@@ -12,8 +13,7 @@ const NavBar = (props) => {
 
 
     return (
-        <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid lightGrey', padding: '16px', width: '100%' }}>
-
+        <div className="nav-bar">
             <Link to='/'><img style={{ width: '13em' }} src={Logo} alt="party-hat"></img></Link>
             <Link to='/home'>Home</Link>
             {authenticated ?

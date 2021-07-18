@@ -3,19 +3,15 @@ import '../styles/App.css'
 
 // Components
 import CommentSection from '../components/Comment/CommentSection'
+import PostCard from '../components/Post/PostCard'
 
 //Services
-import { getPostById, updatePost, deletePost } from '../services/postService'
+import { getPostById } from '../services/postService'
 
 const PostDetails = (props) => {
     const { id } = props.match.params
     const [post, setPost] = useState()
 
-
-    //delete post, just need to remove and push to home page
-    //
-
-    console.log(post)
 
     useEffect(() => {
         let componentMounted = true
@@ -34,28 +30,24 @@ const PostDetails = (props) => {
     }, [id])
 
 
-
-    // useEffect(() => {
-    //     let componentMounted = true
-    //     getPostById(id).then((response) => {
-    //         if (componentMounted) {
-    //             setPost(response.post)
-    //         }
-    //     })
-    //     return () => { componentMounted = false }
-    // }, [])
-
-
-    //move comments to details page
-
     return (
-        post ?
-            <div className="layout">
-                <h1>post details</h1>
-                <CommentSection post={post} currentUser={props.currentUser}></CommentSection>
-            </div>
-            :
-            null
+        <div className="layout">
+
+            {post ?
+                <div>
+                    <h1>post details</h1>
+                    <PostCard
+                        post={post}
+                        markPostResolved={props.markPostResolved}
+                        handleDeletePost={props.handleDeletePost}
+                        currentUser={props.currentUser}
+                    />
+                    <CommentSection post={post} currentUser={props.currentUser}></CommentSection>
+                </div>
+                :
+                <div>Oops</div>
+            }
+        </div>
     )
 }
 

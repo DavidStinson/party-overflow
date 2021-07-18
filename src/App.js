@@ -32,17 +32,6 @@ const App = () => {
     setCurrentPage(currentPage + parseInt(e.target.value))
   }
 
-  // const handleSearch = async (keyword) => {
-  //   //search might need page limit at some point
-  //   try {
-  //     const response = await search(keyword)
-  //     console.log(response)
-  //     // setPosts(response.posts)
-  //   } catch (error) {
-  //     throw error
-  //   }
-  // }
-
 
   const handleCreatePost = async (formData) => {
     try {

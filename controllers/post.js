@@ -66,7 +66,7 @@ async function createPost(req, res) {
 }
 
 function getRecent(req, res) {
-    const limitNum = 3
+    const limitNum = 8
     const skipCount = parseInt(req.params.page) * parseInt(limitNum)
     Post.find({})
         .populate([
@@ -77,11 +77,6 @@ function getRecent(req, res) {
             },
             {
                 path: 'comments',
-                populate: {
-                    path: 'commenter',
-                    model: 'User',
-                    select: '_id name avatar'
-                }
             }
         ])
         .limit(limitNum)

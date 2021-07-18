@@ -1,0 +1,15 @@
+/* display: 'flex', 
+alignItems: 'center',
+ borderBottom: '1px solid lightGrey',
+  padding: '16px', 
+  width: '100%'  */
+
+
+.nav-bar{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid lightGrey;
+
+
+}

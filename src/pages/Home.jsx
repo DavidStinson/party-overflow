@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../styles/App.css'
 
 //Components
@@ -9,12 +9,12 @@ import Pagination from '../components/misc/Pagination'
 
 
 const Home = (props) => {
-    const {posts, handleCreatePost, handleDeletePost, markPostResolved } = props
+    const { posts, handleCreatePost, handleDeletePost, markPostResolved } = props
 
     return (
         <div className="layout">
             {props.display ?
-                <div>
+                <Fragment>
                     <Pagination
                         changePage={props.changePage}
                         currentPage={props.currentPage}
@@ -26,7 +26,7 @@ const Home = (props) => {
                         handleDeletePost={handleDeletePost}
                         currentUser={props.currentUser}
                     ></PostList>
-                </div>
+                </Fragment>
                 :
                 <div>
                     <PostForm handleCreatePost={handleCreatePost} currentUser={props.currentUser}></PostForm>
