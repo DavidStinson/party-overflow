@@ -37,7 +37,15 @@ const App = () => {
     try {
       const response = await createPost(formData)
       response.post.added_by = currentUser
-      setPosts((posts) => [response.post, ...posts])
+
+      if (posts.length < 8){
+        setPosts((posts) => [response.post, ...posts])
+      } else {
+        const duplicate = [...posts]
+        duplicate.splice(duplicate.length - 1, 1)
+        setPosts(() => [response.post, ...duplicate])
+      }
+      
       setDisplay(true)
     } catch (error) {
       throw error
