@@ -26,20 +26,22 @@ const App = () => {
   const [posts, setPosts] = useState([]) //set limit on post length
   const [currentPage, setCurrentPage] = useState(0)
 
-  
+
   const changePage = (e) => {
     e.preventDefault()
     setCurrentPage(currentPage + parseInt(e.target.value))
   }
 
-  const handleSearch = async (keyword) => {
-    try {
-      const response = await search(formData)
-      setPosts(response.posts)
-    } catch (error) {
-      throw error
-    }
-  }
+  // const handleSearch = async (keyword) => {
+  //   //search might need page limit at some point
+  //   try {
+  //     const response = await search(keyword)
+  //     console.log(response)
+  //     // setPosts(response.posts)
+  //   } catch (error) {
+  //     throw error
+  //   }
+  // }
 
 
   const handleCreatePost = async (formData) => {
@@ -118,7 +120,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar authenticated={authenticated} handleLogout={handleLogout} ></NavBar>
+      <NavBar authenticated={authenticated} handleLogout={handleLogout} setPosts={setPosts}></NavBar>
       <Switch>
         <Route exact path="/" component={(props) => (<Landing {...props} />)} />
         <Route path="/login" component={(props) => (<Login {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />

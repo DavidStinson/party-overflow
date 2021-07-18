@@ -1,15 +1,30 @@
 import React, { useState } from 'react'
+import { search } from '../../services/postService'
 
 const SearchBar = (props) => {
-    const [keyword, setKeyword] = useState()
+    const [keyword, setKeyword] = useState('')
+
+    const handleSearch = async (e) => {
+        //search might need page limit at some point
+        e.preventDefault()
+        try {
+          const response = await search(keyword)
+          props.setPosts(response.posts)
+          setKeyword('')
+        } catch (error) {
+          throw error
+        }
+      }
+    
 
     const handleChange = (e) => {
         setKeyword(e.target.value)
     }
 
     return (
-        <form onSubmit={() => props.handleSearch(keyword)}>
+        <form onSubmit={handleSearch}>
             <input
+                autoComplete="off"
                 placeholder="Search By Keyword"
                 name="keyword"
                 value={keyword}

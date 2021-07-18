@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+//Components
+import SearchBar from './SearchBar'
+
 //Assets
 import Logo from '../../assets/logo-rough.png'
 
@@ -13,7 +16,6 @@ const NavBar = (props) => {
 
             <Link to='/'><img style={{ width: '13em' }} src={Logo} alt="party-hat"></img></Link>
             <Link to='/home'>Home</Link>
-
             {authenticated ?
                 <p onClick={handleLogout}>Sign Out</p>
                 :
@@ -22,6 +24,7 @@ const NavBar = (props) => {
                     <Link to='/register'>Register</Link>
                 </div>
             }
+            <SearchBar setPosts={props.setPosts}></SearchBar>
         </div>
     )
 }
