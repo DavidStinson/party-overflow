@@ -8,13 +8,26 @@
 
 }
 
-.logo{
+.logo {
+    display: flex;
+    align-items: center;
     text-decoration: none;
+}
+
+
+.logo h3 {
     color: black;
     font-size: 22px;
     font-weight: bold;
     font-family: 'DM Sans', sans-serif;
 }
+
+.logo img{
+    width: 24px;
+    margin-right: 8px;
+}
+
+
 
 
 .search {

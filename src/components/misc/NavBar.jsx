@@ -20,7 +20,11 @@ const NavBar = (props) => {
 
     return (
         <div className="nav-bar">
-            <Link className="logo" to='/'>partyoverflow</Link>
+
+            <Link className="logo" to='/'>
+                <img src="https://i.imgur.com/4tgXjNw.png" alt="disco-ball"></img>
+                <h3>partyoverflow</h3>
+            </Link>
             {/* <Link to='/home'>Home</Link> */}
             {/* {authenticated ?
                 <p onClick={handleLogout}>Sign Out</p>
