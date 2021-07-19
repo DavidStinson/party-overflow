@@ -18,7 +18,7 @@ const PostCard = (props) => {
         <div className="post-card">
             <UserCard user={props.currentUser}></UserCard>
             <p>{props.post.question}</p>
-            <Codeblock codeblock={props.post.codeblock}></Codeblock>
+            {props.post.codeblock ? <Codeblock codeblock={props.post.codeblock}></Codeblock> : null}
             <img className="resolution-icon" src={icon} alt="resolution symbol"></img>
 
             <p>{props.post.comments.length} Comments</p>

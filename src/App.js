@@ -23,7 +23,7 @@ const App = () => {
   const [authenticated, setAuthenticated] = useState(false)
   const [display, setDisplay] = useState(true)
 
-  const [posts, setPosts] = useState([]) //set limit on post length
+  const [posts, setPosts] = useState([])
   const [currentPage, setCurrentPage] = useState(0)
 
 

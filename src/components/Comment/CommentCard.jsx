@@ -3,8 +3,10 @@ import React from "react"
 //Components
 import UserCard from '../misc/UserCard'
 import Codeblock from '../Code/Codeblock'
+import CommentInteractions from './CommentInteractions'
 
 const CommentCard = (props) => {
+
 
     return (
         props.comment ?
@@ -13,9 +15,12 @@ const CommentCard = (props) => {
                 <p>{props.comment.comment_text}</p>
                 <Codeblock codeblock={props.comment.codeblock}></Codeblock>
                 <p>{props.comment.is_solution ? 'Solution' : null}</p>
-
-                <button onClick={() => props.handleDeleteComment(props.comment._id)}>Delete Comment</button>
-                <button onClick={() => props.handleSolution(props.comment)}>Mark Solution</button>
+                <CommentInteractions
+                    comment={props.comment}
+                    currentUser={props.currentUser}
+                    handleSolution={props.handleSolution}
+                    handleDeleteComment={props.handleDeleteComment}
+                ></CommentInteractions>
             </div>
             :
             null

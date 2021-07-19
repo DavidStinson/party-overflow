@@ -32,8 +32,6 @@ const CommentSection = (props) => {
         }
     }
 
-
-
     const handleSolution = async (comment) => {
         try {
             const commentId = comment._id
@@ -59,10 +57,11 @@ const CommentSection = (props) => {
         <div className="comment-section">
 
             <CommentList
-                comments={commentArray}
                 post={props.post}
-                handleDeleteComment={handleDeleteComment}
+                comments={commentArray}
+                currentUser={props.currentUser}
                 handleSolution={handleSolution}
+                handleDeleteComment={handleDeleteComment}
             ></CommentList>
 
             {props.currentUser !== null ? <button onClick={() => setShowNewComment(!showNewComment)}>New Comment</button> : null}

@@ -12,8 +12,9 @@ const CommentList = (props) => {
                 index={index}
                 comment={comment}
                 post={props.post}
-                handleDeleteComment={props.handleDeleteComment}
+                currentUser={props.currentUser}
                 handleSolution={props.handleSolution}
+                handleDeleteComment={props.handleDeleteComment}
             />
         ))
     )

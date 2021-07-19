@@ -55,9 +55,9 @@ const Register = (props) => {
                     </div>
 
                     <form name="register" onSubmit={handleSubmit}>
-                        <input required name="handle" placeholder="Username" onChange={handleChange} value={formData.handle}></input>
-                        <input required name="email" placeholder="Email" onChange={handleChange} value={formData.email}></input>
-                        <input required name="password" placeholder="Password" onChange={handleChange} value={formData.password}></input>
+                        <input required name="handle" type="text" placeholder="Username" onChange={handleChange} value={formData.handle}></input>
+                        <input required name="email" type="email" placeholder="Email" onChange={handleChange} value={formData.email}></input>
+                        <input required name="password" type="password" placeholder="Password" onChange={handleChange} value={formData.password}></input>
                         <input placeholder="Select Avatar" onClick={handlePopup}></input>
                         <button type="submit">SIGN UP</button>
                     </form>
