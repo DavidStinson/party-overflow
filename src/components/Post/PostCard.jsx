@@ -23,7 +23,7 @@ const PostCard = (props) => {
             <img className="resolution-icon" src={icon} alt="resolution symbol"></img>
 
             <p>{props.post.comments.length} Comments</p>
-            <Link to={`/post/${props.post._id}`}>Details</Link>
+            <Link to={`/post/${props.post._id}`}>View Comments</Link>
 
             <button onClick={() => props.markPostResolved(props.post)}>Resolve</button>
             <button onClick={() => props.handleDeletePost(props.post)}>Delete</button>

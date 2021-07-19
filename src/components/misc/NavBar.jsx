@@ -21,20 +21,27 @@ const NavBar = (props) => {
     return (
         <div className="nav-bar">
             <Link className="logo" to='/'>partyoverflow</Link>
-            <Link to='/home'>Home</Link>
-            {authenticated ?
+            {/* <Link to='/home'>Home</Link> */}
+            {/* {authenticated ?
                 <p onClick={handleLogout}>Sign Out</p>
                 :
                 <div>
                     <Link to='/login'>Login</Link>
                     <Link to='/register'>Register</Link>
                 </div>
-            }
+            } */}
             <SearchBar setPosts={props.setPosts}></SearchBar>
 
-            <button onClick={handleClick}>Click</button>
+            <button className="hamburger" onClick={handleClick}>
+                <img src="https://i.imgur.com/4pxvdUi.png" alt="hamburger icon"></img>
+            </button>
+
             <div className="mobile-nav" ref={navRef}>
+
+
+
             </div>
+
         </div>
     )
 }

@@ -55,6 +55,7 @@
   width: 50%;
   height: 90vh;
   overflow-y: scroll;
+  position: relative;
 }
 
 .side-menu{

@@ -28,9 +28,7 @@ const Home = (props) => {
                     ></PostList>
                 </Fragment>
                 :
-                <div>
-                    <PostForm handleCreatePost={handleCreatePost} currentUser={props.currentUser}></PostForm>
-                </div>
+                <PostForm handleCreatePost={handleCreatePost} currentUser={props.currentUser}></PostForm>
             }
         </div>
     )

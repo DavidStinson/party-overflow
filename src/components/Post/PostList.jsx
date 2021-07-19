@@ -4,23 +4,20 @@ import React from 'react'
 import PostCard from './PostCard'
 
 const PostList = (props) => {
-    
+
     return (
-        <div>
-            {props.posts ?
-                props.posts.map((post, index) => (
-                    <PostCard
-                        key={index}
-                        post={post}
-                        markPostResolved={props.markPostResolved}
-                        handleDeletePost={props.handleDeletePost}
-                        currentUser={props.currentUser}
-                    />
-                ))
-                :
-                null
-            }
-        </div>
+        props.posts ?
+            props.posts.map((post, index) => (
+                <PostCard
+                    key={index}
+                    post={post}
+                    markPostResolved={props.markPostResolved}
+                    handleDeletePost={props.handleDeletePost}
+                    currentUser={props.currentUser}
+                />
+            ))
+            :
+            null
     )
 }
 
