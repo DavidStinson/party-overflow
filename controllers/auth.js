@@ -17,7 +17,7 @@ function updateUser(req, res) {
 
 function getTopUsers(req, res) {
     User.find()
-        .select('_id name avatar solution_count')
+        .select('_id handle avatar solution_count')
         .limit(5)
         .sort({ solution_count: -1 })
         .then(users => { res.json(users) })

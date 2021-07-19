@@ -8,14 +8,14 @@ const getPostById = async (req, res) => {
             {
                 path: 'added_by',
                 model: 'User',
-                select: '_id name avatar'
+                select: '_id handle avatar'
             },
             {
                 path: 'comments',
                 populate: {
                     path: 'commenter',
                     model: 'User',
-                    select: '_id name avatar'
+                    select: '_id handle avatar'
                 }
             }
         ])
@@ -31,7 +31,7 @@ const getPostsByUserId = async (req, res) => {
             {
                 path: 'added_by',
                 model: 'User',
-                select: '_id name avatar'
+                select: '_id handle avatar'
             })
         return res.status(200).json({ posts })
     } catch (error) {
@@ -73,7 +73,7 @@ function getRecent(req, res) {
             {
                 path: 'added_by',
                 model: 'User',
-                select: '_id name avatar'
+                select: '_id handle avatar'
             },
             {
                 path: 'comments',
@@ -87,7 +87,6 @@ function getRecent(req, res) {
 }
 
 function updatePost(req, res) {
-    console.log(req.params.id)
     const updateData = { is_resolved: true }
     Post.findByIdAndUpdate(req.params.id, updateData, { new: true })
         .then(post => { res.json(post) })
