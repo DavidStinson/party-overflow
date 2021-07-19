@@ -42,7 +42,7 @@ const PostDetails = (props) => {
                         handleDeletePost={props.handleDeletePost}
                         currentUser={props.currentUser}
                     />
-                    <CommentSection post={post} currentUser={props.currentUser}></CommentSection>
+                    <CommentSection post={post} setPost={setPost} currentUser={props.currentUser}></CommentSection>
                 </div>
                 :
                 <div>Oops</div>

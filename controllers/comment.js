@@ -37,7 +37,7 @@ async function updateComment(req, res) {
             { $inc: { solution_count: 1 } }
         )
         await post.save()
-        res.json(post.comments[idx])
+        res.json(post)
     } catch (err) {
         res.json(err)
     }

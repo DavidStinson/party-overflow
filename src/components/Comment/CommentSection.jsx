@@ -38,15 +38,17 @@ const CommentSection = (props) => {
         try {
             const commentId = comment._id
             const userId = comment.commenter._id
-            const updatedComment = await updateComment(commentId, props.post._id, userId)
-            const updatedCommentArray = commentArray.map((comment) => {
+            const user = comment.commenter
+            const updatedPost = await updateComment(commentId, props.post._id, userId)
+            const updatedCommentArray = updatedPost.comments.map((comment) => {
                 if (comment._id === commentId) {
-                    updatedComment.commenter = comment.commenter
-                    return updatedComment
+                    comment.is_solution = true
+                    comment.commenter = user
+                    return comment
                 }
                 return comment
             })
-            //props.post.is_resolved = true
+            props.setPost(updatedPost)
             setCommentArray(updatedCommentArray)
         } catch (error) {
             throw error
