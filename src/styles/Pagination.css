@@ -1,16 +1,13 @@
 .pagination{
-    border-bottom: 1px solid lightGrey;
     background-color: white;
-    position: absolute;
-    width: 100%;
-    /* position: fixed;
-    width: inherit; */
+    position: fixed;
+    width: inherit;
     height: 50px;
     display: flex;
     align-items: center;
-    z-index: 10;
+    border-bottom: 1px solid lightgrey;  
 }
-  
+
 
 .pagination button{
     box-sizing: border-box;
