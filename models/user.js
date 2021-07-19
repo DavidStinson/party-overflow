@@ -1,13 +1,9 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
-
 const SALT_ROUNDS = 6
 
+
 const userSchema = new mongoose.Schema({
-    // name: {
-    //     type: String,
-    //     required: true,
-    // },
     handle: {
         type: String,
         required: true,
@@ -33,6 +29,7 @@ const userSchema = new mongoose.Schema({
         required: false,
         default: 0,
     },
+    profile: { type: mongoose.Schema.Types.ObjectId, ref: 'Profile' },
     posts: [
         {
             type: mongoose.Schema.Types.ObjectId,

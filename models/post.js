@@ -15,10 +15,6 @@ const commentSchema = new Schema({
         type: Boolean,
         default: false,
     },
-    post_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Post'
-    },
     commenter: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 }, { timestamps: true })
 
