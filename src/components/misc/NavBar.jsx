@@ -1,20 +1,26 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/NavBar.css'
 
 //Components
 import SearchBar from './SearchBar'
 
-//Assets
-import Logo from '../../assets/logo-rough.png'
-
 const NavBar = (props) => {
     const { authenticated, handleLogout } = props
 
 
+    // let wrapperRef = useRef()
+    const navRef = useRef()
+
+    const handleClick = () => {
+        const nav = navRef.current
+        nav.classList.toggle('open')
+    }
+
+
     return (
         <div className="nav-bar">
-            <Link className="logo" to='/'>party overflow</Link>
+            <Link className="logo" to='/'>partyoverflow</Link>
             <Link to='/home'>Home</Link>
             {authenticated ?
                 <p onClick={handleLogout}>Sign Out</p>
@@ -25,6 +31,10 @@ const NavBar = (props) => {
                 </div>
             }
             <SearchBar setPosts={props.setPosts}></SearchBar>
+
+            <button onClick={handleClick}>Click</button>
+            <div className="mobile-nav" ref={navRef}>
+            </div>
         </div>
     )
 }

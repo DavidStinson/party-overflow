@@ -36,3 +36,25 @@
     font-weight: 600;
     font-size: 12px;
 }
+
+
+
+
+
+
+.mobile-nav{
+    display: none;
+    position: absolute;
+}
+
+.mobile-nav.open{
+    display: flex;
+    background: green;
+    z-index: 300;
+    width: 250px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+}
