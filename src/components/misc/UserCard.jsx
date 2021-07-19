@@ -3,7 +3,6 @@ import '../../styles/UserCard.css'
 
 const UserCard = (props) => {
     const { user } = props
-    console.log(user)
 
     return (
         user ?

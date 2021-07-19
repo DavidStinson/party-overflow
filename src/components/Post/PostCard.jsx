@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/PostCard.css'
 
@@ -9,11 +9,10 @@ import Remove from '../../assets/remove.png'
 //Components
 import UserCard from '../misc/UserCard'
 import Codeblock from '../Code/Codeblock'
+import PostInteractions from './PostInteractions'
 
 const PostCard = (props) => {
     const icon = props.post.is_resolved ? Check : Remove
-
-    console.log(props.post.comments.length)
 
     return (
         <div className="post-card">
@@ -23,11 +22,15 @@ const PostCard = (props) => {
             <img className="resolution-icon" src={icon} alt="resolution symbol"></img>
 
             <p>{props.post.comments.length} Comments</p>
-            <Link to={`/post/${props.post._id}`}>View Comments</Link>
 
-            <button onClick={() => props.markPostResolved(props.post)}>Resolve</button>
-            <button onClick={() => props.handleDeletePost(props.post)}>Delete</button>
+            {props.currentUser ? <Link to={`/post/${props.post._id}`}>View Comments</Link> : null}
 
+            <PostInteractions
+                post={props.post}
+                currentUser={props.currentUser}
+                markPostResolved={props.markPostResolved}
+                handleDeletePost={props.handleDeletePost}
+            ></PostInteractions>
         </div>
     )
 }
