@@ -1,4 +1,6 @@
-# Party Overflow
+![logo](https://i.imgur.com/EwTyEch.png)
+
+---
 
 ### Getting Started
 
