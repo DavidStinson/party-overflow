@@ -15,8 +15,8 @@ const PostCard = (props) => {
     const icon = props.post.is_resolved ? Check : Remove
 
     return (
-        <div className="post-card">
-            <UserCard user={props.currentUser}></UserCard>
+        <div style={{marginTop:"50px"}} className="post-card">
+            <UserCard user={props.post.added_by}></UserCard>
             <p>{props.post.question}</p>
             {props.post.codeblock ? <Codeblock codeblock={props.post.codeblock}></Codeblock> : null}
             <img className="resolution-icon" src={icon} alt="resolution symbol"></img>

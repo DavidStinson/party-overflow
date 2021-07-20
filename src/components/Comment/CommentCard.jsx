@@ -6,9 +6,8 @@ import Codeblock from '../Code/Codeblock'
 import CommentInteractions from './CommentInteractions'
 
 const CommentCard = (props) => {
-    
-    console.log('COMMENT CARD POST', props.post.added_by._id)
 
+    console.log('COMMENT CARD POST', props.post.added_by._id)
 
     return (
         props.comment ?
@@ -17,6 +16,7 @@ const CommentCard = (props) => {
                 <p>{props.comment.comment_text}</p>
                 <Codeblock codeblock={props.comment.codeblock}></Codeblock>
                 <p>{props.comment.is_solution ? 'Solution' : null}</p>
+                
                 <CommentInteractions
                     comment={props.comment}
                     currentUser={props.currentUser}
