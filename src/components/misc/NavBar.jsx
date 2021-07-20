@@ -9,7 +9,6 @@ const NavBar = (props) => {
     const { authenticated, handleLogout } = props
 
 
-    // let wrapperRef = useRef()
     const navRef = useRef()
 
     const handleClick = () => {
@@ -25,6 +24,7 @@ const NavBar = (props) => {
                 <img src="https://i.imgur.com/4tgXjNw.png" alt="disco-ball"></img>
                 <h3>partyoverflow</h3>
             </Link>
+
             <Link to='/home'>Home</Link>
             {authenticated ?
                 <p onClick={handleLogout}>Sign Out</p>
