@@ -47,5 +47,4 @@ module.exports = {
     register,
     login,
     getTopUsers,
-    updateUser
 }
