@@ -13,17 +13,21 @@ import PostInteractions from './PostInteractions'
 
 const PostCard = (props) => {
     const icon = props.post.is_resolved ? Check : Remove
+    const viewCommentText = `View ${props.post.comments.length} ${props.post.comments.length === 1 ? 'Comment' : 'Comments'}`
 
     return (
-        <div style={{marginTop:"50px"}} className="post-card">
+        <div style={{ marginTop: "50px" }} className="post-card">
+
             <UserCard user={props.post.added_by}></UserCard>
+
             <p>{props.post.question}</p>
+
             {props.post.codeblock ? <Codeblock codeblock={props.post.codeblock}></Codeblock> : null}
+
             <img className="resolution-icon" src={icon} alt="resolution symbol"></img>
 
-            <p>{props.post.comments.length} Comments</p>
-
-            {props.currentUser ? <Link to={`/post/${props.post._id}`}>View Comments</Link> : null}
+            <Link to={`/post/${props.post._id}`}>{viewCommentText}</Link>
+            {/* {props.currentUser ? <Link to={`/post/${props.post._id}`}>{viewCommentText}</Link> : null} */}
 
             <PostInteractions
                 post={props.post}
