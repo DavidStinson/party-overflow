@@ -5,10 +5,20 @@ export function getUser() {
     return tokenService.getUserFromToken()
 }
 
-export function getTopUsers() {
-    return fetch(BASE_URL, { mode: "cors" })
-        .then(res => res.json())
+export const getTopUsers = async() => {
+    try{
+        const res =  await fetch(BASE_URL, { mode: "cors" })
+        const data =  await res.json()
+        return data
+    }catch(error){
+        throw error
+    }
 }
+
+// export function getTopUsers() {
+//     return fetch(BASE_URL, { mode: "cors" })
+//         .then(res => res.json())
+// }
 
 export function signup(user) {
     return fetch(`${BASE_URL}signup`, {

@@ -27,7 +27,6 @@ const PostCard = (props) => {
             <img className="resolution-icon" src={icon} alt="resolution symbol"></img>
 
             <Link to={`/post/${props.post._id}`}>{viewCommentText}</Link>
-            {/* {props.currentUser ? <Link to={`/post/${props.post._id}`}>{viewCommentText}</Link> : null} */}
 
             <PostInteractions
                 post={props.post}

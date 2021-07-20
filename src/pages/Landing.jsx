@@ -6,17 +6,17 @@ const Landing = () => {
 
     return (
         <div className="landing-page">
+
             <div className="landing-elements">
-                <div className="logo-container">
-                    <img src="https://i.imgur.com/4tgXjNw.png" alt="disco-ball"></img>
-                    <h1>partyoverflow</h1>
-                </div>
+                    <img className="logo-splash" src="https://i.imgur.com/V9idBlO.png" alt="disco ball logo"></img>
+                    <img className="mobile-logo" src="https://i.imgur.com/wtA4w4g.png"></img>
                 <p>Lorem Ipsum</p>
                 <div>
                     <button>Sign Up</button>
                     <button>Sign In</button>
                 </div>
             </div>
+
         </div>
     )
 }
