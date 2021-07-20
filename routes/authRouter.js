@@ -11,7 +11,6 @@ router.post('/login', authCtrl.login)
 
 // ========= Protected Routes ========= 
 router.use(require('../config/auth'))
-router.put('/:id', checkAuth, authCtrl.updateUser)
 
 function checkAuth(req, res, next) {
     return req.user ? next() : res.status(401).json({ msg: 'Not Authorized' })

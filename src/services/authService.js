@@ -10,16 +10,6 @@ export function getTopUsers() {
         .then(res => res.json())
 }
 
-
-export function updateUser(formData, id) {
-    return fetch(`${BASE_URL}${id}`, {
-        method: "PUT",
-        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
-        body: JSON.stringify(formData)
-    }, { mode: "cors" })
-        .then(res => res.json())
-}
-
 export function signup(user) {
     return fetch(`${BASE_URL}signup`, {
         method: 'POST',

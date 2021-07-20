@@ -6,15 +6,6 @@ function createJWT(user) {
     return jwt.sign({ user }, SECRET, { expiresIn: '24h' })
 }
 
-//================
-function updateUser(req, res) {
-    console.log(req.params.id)
-    User.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        .then(user => { res.json(user) })
-        .catch(err => { res.json(err) })
-}
-//================
-
 function getTopUsers(req, res) {
     User.find()
         .select('_id handle avatar solution_count')
