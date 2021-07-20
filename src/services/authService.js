@@ -5,52 +5,51 @@ export function getUser() {
     return tokenService.getUserFromToken()
 }
 
-export const getTopUsers = async() => {
-    try{
-        const res =  await fetch(BASE_URL, { mode: "cors" })
-        const data =  await res.json()
+export const getTopUsers = async () => {
+    try {
+        const res = await fetch(BASE_URL, { mode: "cors" })
+        const data = await res.json()
         return data
-    }catch(error){
+    } catch (error) {
         throw error
     }
 }
 
-// export function getTopUsers() {
-//     return fetch(BASE_URL, { mode: "cors" })
-//         .then(res => res.json())
-// }
 
-export function signup(user) {
-    return fetch(`${BASE_URL}signup`, {
-        method: 'POST',
-        headers: new Headers({ 'Content-Type': 'application/json' }),
-        body: JSON.stringify(user)
-    })
-        .then(res => {
-            console.log(res, '<-- response object')
-            return res.json();
+export const signup = async (user) => {
+    try {
+        const res = await fetch(`${BASE_URL}signup`, {
+            method: 'POST',
+            headers: new Headers({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify(user)
         })
-        .then(json => {
-            if (json.token) return json;
-            console.log(json, '<-- the error')
-            throw new Error(`${json.err}`)
-        })
-        .then(({ token }) => {
-            tokenService.setToken(token);
-        })
+        const data = await res.json()
+        if (data.token) {
+            tokenService.setToken(data.token)
+        } else {
+            console.log(data, '<-- the error')
+        }
+    } catch (error) {
+        throw error
+    }
 }
 
-export function login(creds) {
-    return fetch(`${BASE_URL}login`, {
-        method: 'POST',
-        headers: new Headers({ 'Content-Type': 'application/json' }),
-        body: JSON.stringify(creds)
-    })
-        .then(res => {
-            if (res.ok) return res.json()
-            throw new Error('Bad Credentials!')
+export const login = async (creds) => {
+    try {
+        const res = await fetch(`${BASE_URL}login`, {
+            method: 'POST',
+            headers: new Headers({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify(creds)
         })
-        .then(({ token }) => tokenService.setToken(token))
+        const data = await res.json()
+        if (data.token) {
+            tokenService.setToken(data.token)
+        } else {
+            console.log(data, '<-- the error')
+        }
+    } catch (error) {
+        throw error
+    }
 }
 
 export function logout() {
