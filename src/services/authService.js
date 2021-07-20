@@ -15,7 +15,6 @@ export const getTopUsers = async () => {
     }
 }
 
-
 export const signup = async (user) => {
     try {
         const res = await fetch(`${BASE_URL}signup`, {
@@ -24,11 +23,7 @@ export const signup = async (user) => {
             body: JSON.stringify(user)
         })
         const data = await res.json()
-        if (data.token) {
-            tokenService.setToken(data.token)
-        } else {
-            console.log(data, '<-- the error')
-        }
+        tokenService.setToken(data.token)
     } catch (error) {
         throw error
     }
@@ -42,11 +37,7 @@ export const login = async (creds) => {
             body: JSON.stringify(creds)
         })
         const data = await res.json()
-        if (data.token) {
-            tokenService.setToken(data.token)
-        } else {
-            console.log(data, '<-- the error')
-        }
+        tokenService.setToken(data.token)
     } catch (error) {
         throw error
     }
