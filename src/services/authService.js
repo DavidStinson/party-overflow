@@ -16,21 +16,16 @@ export const getTopUsers = async () => {
 }
 
 export const signup = async (user) => {
-    try {
-        const res = await fetch(`${BASE_URL}signup`, {
-            method: 'POST',
-            headers: new Headers({ 'Content-Type': 'application/json' }),
-            body: JSON.stringify(user)
-        })
-        if (res.ok) {
-            const data = await res.json()
-            tokenService.setToken(data.token)
-        } else {
-            console.log('hitting else')
-        }
-    } catch (error) {
-        console.log('hitting catch')
-        throw error
+    const res = await fetch(`${BASE_URL}signup`, {
+        method: 'POST',
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+        body: JSON.stringify(user)
+    })
+    if (res.ok) {
+        const data = await res.json()
+        tokenService.setToken(data.token)
+    } else {
+        throw new Error
     }
 }
 

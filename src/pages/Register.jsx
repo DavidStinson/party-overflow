@@ -14,6 +14,7 @@ import { signup } from '../services/authService'
 
 const Register = (props) => {
     const [popup, setPopup] = useState(false)
+    const [registerError, setRegisterError] = useState(false)
     const [formData, setFormData] = useState({
         handle: '',
         email: '',
@@ -37,8 +38,14 @@ const Register = (props) => {
             props.handleSignupOrLogin()
             props.history.push('/profile')
         } catch (error) {
-            alert('Invalid Credentials')
-            throw error
+            setRegisterError(true)
+            setFormData({
+                handle: '',
+                email: '',
+                password: '',
+                passwordConf: '',
+                avatar: 'https://i.imgur.com/Wdyo4ow.png'
+            })
         }
     }
 
@@ -51,7 +58,8 @@ const Register = (props) => {
                 <div className='form-container'>
                     <div className="title-container">
                         <h1>Create an Account</h1>
-                        <h3>Social media for developers.</h3>
+                        {registerError ? <h3>Oops! Invalid Credentials</h3> : <h3>Social media for developers.</h3>}
+
                     </div>
 
                     <form name="register" onSubmit={handleSubmit}>
