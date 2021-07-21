@@ -1,6 +1,6 @@
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
-const SECRET = process.env.SECRET  
+const SECRET = process.env.SECRET
 
 function createJWT(user) {
     return jwt.sign({ user }, SECRET, { expiresIn: '24h' })
@@ -29,13 +29,15 @@ async function register(req, res) {
 async function login(req, res) {
     try {
         const user = await User.findOne({ email: req.body.email })
-        if (!user) return res.status(401).json({ error: 'bad credentials' })
+        if (!user) {
+            return res.status(401).json({error: 'bad credentials'})
+        }
         user.comparePassword(req.body.password, (error, isMatch) => {
             if (isMatch) {
                 const token = createJWT(user)
                 res.json({ token })
             } else {
-                return res.status(401).json({ error: 'bad credentials' })
+                return res.status(401).json({error: 'bad credentials'})
             }
         })
     } catch (error) {
