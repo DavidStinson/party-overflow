@@ -22,24 +22,29 @@ export const signup = async (user) => {
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify(user)
         })
-        const data = await res.json()
-        tokenService.setToken(data.token)
+        if (res.ok) {
+            const data = await res.json()
+            tokenService.setToken(data.token)
+        } else {
+            console.log('hitting else')
+        }
     } catch (error) {
+        console.log('hitting catch')
         throw error
     }
 }
 
 export const login = async (creds) => {
-    try {
-        const res = await fetch(`${BASE_URL}login`, {
-            method: 'POST',
-            headers: new Headers({ 'Content-Type': 'application/json' }),
-            body: JSON.stringify(creds)
-        })
+    const res = await fetch(`${BASE_URL}login`, {
+        method: 'POST',
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+        body: JSON.stringify(creds)
+    })
+    if (res.ok) {
         const data = await res.json()
         tokenService.setToken(data.token)
-    } catch (error) {
-        throw error
+    } else {
+        throw new Error
     }
 }
 

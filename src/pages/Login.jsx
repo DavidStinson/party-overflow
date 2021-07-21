@@ -14,7 +14,7 @@ import { login } from '../services/authService'
 const Login = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    // const [loginErr, setLoginErr] = useState(false)
+    const [loginError, setLoginError] = useState(false)
 
 
     const handleSubmit = async (e) => {
@@ -28,8 +28,9 @@ const Login = (props) => {
             props.handleSignupOrLogin()
             props.history.push('/home')
         } catch (error) {
-            alert('Invalid Credentials')
-            throw error
+            setLoginError(true)
+            setEmail('')
+            setPassword('')
         }
     }
 
@@ -47,7 +48,7 @@ const Login = (props) => {
                 <div className='form-container'>
                     <div className="title-container">
                         <h1>Login</h1>
-                        <h3>Please enter your login information</h3>
+                        {loginError ? <h3>Oops! Invalid Credentials</h3> : <h3>Please enter your login information</h3>}
                     </div>
                     <form name="register" onSubmit={handleSubmit}>
                         <input name="email" type="email" placeholder="Email" value={email} onChange={handleEmail}></input>
