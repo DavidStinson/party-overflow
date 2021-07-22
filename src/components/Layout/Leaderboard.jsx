@@ -12,16 +12,21 @@ const Leaderboard = () => {
 
     useEffect(() => {
         const fetchUsers = async () => {
-            const response = await getTopUsers()
-            setUserList(response.users)
+            try {
+                const users = await getTopUsers()
+                setUserList(users)
+            } catch (error) {
+                throw error
+            }
         }
         fetchUsers()
+        return () => { setUserList([]) }
     }, [])
 
     return (
         <div className="leaderboard">
             <p>Leaderboard</p>
-            {userList.length ?
+            {userList ?
                 userList.map((user, index) => (
                     <div key={index} style={{ display: 'flex' }}>
                         <UserCard user={user}></UserCard>

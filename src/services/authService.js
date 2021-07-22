@@ -9,7 +9,6 @@ export const getTopUsers = async () => {
     try {
         const res = await fetch(BASE_URL, { mode: "cors" })
         const data = await res.json()
-        console.log(data)
         return data
     } catch (error) {
         throw error
@@ -24,12 +23,15 @@ export const signup = async (user) => {
             body: JSON.stringify(user)
         })
         const data = await res.json()
-        tokenService.setToken(data.token)
+        if (data.token) {
+            tokenService.setToken(data.token)
+        } else {
+            console.log('error')
+        }
     } catch (error) {
         throw error
     }
 }
-
 
 export const login = async (creds) => {
     const res = await fetch(`${BASE_URL}login`, {
@@ -41,11 +43,11 @@ export const login = async (creds) => {
         const data = await res.json()
         tokenService.setToken(data.token)
     } else {
-        throw new Error
+        throw new Error()
     }
 }
+
 
 export function logout() {
     tokenService.removeToken()
 }
-

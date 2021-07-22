@@ -65,7 +65,6 @@ export const createPost = async (post) => {
     }
 }
 
-
 export const updatePost = async (post) => {
     try {
         const res = await fetch(`${BASE_URL}${post._id}`, {
@@ -80,15 +79,12 @@ export const updatePost = async (post) => {
     }
 }
 
-
 export const deletePost = async (id) => {
     try {
-        const res = await fetch(`${BASE_URL}${id}`, {
+        await fetch(`${BASE_URL}${id}`, {
             method: 'DELETE',
             headers: { 'Authorization': 'Bearer ' + tokenService.getToken() }
         }, { mode: "cors" })
-        const data = await res.json()
-        return data
     } catch (error) {
         throw error
     }

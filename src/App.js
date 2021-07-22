@@ -4,7 +4,7 @@ import './styles/App.css'
 
 //Services
 import { getUser, logout } from './services/authService'
-import { getRecent, updatePost, deletePost, createPost, search } from './services/postService'
+import { getRecent, updatePost, deletePost, createPost } from './services/postService'
 
 //Pages + Components
 import NavBar from './components/misc/NavBar'
@@ -64,6 +64,7 @@ const App = () => {
   const markPostResolved = async (postData) => {
     try {
       const updatedPost = await updatePost(postData)
+      updatedPost.added_by = currentUser
       const updatedPostArray = posts.map((post) => {
         if (post._id === postData._id) {
           return updatedPost
@@ -108,8 +109,8 @@ const App = () => {
 
   useEffect(() => {
     const fetchAllPosts = async (page) => {
-      const posts = await getRecent(page)
-      setPosts(posts)
+      const res = await getRecent(page)
+      setPosts(res)
     }
     fetchAllPosts(currentPage)
   }, [currentPage])

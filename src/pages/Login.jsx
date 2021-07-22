@@ -24,8 +24,7 @@ const Login = (props) => {
             password: password,
         }
         try {
-            const res = await login(formData)
-            console.log(res)
+            await login(formData)
             props.handleSignupOrLogin()
             props.history.push('/home')
         } catch (error) {

@@ -12,6 +12,8 @@ const CommentSection = (props) => {
     const [commentArray, setCommentArray] = useState([...props.post.comments])
     const [showNewComment, setShowNewComment] = useState(false)
 
+    console.log(props.post)
+
     const handleCreateComment = async (formData) => {
         try {
             const response = await createComment(props.post._id, formData)
@@ -46,6 +48,7 @@ const CommentSection = (props) => {
                 }
                 return comment
             })
+            updatedPost.added_by = props.post.added_by
             props.setPost(updatedPost)
             setCommentArray(updatedCommentArray)
         } catch (error) {
