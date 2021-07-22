@@ -25,7 +25,6 @@ async function deleteComment(req, res) {
     }
 }
 
-
 async function updateComment(req, res) {
     try {
         const post = await Post.findById(req.params.post_id)

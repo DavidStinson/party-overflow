@@ -9,6 +9,7 @@ export const getTopUsers = async () => {
     try {
         const res = await fetch(BASE_URL, { mode: "cors" })
         const data = await res.json()
+        console.log(data)
         return data
     } catch (error) {
         throw error
@@ -28,6 +29,7 @@ export const signup = async (user) => {
         throw error
     }
 }
+
 
 export const login = async (creds) => {
     const res = await fetch(`${BASE_URL}login`, {

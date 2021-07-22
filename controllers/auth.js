@@ -6,13 +6,13 @@ function createJWT(user) {
     return jwt.sign({ user }, SECRET, { expiresIn: '24h' })
 }
 
-function getTopUsers(req, res) {
-    User.find()
-        .select('_id handle avatar solution_count')
-        .limit(5)
-        .sort({ solution_count: -1 })
-        .then(users => { res.json(users) })
-        .catch(error => { res.json(error) })
+async function getTopUsers(req, res) {
+    try {
+        const users = await User.find().select('_id handle avatar solution_count').limit(5).sort({ solution_count: -1 })
+        return res.json({ users })
+    } catch (error) {
+        return res.status(500).send(error.message, 'Could not find users.')
+    }
 }
 
 async function register(req, res) {
@@ -29,15 +29,13 @@ async function register(req, res) {
 async function login(req, res) {
     try {
         const user = await User.findOne({ email: req.body.email })
-        if (!user) {
-            return res.status(401).json({error: 'bad credentials'})
-        }
-        user.comparePassword(req.body.password, (error, isMatch) => {
+        if (!user) return res.status(401).json({ error: 'no account' })
+        user.comparePassword(req.body.password, (isMatch) => {
             if (isMatch) {
                 const token = createJWT(user)
                 res.json({ token })
             } else {
-                return res.status(401).json({error: 'bad credentials'})
+                return res.status(401).json({ error: 'bad credentials' })
             }
         })
     } catch (error) {

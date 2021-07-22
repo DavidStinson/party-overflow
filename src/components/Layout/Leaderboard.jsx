@@ -11,19 +11,17 @@ const Leaderboard = () => {
     const [userList, setUserList] = useState([])
 
     useEffect(() => {
-        let componentMounted = true
-        getTopUsers().then((response) => {
-            if (componentMounted) {
-                setUserList(response)
-            }
-        })
-        return () => { componentMounted = false }
+        const fetchUsers = async () => {
+            const response = await getTopUsers()
+            setUserList(response.users)
+        }
+        fetchUsers()
     }, [])
 
     return (
         <div className="leaderboard">
             <p>Leaderboard</p>
-            {userList ?
+            {userList.length ?
                 userList.map((user, index) => (
                     <div key={index} style={{ display: 'flex' }}>
                         <UserCard user={user}></UserCard>
