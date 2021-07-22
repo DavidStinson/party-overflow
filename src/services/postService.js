@@ -1,6 +1,7 @@
 import tokenService from '../services/tokenService'
 const BASE_URL = '/api/posts/'
 
+
 export const search = async (keyword) => {
     try {
         const res = await fetch(`${BASE_URL}questions/search?keyword=${keyword}`, { mode: "cors" })

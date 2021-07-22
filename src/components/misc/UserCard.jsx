@@ -8,7 +8,10 @@ const UserCard = (props) => {
         user ?
             <div className="user-card">
                 <img src={user.avatar} alt="user avatar"></img>
-                <p>{user.handle}</p>
+                <div className="user-info">
+                    <h4>{user.handle}</h4>
+                    <p>Washington DC</p>
+                </div>
             </div >
             :
             null

@@ -9,13 +9,11 @@ const Codeblock = (props) => {
     }, [])
 
     return (
-        <div style={{width: '100%'}}>
-            <pre>
-                <code className="language-javascript">
-                    {props.codeblock}
-                </code>
-            </pre>
-        </div>
+        <pre className="codeblock">
+            <code className="language-javascript">
+                {props.codeblock}
+            </code>
+        </pre>
     )
 }
 

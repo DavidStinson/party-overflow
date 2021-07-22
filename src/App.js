@@ -118,7 +118,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar authenticated={authenticated} handleLogout={handleLogout} setPosts={setPosts}></NavBar>
+      <NavBar
+        authenticated={authenticated}
+        handleLogout={handleLogout}
+        setPosts={setPosts}
+        currentPage={currentPage}
+      ></NavBar>
       <Switch>
         <Route exact path="/" component={(props) => (<Landing {...props} />)} />
         <Route path="/login" component={(props) => (<Login {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />

@@ -16,24 +16,27 @@ const PostCard = (props) => {
     const viewCommentText = `View ${props.post.comments.length} ${props.post.comments.length === 1 ? 'Comment' : 'Comments'}`
 
     return (
-        <div style={{ marginTop: "50px" }} className="post-card">
+        <div className="post-card">
 
             <UserCard user={props.post.added_by}></UserCard>
+            {/* <img className="resolution-icon" src={icon} alt="resolution symbol"></img> */}
 
-            <p>{props.post.question}</p>
+            <div>
+                <p>{props.post.question}</p>
+                {props.post.codeblock ? <Codeblock codeblock={props.post.codeblock}></Codeblock> : null}
+            </div>
 
-            {props.post.codeblock ? <Codeblock codeblock={props.post.codeblock}></Codeblock> : null}
 
-            <img className="resolution-icon" src={icon} alt="resolution symbol"></img>
+            <div className="comment-link">
+                <Link style={{ textDecoration: 'none' }} to={`/post/${props.post._id}`}>{viewCommentText}</Link>
+            </div>
 
-            <Link to={`/post/${props.post._id}`}>{viewCommentText}</Link>
-
-            <PostInteractions
+            {/* <PostInteractions
                 post={props.post}
                 currentUser={props.currentUser}
                 markPostResolved={props.markPostResolved}
                 handleDeletePost={props.handleDeletePost}
-            ></PostInteractions>
+            ></PostInteractions> */}
         </div>
     )
 }
