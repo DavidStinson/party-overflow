@@ -7,6 +7,7 @@ const AvatarSelection = (props) => {
     return (
         <div className="popup">
             <div className="select-menu">
+                <button onClick={props.handlePopup}>X</button>
                 <img src={props.formData.avatar} alt="animal-avatar"></img>
                 <select onChange={(e) => props.handleChange(e)} name="avatar" value={props.formData.avatar}>
                     <option value='https://i.imgur.com/Wdyo4ow.png'>Cat</option>
