@@ -8,6 +8,9 @@
     border-bottom: 1px solid lightgrey;  
 }
 
+.pagination h3{
+    margin-left: 14px;
+}
 
 .pagination button{
     box-sizing: border-box;

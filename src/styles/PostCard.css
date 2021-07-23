@@ -1,15 +1,59 @@
-.post-card{
+.post-card {
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    margin: 10px;
+    background: white;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid lightgrey;
 }
 
-
-.comment-link {
-    
+.question-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 16px 0px 6px 13px;
 }
 
+.question-container p {
+    width: 95%;
+    margin: 0;
+    text-align: left;
+    line-height: 1.4;
+    color: rgb(40, 40, 40);
+}
 
+.code-container {
+    padding: 0px 10px 12px 10px;
+}
 
-.resolution-icon{
+.comment-link {
+    border-top: 1px solid lightgrey;
+    padding: 8px;
+}
+
+.comment-link a {
+    color: rgb(190, 190, 190);
+    font-weight: medium;
+    font-size: 14px;
+}
+
+.resolution-icon {
     width: 20px;
     height: 20px;
+}
+
+.interactions {
+    margin-left: auto; 
+    display: flex;
+    padding-right: 10px;
+}
+
+.interactions button{
+    margin: 0;
+    padding: 0;  
 }

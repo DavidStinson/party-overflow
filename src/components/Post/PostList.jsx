@@ -6,7 +6,7 @@ import PostCard from './PostCard'
 const PostList = (props) => {
 
     return (
-        <div style={{ marginTop: '55px' }}>
+        <div style={{ marginTop: '50px', background: '#f3f4f5', height: '100%' }}>
             {props.posts ?
                 props.posts.map((post, index) => (
                     <PostCard
