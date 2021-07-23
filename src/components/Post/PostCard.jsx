@@ -12,8 +12,6 @@ import Codeblock from '../Code/Codeblock'
 import PostInteractions from './PostInteractions'
 
 const PostCard = (props) => {
-    const icon = props.post.is_resolved ? Check : Remove
-    const viewCommentText = `View ${props.post.comments.length} ${props.post.comments.length === 1 ? 'Comment' : 'Comments'}`
 
     return (
         <div className="post-card">
@@ -27,30 +25,25 @@ const PostCard = (props) => {
                     markPostResolved={props.markPostResolved}
                     handleDeletePost={props.handleDeletePost}
                 ></PostInteractions>
-                {/* <img className="resolution-icon" src={icon} alt="resolution symbol"></img> */}
             </div>
 
 
             <div className="question-container">
-
-                <p>{props.post.question}</p>
+                {props.post.is_resolved ?
+                    <p>[RESOLVED] {props.post.question}</p>
+                    :
+                    <p>{props.post.question}</p>
+                }
             </div>
+
             <div className="code-container">
                 {props.post.codeblock ? <Codeblock codeblock={props.post.codeblock}></Codeblock> : null}
             </div>
 
 
             <div className="comment-link">
-                {/* <Link style={{ textDecoration: 'none' }} to={`/post/${props.post._id}`}>{viewCommentText}</Link> */}
                 <Link style={{ textDecoration: 'none' }} to={`/post/${props.post._id}`}>View Comments</Link>
             </div>
-
-            {/* <PostInteractions
-                post={props.post}
-                currentUser={props.currentUser}
-                markPostResolved={props.markPostResolved}
-                handleDeletePost={props.handleDeletePost}
-            ></PostInteractions> */}
         </div>
     )
 }
