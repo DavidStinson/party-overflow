@@ -59,15 +59,14 @@ const Register = (props) => {
                     <div className="title-container">
                         <h1>Create an Account</h1>
                         {registerError ? <h3>Oops! Invalid Credentials</h3> : <h3>Social media for developers.</h3>}
-
                     </div>
 
                     <form name="register" onSubmit={handleSubmit}>
                         <input required name="handle" type="text" placeholder="Username" onChange={handleChange} value={formData.handle}></input>
                         <input required name="email" type="email" placeholder="Email" onChange={handleChange} value={formData.email}></input>
                         <input required name="password" type="password" placeholder="Password" onChange={handleChange} value={formData.password}></input>
-                        <input placeholder="Select Avatar" onClick={handlePopup}></input>
-                        <button type="submit">SIGN UP</button>
+                        <button id="avatar-button" onClick={handlePopup}>Select Avatar</button>
+                        <button id="submit-button" type="submit">SIGN UP</button>
                     </form>
 
                     <div className="redirect-container">

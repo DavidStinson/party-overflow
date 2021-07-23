@@ -53,7 +53,7 @@ const Login = (props) => {
                     <form name="register" onSubmit={handleSubmit}>
                         <input name="email" type="email" placeholder="Email" value={email} onChange={handleEmail}></input>
                         <input name="password" type="password" placeholder="Password" value={password} onChange={handlePassword}></input>
-                        <button type="submit">SIGN IN</button>
+                        <button id="submit-button" type="submit">SIGN IN</button>
                     </form>
                     <div className="redirect-container">
                         <p>Already have an account?</p>
