@@ -6,14 +6,72 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 185px;
     background:rgba(0, 0, 0, 0.65);
 }
 
-
-.select-menu{
+.popup-menu {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 8px;
+    background: white;
+    min-width: 330px;
+    min-height: 450px;
+    box-sizing: border-box;
 }
 
+.popup-header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center;
+    border-bottom: 1px solid lightgrey;
+    padding: 14px;
+}
 
+#close-button {
+    margin: 0;
+    width: 8px;
+    height: 8px;
+    background: none;
+    color: lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.popup-menu img {
+    width: 150px;
+    border: 1px solid lightgrey;
+    margin-top: 60px;
+    border-radius: 100%;
+}
+
+.popup-menu select {
+    width: 100%;
+    color: #757575;
+    border: 1px solid #e4e8eb;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+
+.popup-menu button {
+    background: #7450E9;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 7px;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.bottom-ui {
+    width: 100%;
+    padding: 14px;
+    margin-top: auto;
+    box-sizing: border-box;
+}
