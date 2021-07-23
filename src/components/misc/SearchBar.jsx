@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom"
 import '../../styles/NavBar.css'
 
 //Services
@@ -6,13 +7,17 @@ import { search } from '../../services/postService'
 
 const SearchBar = (props) => {
   const [keyword, setKeyword] = useState('')
+  const history =  useHistory()
 
   const handleSearch = async (e) => {
     e.preventDefault()
     try {
       const response = await search(keyword)
-      props.setPosts(response.posts)
       setKeyword('')
+      props.setDisplay(true)
+      props.setHeaderToggle(false)
+      props.setPosts(response.posts)
+      history.push('/home')
     } catch (error) {
       throw error
     }

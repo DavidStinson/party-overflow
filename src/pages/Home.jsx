@@ -16,6 +16,7 @@ const Home = (props) => {
             {props.display ?
                 <Fragment>
                     <Pagination
+                        headerToggle={props.headerToggle}
                         changePage={props.changePage}
                         currentPage={props.currentPage}
                         posts={posts}

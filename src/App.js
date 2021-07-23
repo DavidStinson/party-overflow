@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, useHistory } from 'react-router-dom'
 import './styles/App.css'
 
 //Services
@@ -19,9 +19,11 @@ import PostDetails from './pages/PostDetails'
 
 
 const App = () => {
+  const history =  useHistory()
+  const [display, setDisplay] = useState(true)
+  const [headerToggle, setHeaderToggle] = useState(true)
   const [currentUser, setCurrentUser] = useState()
   const [authenticated, setAuthenticated] = useState(false)
-  const [display, setDisplay] = useState(true)
 
   const [posts, setPosts] = useState([])
   const [currentPage, setCurrentPage] = useState(0)
@@ -56,6 +58,7 @@ const App = () => {
     try {
       await deletePost(postData._id)
       setPosts(posts.filter((post) => post._id !== postData._id))
+      history.push('/home')
     } catch (error) {
       throw error
     }
@@ -87,6 +90,7 @@ const App = () => {
     logout()
     setCurrentUser(null)
     setAuthenticated(false)
+    setDisplay(true)
   }
 
   const verifyToken = async () => {
@@ -119,10 +123,12 @@ const App = () => {
   return (
     <div className="App">
       <NavBar
-        authenticated={authenticated}
-        handleLogout={handleLogout}
         setPosts={setPosts}
+        setDisplay={setDisplay}
         currentPage={currentPage}
+        handleLogout={handleLogout}
+        authenticated={authenticated}
+        setHeaderToggle={setHeaderToggle}
       ></NavBar>
       <Switch>
         <Route exact path="/" component={(props) => (<Landing {...props} />)} />
@@ -131,7 +137,6 @@ const App = () => {
 
         <ProtectedRoute authenticated={authenticated} path='/profile' component={(props) => (
           <Profile
-            {...props}
             posts={posts}
             verifyToken={verifyToken}
             currentUser={currentUser}
@@ -143,12 +148,14 @@ const App = () => {
 
         <Route path="/home" component={(props) => (
           <Layout currentUser={currentUser} display={display} setDisplay={setDisplay}>
-            <Home {...props}
+            <Home
+              {...props}
               posts={posts}
               display={display}
+              changePage={changePage}
               currentUser={currentUser}
               currentPage={currentPage}
-              changePage={changePage}
+              headerToggle={headerToggle}
               handleCreatePost={handleCreatePost}
               handleDeletePost={handleDeletePost}
               markPostResolved={markPostResolved}

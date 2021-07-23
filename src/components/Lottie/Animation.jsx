@@ -1,9 +1,7 @@
 import React from "react";
 import Lottie from 'react-lottie-player'
 
-
 const Animation = (props) => {
-
 
     return (
         <div>
@@ -15,7 +13,7 @@ const Animation = (props) => {
                 style={{ width: '100%', height: '100%' }}
             />
         </div>
-    );
+    )
 }
 export default Animation
 

@@ -8,7 +8,6 @@ import SearchBar from './SearchBar'
 const NavBar = (props) => {
     const { authenticated, handleLogout } = props
 
-
     const navRef = useRef()
 
     const handleClick = () => {
@@ -34,7 +33,11 @@ const NavBar = (props) => {
                     <Link to='/register'>Register</Link>
                 </div>
             }
-            <SearchBar setPosts={props.setPosts}></SearchBar>
+            <SearchBar
+                setPosts={props.setPosts}
+                setDisplay={props.setDisplay}
+                setHeaderToggle={props.setHeaderToggle}
+            ></SearchBar>
 
             <button className="hamburger" onClick={handleClick}>
                 <img src="https://i.imgur.com/4pxvdUi.png" alt="hamburger icon"></img>

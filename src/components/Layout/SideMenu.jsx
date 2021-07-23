@@ -1,10 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import '../../styles/App.css'
 
 const SideMenu = (props) => {
+    const history =  useHistory()
     const { display, setDisplay, currentUser } = props
     const menuText = display ? 'Create Post' : 'Feed'
+
+    const handleRedirect = () => {
+        setDisplay(!display)
+        history.push('/home')
+    }
 
     return (
         <div className="side-menu">
@@ -13,7 +19,7 @@ const SideMenu = (props) => {
                     <Link to="/profile">
                         <button>Profile</button>
                     </Link>
-                    <button onClick={() => setDisplay(!display)}>{menuText}</button>
+                    <button onClick={() => handleRedirect()}>{menuText}</button>
                 </div>
                 :
                 null

@@ -2,10 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/PostCard.css'
 
-// Assets
-import Check from '../../assets/check.png'
-import Remove from '../../assets/remove.png'
-
 //Components
 import UserCard from '../misc/UserCard'
 import Codeblock from '../Code/Codeblock'
