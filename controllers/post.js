@@ -38,11 +38,10 @@ const getPostsByUserId = async (req, res) => {
     }
 }
 
-//options i matches upper and lower cases
 const searchPosts = async (req, res) => {
     try {
         const posts = await Post.find({ question: { $regex: req.query.keyword, $options: "i" } })
-                    .populate([
+            .populate([
                 {
                     path: 'added_by',
                     model: 'User',
@@ -54,9 +53,7 @@ const searchPosts = async (req, res) => {
     }
 }
 
-
-
-async function createPost(req, res) {
+const createPost = async (req, res) => {
     try {
         const post = await new Post(req.body)
         await post.save()
@@ -104,11 +101,11 @@ const updatePost = async (req, res) => {
     }
 }
 
-const deletePost = async(req, res) => {
+const deletePost = async (req, res) => {
     try {
         const post = await Post.findByIdAndDelete(req.params.id)
         res.send(post)
-    }catch(error){
+    } catch (error) {
         throw error
     }
 }

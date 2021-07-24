@@ -6,12 +6,9 @@ import CodeEditor from '../Code/CodeEditor'
 const CommentForm = (props) => {
     const [text, setText] = useState('')
     const [codeblock, setCodeblock] = useState('')
-
-    console.log(props)
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        //make sure fields are filled out before allowing submit, if not display error message
         const formData = {
             comment_text: text,
             codeblock: codeblock,

@@ -1,7 +1,7 @@
 const Post = require('../models/post')
 const User = require('../models/user')
 
-async function createComment(req, res) {
+const createComment = async (req, res) => {
     try {
         const post = await Post.findById(req.params.post_id)
         post.comments.push(req.body)
@@ -13,7 +13,7 @@ async function createComment(req, res) {
     }
 }
 
-async function deleteComment(req, res) {
+const deleteComment = async(req, res) => {
     try {
         const post = await Post.findById(req.params.post_id)
         const idx = post.comments.findIndex((comment) => comment._id.equals(req.params.comment_id))
@@ -25,7 +25,7 @@ async function deleteComment(req, res) {
     }
 }
 
-async function updateComment(req, res) {
+const updateComment = async(req, res) => {
     try {
         const post = await Post.findById(req.params.post_id)
         const idx = post.comments.findIndex((comment) => comment._id.equals(req.params.comment_id))

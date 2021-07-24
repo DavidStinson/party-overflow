@@ -14,19 +14,16 @@ const PostDetails = (props) => {
 
 
     useEffect(() => {
-        let componentMounted = true
         const fetchUserPosts = async () => {
             try {
                 const response = await getPostById(id)
-                if (componentMounted) {
-                    setPost(response.post)
-                }
+                setPost(response.post)
             } catch (error) {
                 throw error
             }
         }
         fetchUserPosts()
-        return () => { componentMounted = false }
+        return () => { setPost({}) }
     }, [id])
 
 
