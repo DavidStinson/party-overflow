@@ -19,7 +19,7 @@ import PostDetails from './pages/PostDetails'
 
 
 const App = () => {
-  const history =  useHistory()
+  const history = useHistory()
   const [display, setDisplay] = useState(true)
   const [headerToggle, setHeaderToggle] = useState(true)
   const [currentUser, setCurrentUser] = useState()
@@ -93,20 +93,19 @@ const App = () => {
     setDisplay(true)
   }
 
-  const verifyToken = async () => {
-    const token = localStorage.getItem("token")
-    if (token) {
-      try {
-        const user = getUser()
-        setCurrentUser(user)
-        setAuthenticated(true)
-      } catch (error) {
-        localStorage.clear()
+  useEffect(() => {
+    const verifyToken = async () => {
+      const token = localStorage.getItem("token")
+      if (token) {
+        try {
+          const user = getUser()
+          setCurrentUser(user)
+          setAuthenticated(true)
+        } catch (error) {
+          localStorage.clear()
+        }
       }
     }
-  }
-
-  useEffect(() => {
     verifyToken()
   }, [authenticated])
 
@@ -138,7 +137,6 @@ const App = () => {
         <ProtectedRoute authenticated={authenticated} path='/profile' component={(props) => (
           <Profile
             posts={posts}
-            verifyToken={verifyToken}
             currentUser={currentUser}
             handleDeletePost={handleDeletePost}
             markPostResolved={markPostResolved}

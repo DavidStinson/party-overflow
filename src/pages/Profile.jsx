@@ -11,9 +11,6 @@ const Profile = (props) => {
     const { _id, avatar, handle } = props.currentUser
     const [userPosts, setUserPosts] = useState([])
 
-    console.log(userPosts)
-
-    //will fetch data once component mounts
     useEffect(() => {
         const fetchUserPosts = async (id) => {
             const response = await getUserPosts(id)
