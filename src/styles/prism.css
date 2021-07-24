@@ -39,7 +39,9 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
  
  :not(pre) > code[class*="language-"],
  pre[class*="language-"] {
-     background: #2d2d2d;
+
+     /* BACKGROUND */
+     background: #0b0b12;
  }
  
  /* Inline code */
@@ -126,4 +128,6 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
  
  .codeblock{
      border-radius: 8px;
+     border: 1px solid #292934;
+
  }

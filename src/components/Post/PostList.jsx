@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../styles/PostCard.css'
 
 //Components
 import PostCard from './PostCard'
@@ -6,7 +7,7 @@ import PostCard from './PostCard'
 const PostList = (props) => {
 
     return (
-        <div style={{ marginTop: '50px', background: '#f3f4f5', height: '100%' }}>
+        <div className="post-list">
             {props.posts ?
                 props.posts.map((post, index) => (
                     <PostCard

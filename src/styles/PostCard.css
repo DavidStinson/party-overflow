@@ -1,14 +1,20 @@
+.post-list {
+    margin-top: 50px;
+    height: 100%;
+    background: #0b0b12;
+}
+
 .post-card {
-    border: 1px solid lightgrey;
     border-radius: 8px;
     margin: 10px;
-    background: white;
+
+    border: 1px solid #292934;
+    background: #12121b;
 }
 
 .card-header {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid lightgrey;
 }
 
 .question-container {
@@ -23,7 +29,8 @@
     margin: 0;
     text-align: left;
     line-height: 1.4;
-    color: rgb(40, 40, 40);
+    font-size: 16px;
+    color: rgb(200, 200, 200);
 }
 
 .code-container {
@@ -31,8 +38,8 @@
 }
 
 .comment-link {
-    border-top: 1px solid lightgrey;
-    padding: 8px;
+    border-top: 1px solid #292934;
+    padding: 8px 8px 11px 8px;
 }
 
 .comment-link a {

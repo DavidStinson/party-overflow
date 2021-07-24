@@ -18,7 +18,6 @@ const CommentForm = (props) => {
         props.handleCreateComment(formData)
     }
 
-
     return (
         <form className="comment-form" onSubmit={handleSubmit}>
             <label>Comment</label>

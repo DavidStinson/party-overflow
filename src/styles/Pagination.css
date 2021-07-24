@@ -1,11 +1,13 @@
 .pagination{
-    background-color: white;
+    background: #12121b;
+
     position: fixed;
     width: inherit;
     height: 50px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid lightgrey;  
+    border-bottom: 1px solid #26262b;
+    color: rgb(200, 200, 200);
 }
 
 .pagination h3{
@@ -21,7 +23,6 @@
     align-items: center;
     justify-content: center;
     background-color: #7450E9;
-    color: white;
     border: none;
     border-radius: 15px;
     font-weight: 600;
