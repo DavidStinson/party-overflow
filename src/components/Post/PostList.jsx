@@ -8,7 +8,7 @@ const PostList = (props) => {
 
     return (
         <div className="post-list">
-            {props.posts ?
+            {props.posts &&
                 props.posts.map((post, index) => (
                     <PostCard
                         key={index}
@@ -18,8 +18,7 @@ const PostList = (props) => {
                         currentUser={props.currentUser}
                     />
                 ))
-                :
-                null}
+            }
         </div>
     )
 }

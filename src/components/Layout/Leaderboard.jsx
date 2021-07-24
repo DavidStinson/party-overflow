@@ -23,18 +23,16 @@ const Leaderboard = () => {
         return () => { setUserList([]) }
     }, [])
 
+
     return (
         <div className="leaderboard">
             <p>Leaderboard</p>
-            {userList ?
+            {userList &&
                 userList.map((user, index) => (
                     <div key={index} style={{ display: 'flex' }}>
                         <UserCard user={user}></UserCard>
-                        <p>Solution Count: {user.solution_count}</p>
                     </div>
                 ))
-                :
-                null
             }
         </div>
     )

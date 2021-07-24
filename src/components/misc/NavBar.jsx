@@ -23,16 +23,6 @@ const NavBar = (props) => {
                 <img src="https://i.imgur.com/Vba6pJv.png" alt="disco-ball"></img>
             </Link>
 
-            {/* <Link to='/home'>Home</Link>
-            {authenticated ?
-                <p onClick={handleLogout}>Sign Out</p>
-                :
-                <div>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/register'>Register</Link>
-                </div>
-            } */}
-
             <SearchBar
                 setPosts={props.setPosts}
                 setDisplay={props.setDisplay}

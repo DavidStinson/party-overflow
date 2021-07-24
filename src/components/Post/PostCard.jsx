@@ -25,15 +25,11 @@ const PostCard = (props) => {
 
 
             <div className="question-container">
-                {props.post.is_resolved ?
-                    <p>[RESOLVED] {props.post.question}</p>
-                    :
-                    <p>{props.post.question}</p>
-                }
+                <p> {props.post.is_resolved && '[RESOLVED]'} {props.post.question}</p>
             </div>
 
             <div className="code-container">
-                {props.post.codeblock ? <Codeblock codeblock={props.post.codeblock}></Codeblock> : null}
+                {props.post.codeblock && <Codeblock codeblock={props.post.codeblock}></Codeblock>}
             </div>
 
 

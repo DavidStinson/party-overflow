@@ -129,19 +129,24 @@ const App = () => {
         authenticated={authenticated}
         setHeaderToggle={setHeaderToggle}
       ></NavBar>
+
+
       <Switch>
         <Route exact path="/" component={(props) => (<Landing {...props} />)} />
         <Route path="/login" component={(props) => (<Login {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
         <Route path="/register" component={(props) => (<Register {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />
 
-        <ProtectedRoute authenticated={authenticated} path='/profile' component={(props) => (
-          <Profile
-            posts={posts}
-            currentUser={currentUser}
-            handleDeletePost={handleDeletePost}
-            markPostResolved={markPostResolved}
-          />
-        )}>
+        <ProtectedRoute
+          authenticated={authenticated}
+          path='/profile'
+          component={(props) => (
+            <Profile
+              posts={posts}
+              currentUser={currentUser}
+              handleDeletePost={handleDeletePost}
+              markPostResolved={markPostResolved}
+            />
+          )}>
         </ProtectedRoute>
 
         <Route path="/home" component={(props) => (

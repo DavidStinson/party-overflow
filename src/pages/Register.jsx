@@ -52,7 +52,7 @@ const Register = (props) => {
 
     return (
         <div className="signup-page">
-            {popup ? <AvatarSelection formData={formData} handleChange={handleChange} handlePopup={handlePopup}></AvatarSelection> : null}
+            {popup && <AvatarSelection formData={formData} handleChange={handleChange} handlePopup={handlePopup}></AvatarSelection>}
 
             <div className='left-container'>
                 <div className='form-container'>

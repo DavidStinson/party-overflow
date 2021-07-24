@@ -25,14 +25,14 @@ const Profile = (props) => {
             <img src={avatar} alt="user avatar"></img>
             <p>{handle}</p>
             <div>
-                {userPosts.length ?
+                {userPosts.length &&
                     <PostList
                         posts={userPosts}
                         markPostResolved={props.markPostResolved}
                         handleDeletePost={props.handleDeletePost}
                         currentUser={props.currentUser}
                     ></PostList>
-                    : null}
+                }
             </div>
         </div>
     )

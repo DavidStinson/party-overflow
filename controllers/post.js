@@ -7,14 +7,12 @@ const getPostById = async (req, res) => {
             {
                 path: 'added_by',
                 model: 'User',
-                select: '_id handle avatar'
             },
             {
                 path: 'comments',
                 populate: {
                     path: 'commenter',
                     model: 'User',
-                    select: '_id handle avatar'
                 }
             }
         ])
@@ -45,7 +43,6 @@ const searchPosts = async (req, res) => {
                 {
                     path: 'added_by',
                     model: 'User',
-                    select: '_id handle avatar'
                 }])
         return res.status(200).json({ posts })
     } catch (error) {
@@ -76,7 +73,6 @@ const getRecent = async (req, res) => {
                 {
                     path: 'added_by',
                     model: 'User',
-                    select: '_id handle avatar'
                 },
                 {
                     path: 'comments',

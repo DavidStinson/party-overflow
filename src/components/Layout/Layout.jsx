@@ -7,6 +7,7 @@ import SideMenu from '../Layout/SideMenu'
 
 const Layout = (props) => {
 
+
     const { children, currentUser, display, setDisplay } = props
 
     return (
