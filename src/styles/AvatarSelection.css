@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 185px;
+    padding-top: 160px;
     background:rgba(0, 0, 0, 0.65);
 }
 
@@ -15,10 +15,11 @@
     flex-direction: column;
     align-items: center;
     border-radius: 8px;
-    background: white;
-    min-width: 330px;
-    min-height: 450px;
+    background: #12121b;
+    min-width: 375px;
+    min-height: 480px;
     box-sizing: border-box;
+    border: 1px solid #292934;
 }
 
 .popup-header {
@@ -28,7 +29,7 @@
     align-items: center;
     box-sizing: border-box;
     justify-content: center;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid #292934;
     padding: 14px;
 }
 
@@ -45,8 +46,8 @@
 }
 
 .popup-menu img {
-    width: 150px;
-    border: 1px solid lightgrey;
+    width: 180px;
+    border: 1px solid #4a4a5a;
     margin-top: 60px;
     border-radius: 100%;
 }
@@ -54,9 +55,10 @@
 .popup-menu select {
     width: 100%;
     color: #757575;
-    border: 1px solid #e4e8eb;
+    border: 1px solid #292934;
     border-radius: 7px;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+    background: #0B0B12;
 }
 
 .popup-menu button {
@@ -71,7 +73,7 @@
 
 .bottom-ui {
     width: 100%;
-    padding: 14px;
+    padding: 14px 14px 20px 14px;
     margin-top: auto;
     box-sizing: border-box;
 }

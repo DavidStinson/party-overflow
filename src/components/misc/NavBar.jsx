@@ -6,7 +6,7 @@ import '../../styles/NavBar.css'
 import SearchBar from './SearchBar'
 
 const NavBar = (props) => {
-    // const { authenticated, handleLogout } = props
+    const { authenticated, handleLogout } = props
 
     const navRef = useRef()
 
@@ -32,6 +32,7 @@ const NavBar = (props) => {
                     <Link to='/register'>Register</Link>
                 </div>
             } */}
+
             <SearchBar
                 setPosts={props.setPosts}
                 setDisplay={props.setDisplay}
@@ -51,6 +52,18 @@ const NavBar = (props) => {
                         alt="hamburger icon"
                     ></img>
                 </button>
+
+                <div className="mobile-links">
+                    {authenticated ?
+                        <p onClick={handleLogout}>Sign Out</p>
+                        :
+                        <>
+                            <Link to='/login'>Login</Link>
+                            <Link to='/register'>Register</Link>
+                        </>
+                    }
+                </div>
+
             </div>
 
         </div>
