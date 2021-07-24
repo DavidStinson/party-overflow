@@ -36,8 +36,7 @@
 
     .mobile-logo {
       display: flex;
-      min-width: 450px;
-      width: 75vw;
+      width: 90vw;
       max-width: 600px;
     }
 

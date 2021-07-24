@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import '../styles/Profile.css'
 
 //Services
 import { getUserPosts } from '../services/postService'
@@ -20,7 +21,7 @@ const Profile = (props) => {
     }, [_id])
 
     return (
-        <div>
+        <div className="profile-page">
             <img src={avatar} alt="user avatar"></img>
             <p>{handle}</p>
             <div>

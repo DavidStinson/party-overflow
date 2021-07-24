@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   overflow-x: hidden;
+  background: #0b0b12;
 }
 
 .App-logo {
@@ -63,7 +64,8 @@
   flex-direction: column;
   width: 25%;
   height: 100vh;
-  border-right: 1px solid lightgrey;
+  border-right: 1px solid #292934;
+  background: #0b0b12;
 }
 
 .leaderboard{
@@ -71,7 +73,8 @@
   flex-direction: column;
   width: 25%;
   height: 100vh;
-  border-left: 1px solid lightgrey;
+  border-left: 1px solid #292934;
+  background: #0b0b12;
 }
 
 

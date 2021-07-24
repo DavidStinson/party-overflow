@@ -39,7 +39,7 @@ const NavBar = (props) => {
             ></SearchBar>
 
             <button className="hamburger" onClick={handleClick}>
-                <img src="https://i.imgur.com/4pxvdUi.png" alt="hamburger icon"></img>
+                <img src="https://i.imgur.com/e2wfqY1.png" alt="hamburger icon"></img>
             </button>
 
             <div className="mobile-nav" ref={navRef}>

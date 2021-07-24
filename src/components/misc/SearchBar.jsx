@@ -30,7 +30,7 @@ const SearchBar = (props) => {
   return (
     <form className="search" onSubmit={handleSearch}>
       <button type="submit">
-        <img className="search-icon" src="https://i.imgur.com/iFtGXxX.png" alt="magnifying glass"></img>
+        <img className="search-icon" src="https://i.imgur.com/iuEJ77t.png" alt="magnifying glass"></img>
       </button>
       <input
         autoComplete="off"
