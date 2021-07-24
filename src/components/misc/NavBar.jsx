@@ -20,8 +20,7 @@ const NavBar = (props) => {
         <div className="nav-bar">
 
             <Link className="logo" to='/'>
-                <img src="https://i.imgur.com/4tgXjNw.png" alt="disco-ball"></img>
-                <h3>partyoverflow</h3>
+                <img src="https://i.imgur.com/Vba6pJv.png" alt="disco-ball"></img>
             </Link>
 
             <Link to='/home'>Home</Link>
