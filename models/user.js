@@ -28,7 +28,6 @@ const userSchema = new mongoose.Schema({
         required: false,
         default: 0,
     },
-    profile: { type: mongoose.Schema.Types.ObjectId, ref: 'Profile' },
     posts: [
         {
             type: mongoose.Schema.Types.ObjectId,
