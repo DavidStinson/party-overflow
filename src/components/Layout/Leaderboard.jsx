@@ -3,6 +3,7 @@ import '../../styles/App.css'
 
 // Components
 import UserCard from '../misc/UserCard'
+import GreetingCard from '../misc/GreetingCard'
 
 //Services
 import { getTopUsers } from '../../services/authService'
@@ -26,6 +27,7 @@ const Leaderboard = () => {
 
     return (
         <div className="leaderboard">
+            <GreetingCard></GreetingCard>
             <div className="user-list-container">
                 <div className="user-list-header">
                     <h3>Top Users</h3>
@@ -38,6 +40,7 @@ const Leaderboard = () => {
                     ))
                 }
             </div>
+
         </div>
     )
 }
