@@ -1,12 +1,22 @@
-.pagination{
-    background: #12121b;
-
+.hidden-container {
+    background: #0b0b12;
     position: fixed;
     width: inherit;
+    padding: 10px 10px 0px 10px;
+    border-radius: 0px 0px 24px 24px;
+    box-sizing: border-box;
+}
+
+
+.pagination{
+    background: #12121b;
+    box-sizing: border-box;
     height: 50px;
+    width: 100%;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #26262b;
+    border: 1px solid #26262b;
+    border-radius: 8px 8px 0px 0px;
     color: rgb(200, 200, 200);
 }
 

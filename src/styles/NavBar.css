@@ -28,47 +28,6 @@
     margin-right: 8px;
 }
 
-
-
-
-.search {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    background: #0b0b12;
-    padding: 8px;
-    border-radius: 20px;
-    width: 220px;
-    border: 1px solid #292934;
-}
-
-.search-icon{
-    width: 14px;
-}
-
-.search input {
-    background: none;
-    border: none;
-    color: rgb(200, 200, 200);
-}
-
-.search input:focus{
-    outline: none;
-}
-
-.search button{
-    margin: 0;
-    border: none;
-    height: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 4px 8px 4px;
-    margin-right: 8px;
-    background: none;
-}
-
-
 .hamburger {
     display: none;
 }

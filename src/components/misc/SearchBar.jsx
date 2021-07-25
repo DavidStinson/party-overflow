@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
-import '../../styles/NavBar.css'
+import '../../styles/App.css'
 
 //Services
 import { search } from '../../services/postService'
@@ -29,9 +29,7 @@ const SearchBar = (props) => {
 
   return (
     <form className="search" onSubmit={handleSearch}>
-      <button type="submit">
-        <img className="search-icon" src="https://i.imgur.com/iuEJ77t.png" alt="magnifying glass"></img>
-      </button>
+      <img className="search-icon" src="https://i.imgur.com/iuEJ77t.png" alt="magnifying glass"></img>
       <input
         autoComplete="off"
         placeholder="Search"

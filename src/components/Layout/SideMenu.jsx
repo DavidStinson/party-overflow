@@ -2,6 +2,9 @@ import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import '../../styles/App.css'
 
+//Components
+import SearchBar from '../misc/SearchBar'
+
 const SideMenu = (props) => {
     const history = useHistory()
     const { display, setDisplay, currentUser } = props
@@ -23,6 +26,11 @@ const SideMenu = (props) => {
                 <div className="menu-items">
                     {currentUser ?
                         <>
+                            <SearchBar
+                                setPosts={props.setPosts}
+                                setDisplay={props.setDisplay}
+                                setHeaderToggle={props.setHeaderToggle}
+                            ></SearchBar>
                             <Link to="/profile"><button>Profile</button></Link>
                             <button onClick={() => handleRedirect()}>{menuText}</button>
                             <button onClick={props.handleLogout}>Sign Out</button>

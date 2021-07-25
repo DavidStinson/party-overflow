@@ -27,7 +27,7 @@ const Leaderboard = () => {
 
     return (
         <div className="leaderboard">
-            <GreetingCard></GreetingCard>
+            {/* <GreetingCard></GreetingCard> */}
             <div className="user-list-container">
                 <div className="user-list-header">
                     <h3>Top Users</h3>

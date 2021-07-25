@@ -6,17 +6,12 @@ import Leaderboard from '../Layout/Leaderboard'
 import SideMenu from '../Layout/SideMenu'
 
 const Layout = (props) => {
-
-
-    const { children, currentUser, display, setDisplay } = props
+    const { children } = props
 
     return (
         <div className="home-page">
             <SideMenu
-                display={display}
-                setDisplay={setDisplay}
-                currentUser={currentUser}
-                handleLogout={props.handleLogout}
+                {...props}
             ></SideMenu>
             {children}
             <Leaderboard></Leaderboard>

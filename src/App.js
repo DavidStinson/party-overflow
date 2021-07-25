@@ -153,8 +153,11 @@ const App = () => {
           <Layout
             currentUser={currentUser}
             display={display}
+            setPosts={setPosts}
             setDisplay={setDisplay}
-            handleLogout={handleLogout}>
+            handleLogout={handleLogout}
+            setHeaderToggle={setHeaderToggle}
+          >
             <Home
               {...props}
               posts={posts}
@@ -174,8 +177,11 @@ const App = () => {
           <Layout
             currentUser={currentUser}
             display={display}
+            setPosts={setPosts}
             setDisplay={setDisplay}
-            handleLogout={handleLogout}>
+            handleLogout={handleLogout}
+            setHeaderToggle={setHeaderToggle}
+          >
             <PostDetails
               {...props}
               currentUser={currentUser}

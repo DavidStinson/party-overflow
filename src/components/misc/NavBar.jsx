@@ -23,11 +23,11 @@ const NavBar = (props) => {
                 <img src="https://i.imgur.com/Vba6pJv.png" alt="disco-ball"></img>
             </Link>
 
-            <SearchBar
+            {/* <SearchBar
                 setPosts={props.setPosts}
                 setDisplay={props.setDisplay}
                 setHeaderToggle={props.setHeaderToggle}
-            ></SearchBar>
+            ></SearchBar> */}
 
             <button className="hamburger" onClick={handleClick}>
                 <img src="https://i.imgur.com/e2wfqY1.png" alt="hamburger icon"></img>
