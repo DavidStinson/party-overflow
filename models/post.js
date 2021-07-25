@@ -27,7 +27,7 @@ const postSchema = new Schema({
     },
     codeblock: {
         type: String,
-        required: true
+        required: false
     },
     is_resolved: {
         type: Boolean,

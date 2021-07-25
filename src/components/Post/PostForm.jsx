@@ -33,7 +33,7 @@ const PostForm = (props) => {
             </div>
 
             <div className="post-form-container">
-                <div className="post-form">
+                <div className="post-form" style={{marginTop: '50px'}}>
                     <div className="question-prompt">
                         <label>Enter your question</label>
                     </div>

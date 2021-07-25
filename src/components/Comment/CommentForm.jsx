@@ -5,8 +5,9 @@ import CodeEditor from '../Code/CodeEditor'
 
 const CommentForm = (props) => {
     const [text, setText] = useState('')
+    const [toggle, setToggle] = useState(false)
     const [codeblock, setCodeblock] = useState('')
-    
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = {
@@ -19,21 +20,38 @@ const CommentForm = (props) => {
     }
 
     return (
-        <form className="comment-form" onSubmit={handleSubmit}>
-            <label>Comment</label>
+        <div className="post-form">
+            <div className="question-prompt">
+                <label>Enter your Comment</label>
+            </div>
             <input
+                required
+                autoComplete='off'
+                placeholder="Comment"
                 name="comment_text"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-            />
-            <label>Codeblock</label>
-            <CodeEditor
-                name="code-editor"
-                codeblock={codeblock}
-                setCodeblock={setCodeblock}
-            ></CodeEditor>
-            <button>Submit</button>
-        </form>
+            ></input>
+
+            <div className="border"></div>
+
+            <div className="code-prompt">
+                <label>Codeblock</label>
+                <button id="plus-button" onClick={() => setToggle(!toggle)}>+</button>
+            </div>
+
+            {toggle &&
+                <CodeEditor
+                    name="code-editor"
+                    codeblock={codeblock}
+                    setCodeblock={setCodeblock}
+                ></CodeEditor>
+            }
+
+            <div className="border"></div>
+            
+            <button onClick={handleSubmit}>Submit</button>
+        </div>
     )
 }
 

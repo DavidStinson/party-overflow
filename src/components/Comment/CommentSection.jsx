@@ -57,6 +57,21 @@ const CommentSection = (props) => {
     return (
         <div className="comment-section">
 
+            <div className="pagination">
+                <h3>Comment Section</h3>
+                <div className="pagination-buttons">
+                    {props.currentUser && <button onClick={() => setShowNewComment(!showNewComment)}>New Comment</button>}
+                </div>
+            </div>
+
+            {showNewComment &&
+                <CommentForm
+                    post={props.post}
+                    handleCreateComment={handleCreateComment}
+                    currentUser={props.currentUser}
+                ></CommentForm>
+            }
+
             <CommentList
                 post={props.post}
                 comments={commentArray}
@@ -65,17 +80,7 @@ const CommentSection = (props) => {
                 handleDeleteComment={handleDeleteComment}
             ></CommentList>
 
-            {props.currentUser && <button onClick={() => setShowNewComment(!showNewComment)}>New Comment</button>}
 
-            {showNewComment ?
-                <CommentForm
-                    post={props.post}
-                    handleCreateComment={handleCreateComment}
-                    currentUser={props.currentUser}
-                ></CommentForm>
-                :
-                null
-            }
 
         </div>
     )
