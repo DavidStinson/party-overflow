@@ -26,14 +26,18 @@ const Leaderboard = () => {
 
     return (
         <div className="leaderboard">
-            <p>Leaderboard</p>
-            {userList &&
-                userList.map((user, index) => (
-                    <div key={index} style={{ display: 'flex' }}>
-                        <UserCard user={user}></UserCard>
-                    </div>
-                ))
-            }
+            <div className="user-list-container">
+                <div className="user-list-header">
+                    <h3>Top Users</h3>
+                </div>
+                {userList &&
+                    userList.map((user, index) => (
+                        <div className="leader-card" key={index} style={{ display: 'flex' }}>
+                            <UserCard user={user}></UserCard>
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     )
 }
