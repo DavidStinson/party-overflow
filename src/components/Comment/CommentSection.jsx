@@ -65,7 +65,7 @@ const CommentSection = (props) => {
                 handleDeleteComment={handleDeleteComment}
             ></CommentList>
 
-            {props.currentUser !== null ? <button onClick={() => setShowNewComment(!showNewComment)}>New Comment</button> : null}
+            {props.currentUser && <button onClick={() => setShowNewComment(!showNewComment)}>New Comment</button>}
 
             {showNewComment ?
                 <CommentForm

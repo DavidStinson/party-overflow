@@ -5,12 +5,14 @@ const CommentInteractions = (props) => {
 
 
     return (
-        props.currentUser && props.currentUser._id === props.comment.commenter._id ?
-            <div>
+        <div className="interactions">
+            {props.currentUser && props.currentUser._id === props.comment.commenter._id &&
                 <button onClick={() => props.handleDeleteComment(props.comment._id)}>Delete</button>
-            </div>
-            :
-            null
+            }
+            {props.currentUser && props.currentUser._id === props.post.added_by._id &&
+                <button onClick={() => props.handleSolution(props.comment)}>Solution</button>
+            }
+        </div>
     )
 }
 

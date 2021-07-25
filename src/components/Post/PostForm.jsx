@@ -56,7 +56,9 @@ const PostForm = (props) => {
                     {toggle &&
                         <CodeEditor codeblock={codeblock} setCodeblock={setCodeblock}></CodeEditor>
                     }
+
                     <div className="border"></div>
+                    
                     <button onClick={handleSubmit}>Submit</button>
                 </div>
 

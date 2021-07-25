@@ -1,4 +1,5 @@
 import React from "react"
+import '../../styles/Comment.css'
 
 //Components
 import UserCard from '../misc/UserCard'
@@ -7,30 +8,32 @@ import CommentInteractions from './CommentInteractions'
 
 const CommentCard = (props) => {
 
-    console.log('COMMENT CARD POST', props.post.added_by._id)
-
     return (
-        props.comment ?
-            <div>
+        props.comment &&
+        <div className="comment-card">
+            <div className="card-header">
                 <UserCard user={props.comment.commenter}></UserCard>
-                <p>{props.comment.comment_text}</p>
-                <Codeblock codeblock={props.comment.codeblock}></Codeblock>
-                <p>{props.comment.is_solution ? 'Solution' : null}</p>
-                
                 <CommentInteractions
+                    post={props.post}
                     comment={props.comment}
                     currentUser={props.currentUser}
                     handleSolution={props.handleSolution}
                     handleDeleteComment={props.handleDeleteComment}
                 ></CommentInteractions>
-
-                {props.currentUser._id === props.post.added_by._id ?
-                    <button onClick={() => props.handleSolution(props.comment)}>Mark As Solution</button>
-                    : null}
-
             </div>
-            :
-            null
+
+
+
+            <div className="question-container">
+                <p> {props.comment.is_solution && '[SOLUTION]'} {props.comment.comment_text}</p>
+            </div>
+
+
+            <div className="code-container">
+                <Codeblock codeblock={props.comment.codeblock}></Codeblock>
+            </div>
+
+        </div>
     )
 }
 
