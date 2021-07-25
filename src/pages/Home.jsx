@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import '../styles/App.css'
 
+
 //Components
 import PostList from '../components/Post/PostList'
 import PostForm from '../components/Post/PostForm'
@@ -22,6 +23,7 @@ const Home = (props) => {
                         setHeaderToggle={props.setHeaderToggle}
                         posts={posts}
                     ></Pagination>
+                    <div className="spacing-block"></div>
                     <PostList
                         posts={posts}
                         markPostResolved={markPostResolved}

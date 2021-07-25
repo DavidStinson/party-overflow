@@ -2,9 +2,8 @@
 
 .post-list {
     height: 100%;
-    margin-top: 50px;
     background: #0b0b12;
-    padding: 10px 10px 0px 10px;
+    padding: 0px 10px 0px 10px;
 }
 
 .post-card {

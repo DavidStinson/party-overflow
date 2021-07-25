@@ -22,8 +22,8 @@ const Pagination = (props) => { //rename
                     </div>
                 </div>}
         </div>
-
     )
 }
 
 export default Pagination
+

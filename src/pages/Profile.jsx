@@ -9,7 +9,7 @@ import PostList from '../components/Post/PostList'
 
 
 const Profile = (props) => {
-    const { _id, avatar, handle } = props.currentUser
+    const { _id, avatar, handle, solution_count } = props.currentUser
     const [userPosts, setUserPosts] = useState([])
 
     useEffect(() => {
@@ -22,17 +22,33 @@ const Profile = (props) => {
 
     return (
         <div className="profile-page">
-            <img src={avatar} alt="user avatar"></img>
-            <p>{handle}</p>
-            <div>
-                {userPosts.length &&
-                    <PostList
-                        posts={userPosts}
-                        markPostResolved={props.markPostResolved}
-                        handleDeletePost={props.handleDeletePost}
-                        currentUser={props.currentUser}
-                    ></PostList>
-                }
+            <div className="profile-left">
+                <div className="profile-user-info">
+                    <img src={avatar} alt="user avatar"></img>
+                    <h3>{handle}</h3>
+                    <h4>Solution Count: {solution_count}</h4>
+                    <button>Home</button>
+                    <button>Create Post</button>
+                    <button>Sign Out</button>
+                </div>
+            </div>
+            <div className="profile-right">
+                <div className="profile-post-container">
+                    <div className="sub-container">
+                        <div className="profile-posts-header">
+                            <h3>Your Posts</h3>
+                        </div>
+                    </div>
+                    {userPosts.length &&
+                        <PostList
+                            posts={userPosts}
+                            markPostResolved={props.markPostResolved}
+                            handleDeletePost={props.handleDeletePost}
+                            currentUser={props.currentUser}
+                        ></PostList>
+                    }
+                </div>
+
             </div>
         </div>
     )

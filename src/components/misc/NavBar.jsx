@@ -31,15 +31,18 @@ const NavBar = (props) => {
             <div className="mobile-nav" ref={navRef}>
                 <button className="hamburger" onClick={handleClick}>
                     <img
-                        style={{ width: '20px', padding: '10px' }}
-                        src="https://i.imgur.com/wpgp3TT.png"
-                        alt="hamburger icon"
+                        style={{ width: '20px', margin: '5px 10px 0px 10px' }}
+                        src="https://i.imgur.com/wpgp3TT.png" alt="hamburger icon"
                     ></img>
                 </button>
 
                 <div className="mobile-links">
                     {authenticated ?
-                        <p onClick={handleLogout}>Sign Out</p>
+                        <>
+                            <Link to='/profile'>Profile</Link>
+                            <Link to='/home'>Home</Link>
+                            <p onClick={handleLogout}>Sign Out</p>
+                        </>
                         :
                         <>
                             <Link to='/login'>Login</Link>
