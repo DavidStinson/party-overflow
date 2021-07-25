@@ -9,6 +9,7 @@ import CodeEditor from '../Code/CodeEditor'
 const PostForm = (props) => {
     const [question, setQuestion] = useState('')
     const [codeblock, setCodeblock] = useState('')
+    const [toggle, setToggle] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -32,8 +33,8 @@ const PostForm = (props) => {
             </div>
 
             <div className="post-form-container">
-                <form className="post-form" onSubmit={(e) => handleSubmit(e)}>
-                    <div className="form-prompt">
+                <div className="post-form">
+                    <div className="question-prompt">
                         <label>Enter your question</label>
                     </div>
                     <input
@@ -45,14 +46,19 @@ const PostForm = (props) => {
                         onChange={(e) => setQuestion(e.target.value)}
                     ></input>
 
-                    <div className="form-prompt">
+                    <div className="border"></div>
+
+                    <div className="code-prompt">
                         <label>Codeblock</label>
+                        <button id="plus-button" onClick={() => setToggle(!toggle)}>+</button>
                     </div>
-                    <CodeEditor codeblock={codeblock} setCodeblock={setCodeblock}></CodeEditor>
 
-                    <button>Submit</button>
-
-                </form>
+                    {toggle &&
+                        <CodeEditor codeblock={codeblock} setCodeblock={setCodeblock}></CodeEditor>
+                    }
+                    <div className="border"></div>
+                    <button onClick={handleSubmit}>Submit</button>
+                </div>
 
             </div>
         </>
