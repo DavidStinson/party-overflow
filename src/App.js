@@ -150,7 +150,11 @@ const App = () => {
         </ProtectedRoute>
 
         <Route path="/home" component={(props) => (
-          <Layout currentUser={currentUser} display={display} setDisplay={setDisplay}>
+          <Layout
+            currentUser={currentUser}
+            display={display}
+            setDisplay={setDisplay}
+            handleLogout={handleLogout}>
             <Home
               {...props}
               posts={posts}
@@ -167,7 +171,11 @@ const App = () => {
         )} />
 
         <Route path="/post/:id" component={(props) => (
-          <Layout currentUser={currentUser} display={display} setDisplay={setDisplay}>
+          <Layout
+            currentUser={currentUser}
+            display={display}
+            setDisplay={setDisplay}
+            handleLogout={handleLogout}>
             <PostDetails
               {...props}
               currentUser={currentUser}

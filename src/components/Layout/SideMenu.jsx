@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import '../../styles/App.css'
 
 const SideMenu = (props) => {
-    const history =  useHistory()
+    const history = useHistory()
     const { display, setDisplay, currentUser } = props
     const menuText = display ? 'Create Post' : 'Feed'
 
@@ -14,16 +14,26 @@ const SideMenu = (props) => {
 
     return (
         <div className="side-menu">
-            {currentUser ?
-                <div>
-                    <Link to="/profile">
-                        <button>Profile</button>
-                    </Link>
-                    <button onClick={() => handleRedirect()}>{menuText}</button>
+            <div className="menu-panel">
+
+                <div className="menu-header">
+                    <h3>Menu</h3>
                 </div>
-                :
-                null
-            }
+
+                <div className="menu-items">
+                    {currentUser ?
+                        <>
+                            <Link to="/profile"><button>Profile</button></Link>
+                            <button onClick={() => handleRedirect()}>{menuText}</button>
+                            <button onClick={props.handleLogout}>Sign Out</button>
+                        </>
+                        :
+                        null
+                    }
+
+                </div>
+
+            </div>
         </div>
     )
 }

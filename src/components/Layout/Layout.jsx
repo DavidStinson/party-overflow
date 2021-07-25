@@ -12,7 +12,12 @@ const Layout = (props) => {
 
     return (
         <div className="home-page">
-            <SideMenu display={display} setDisplay={setDisplay} currentUser={currentUser}></SideMenu>
+            <SideMenu
+                display={display}
+                setDisplay={setDisplay}
+                currentUser={currentUser}
+                handleLogout={props.handleLogout}
+            ></SideMenu>
             {children}
             <Leaderboard></Leaderboard>
         </div>
