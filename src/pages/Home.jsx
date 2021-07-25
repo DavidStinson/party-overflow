@@ -19,6 +19,7 @@ const Home = (props) => {
                         headerToggle={props.headerToggle}
                         changePage={props.changePage}
                         currentPage={props.currentPage}
+                        setHeaderToggle={props.setHeaderToggle}
                         posts={posts}
                     ></Pagination>
                     <PostList
@@ -29,7 +30,13 @@ const Home = (props) => {
                     ></PostList>
                 </Fragment>
                 :
-                <PostForm handleCreatePost={handleCreatePost} currentUser={props.currentUser}></PostForm>
+
+                <PostForm
+                    setDisplay={props.setDisplay}
+                    handleCreatePost={handleCreatePost}
+                    currentUser={props.currentUser}
+                ></PostForm>
+
             }
         </div>
     )

@@ -55,13 +55,14 @@
     }
 
     .hamburger {
+        margin: 0;
+        border: none;
         display: flex;
         background: none;
-        border: none;
-        margin: 0;
-        margin-left: auto;
+        align-items: flex-end;
+        justify-content: flex-end;
     }
-    
+
     .hamburger img {
         width: 25px;
     }

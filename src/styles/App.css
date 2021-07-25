@@ -161,7 +161,6 @@
   height: 92%;
   text-align: left;
   border-radius: 8px;
-  /* background: #12121b; */
   border: 1px solid #292934;
   display: flex;
   flex-direction: column;
@@ -200,35 +199,6 @@
 
 
 
-
-.search {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  border: 1px solid #292934;
-  border-radius: 50px;
-  margin: 0px 0px 12px 0px;
-  padding: 10px 10px 10px 15px ;
-
-}
-
-.search-icon{
-  width: 12px;
-  margin: 0;
-}
-
-.search input {
-  background: none;
-  border: none;
-  color: rgb(200, 200, 200);
-  font-size: 16px;
-  padding-left: 10px;
-  margin: 0;
-}
-
-.search input:focus{
-  outline: none;
-}
 
 
 

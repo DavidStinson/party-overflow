@@ -1,6 +1,22 @@
-.code-editor{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 150px;
+.create-page {
+    padding: 10px;
 }
+
+
+.post-form {
+    height: 45vh;
+    margin-top: 60px;
+    border-radius: 8px;
+    border: 1px solid #292934;
+    background: #12121b;
+}
+
+
+.post-form button {
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 7px;
+    background: #7450E9;
+}
+

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import '../styles/App.css'
+import '../styles/PostCard.css'
 
 // Components
 import CommentSection from '../components/Comment/CommentSection'
@@ -29,21 +29,32 @@ const PostDetails = (props) => {
 
     return (
         <div className="layout">
-
-            {post ?
-                <div>
-                    <h1>post details</h1>
-                    <PostCard
-                        post={post}
-                        markPostResolved={props.markPostResolved}
-                        handleDeletePost={props.handleDeletePost}
-                        currentUser={props.currentUser}
-                    />
-                    <CommentSection post={post} setPost={setPost} currentUser={props.currentUser}></CommentSection>
+            
+            <div className="hidden-container">
+                <div className="pagination">
+                    <h3>Post Details</h3>
+                    <div className="pagination-buttons">
+                        <button onClick={(e) => props.history.push('/home')}>Back</button>
+                    </div>
                 </div>
-                :
-                <div>Oops</div>
-            }
+            </div>
+
+            <div className="post-details">
+                {post ?
+                    <>
+                        <PostCard
+                            post={post}
+                            markPostResolved={props.markPostResolved}
+                            handleDeletePost={props.handleDeletePost}
+                            currentUser={props.currentUser}
+                        />
+                        <CommentSection post={post} setPost={setPost} currentUser={props.currentUser}></CommentSection>
+                    </>
+
+                    :
+                    <div>Oops</div>
+                }
+            </div>
         </div>
     )
 }

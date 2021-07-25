@@ -162,10 +162,12 @@ const App = () => {
               {...props}
               posts={posts}
               display={display}
+              setDisplay={setDisplay}
               changePage={changePage}
               currentUser={currentUser}
               currentPage={currentPage}
               headerToggle={headerToggle}
+              setHeaderToggle={setHeaderToggle}
               handleCreatePost={handleCreatePost}
               handleDeletePost={handleDeletePost}
               markPostResolved={markPostResolved}

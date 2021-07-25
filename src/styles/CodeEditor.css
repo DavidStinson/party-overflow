@@ -1,11 +1,13 @@
 .code-editor{
     position: relative;
-    width: 100%;
+    border-radius: 8px;
+    width: inherit;
+    
 }
 
 .input-field{
     display: block;
-    width: 100%;
+    width: inherit;
     top: 0; 
     left: 0; 
     opacity: 0;
@@ -14,6 +16,7 @@
     min-height: 100px;
     position: absolute;
     box-sizing: border-box;
+    
 }
 
 .display-field{
@@ -24,6 +27,7 @@
     min-height: 100px;
     position: absolute;
     box-sizing: border-box;
+    border: 1px solid hsl(240, 12%, 18%);
 }
 
 .display-field code {

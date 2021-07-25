@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
-import '../../styles/App.css'
+import '../../styles/Search.css'
 
 //Services
 import { search } from '../../services/postService'

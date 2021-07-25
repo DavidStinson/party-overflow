@@ -1,11 +1,12 @@
 .post-list {
     height: 100%;
-    margin-top: 60px;
+    margin-top: 50px;
     background: #0b0b12;
+    padding: 10px;
 }
 
 .post-card {
-    margin: 10px;
+    margin-top: 10px;
     border-radius: 8px;
     background: #12121b;
     border: 1px solid #292934;
@@ -59,7 +60,20 @@
     padding-right: 10px;
 }
 
-.interactions button{
-    margin: 0;
-    padding: 0;  
+.interactions button {
+    border: none;
+    font-size: 13px;
+    background: none;
+    border-radius: 8px;
+    margin: 0px 0px 0px 10px ;
+    border: 1px solid #363642;
+    color: rgb(190, 190, 190);
+    padding: 7px 14px 7px 14px;
+}
+
+.post-details {
+    height: 100%;
+    margin-top: 50px;
+    background: #0b0b12;
+    padding: 10px;
 }

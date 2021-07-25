@@ -24,17 +24,20 @@
     margin-left: 14px;
 }
 
-.pagination button{
-    box-sizing: border-box;
-    height: 10px;
-    margin: 0;
-    padding: 12px 15px 12px 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #7450E9;
-    border: none;
-    border-radius: 15px;
-    font-weight: 600;
-    font-size: 12px;
+.pagination-buttons {
+    margin-left: auto;
+    padding-right: 10px;
 }
+
+
+.pagination button{
+    margin: 0;
+    font-size: 13px;
+    padding: 8px 15px 8px 15px;
+    background: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border: 1px solid #292934;
+    color: rgb(200, 200, 200);
+}
+

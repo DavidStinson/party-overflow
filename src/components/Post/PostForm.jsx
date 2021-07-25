@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import '../../styles/PostForm.css'
+import '../../styles/prism.css'
+import '../../styles/Pagination.css'
 
 // Components
 import CodeEditor from '../Code/CodeEditor'
@@ -19,22 +21,41 @@ const PostForm = (props) => {
     }
 
     return (
-        <form className="post-form" onSubmit={(e) => handleSubmit(e)}>
-            <label>Create Post</label>
+        <>
+            <div className="hidden-container">
+                <div className="pagination">
+                    <h3>Create Post</h3>
+                    <div className="pagination-buttons">
+                        <button onClick={() => props.setDisplay(true)}>Cancel</button>
+                    </div>
+                </div>
+            </div>
 
-            <input
-                required
-                placeholder="question"
-                name="question"
-                value={question}
-                onChange={(e) => setQuestion(e.target.value)}
-            ></input>
+            <div className="create-page">
+                <form className="post-form" onSubmit={(e) => handleSubmit(e)}>
+                    <input
+                        required
+                        autoComplete='off'
+                        placeholder="question"
+                        name="question"
+                        value={question}
+                        onChange={(e) => setQuestion(e.target.value)}
+                    ></input>
 
-            <CodeEditor codeblock={codeblock} setCodeblock={setCodeblock}></CodeEditor>
+                    <CodeEditor codeblock={codeblock} setCodeblock={setCodeblock}></CodeEditor>
+                    {/* <button>Submit</button> */}
 
-            <button>Submit</button>
-        </form>
+                </form>
+
+            </div>
+        </>
+
+
+
+
+
     )
 }
 
 export default PostForm
+

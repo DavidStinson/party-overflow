@@ -10,7 +10,7 @@ const Landing = () => {
                     <img className="logo-splash" src="https://i.imgur.com/Vba6pJv.png" alt="disco ball logo"></img>
                     <img className="mobile-logo" src="https://i.imgur.com/goMZ2JW.png" alt="disco ball logo"></img>
                 <p>Lorem Ipsum</p>
-                <div>
+                <div className="landing-button-container">
                     <button>Sign Up</button>
                     <button>Sign In</button>
                 </div>
