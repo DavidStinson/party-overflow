@@ -1,22 +1,26 @@
 .code-editor{
     position: relative;
-    border-radius: 8px;
     width: inherit;
     
 }
 
 .input-field{
     display: block;
-    width: inherit;
+    width: 100%;
+    height: 95%;
     top: 0; 
     left: 0; 
     opacity: 0;
-    padding: 1em;
+    background: none;
+    border: none;
+    border-radius: 8px;
     margin: .5em 0;
     min-height: 100px;
     position: absolute;
-    box-sizing: border-box;
-    
+}
+
+.input-field:focus{
+    outline: none;
 }
 
 .display-field{
@@ -25,11 +29,6 @@
     top: 0; 
     left: 0; 
     min-height: 100px;
-    position: absolute;
-    box-sizing: border-box;
     border: 1px solid hsl(240, 12%, 18%);
-}
-
-.display-field code {
-    width: inherit;
+    border-radius: 8px;
 }

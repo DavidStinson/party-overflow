@@ -55,20 +55,21 @@
   display: flex;
   flex-direction: column;
   width: 49%;
-  height: 90vh;
+  height: 100vh;
   overflow-y: scroll;
   position: relative;  
+  padding-bottom: 153px;
 }
 
 .side-menu{
-  padding: 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 22%;
   height: 100vh;
-  /* border-right: 1px solid #292934; */
   background: #0b0b12;
+  padding: 10px;
+  padding-bottom: 80px;
 }
 
 .leaderboard{
@@ -78,9 +79,9 @@
   align-items: center;
   width: 29%;
   height: 100vh;
-  /* border-left: 1px solid #292934; */
   background: #0b0b12;
   padding: 10px;
+  padding-bottom: 80px;
 }
 
 
@@ -90,7 +91,7 @@
   box-sizing: border-box;
   border-radius: 8px;
   border: 1px solid #292934;
-  height: 345px;
+  height: 100%;
   width: 100%;
 }
 
@@ -158,7 +159,7 @@
 
 .menu-panel {
   width: 100%;
-  height: 92%;
+  height: 100%;
   text-align: left;
   border-radius: 8px;
   border: 1px solid #292934;

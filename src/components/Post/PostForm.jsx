@@ -31,19 +31,26 @@ const PostForm = (props) => {
                 </div>
             </div>
 
-            <div className="create-page">
+            <div className="post-form-container">
                 <form className="post-form" onSubmit={(e) => handleSubmit(e)}>
+                    <div className="form-prompt">
+                        <label>Enter your question</label>
+                    </div>
                     <input
                         required
                         autoComplete='off'
-                        placeholder="question"
+                        placeholder="Question"
                         name="question"
                         value={question}
                         onChange={(e) => setQuestion(e.target.value)}
                     ></input>
 
+                    <div className="form-prompt">
+                        <label>Codeblock</label>
+                    </div>
                     <CodeEditor codeblock={codeblock} setCodeblock={setCodeblock}></CodeEditor>
-                    {/* <button>Submit</button> */}
+
+                    <button>Submit</button>
 
                 </form>
 
