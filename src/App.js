@@ -8,27 +8,25 @@ import { getUser, logout } from './services/authService'
 import { getRecent, updatePost, deletePost, createPost } from './services/postService'
 
 //Pages + Components
-import NavBar from './components/misc/NavBar'
-import Layout from './components/Layout/Layout'
-import ProtectedRoute from './components/misc/ProtectedRoute'
-import Landing from './pages/Landing'
 import Home from './pages/Home'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Profile from './pages/Profile'
-import PostDetails from './pages/PostDetails'
-
+import Landing from './pages/Landing/Landing'
+import NavBar from './components/misc/NavBar/NavBar'
+import Profile from './pages/Profile/Profile'
+import Layout from './components/Layout/Layout'
+import PostDetails from './pages/PostDetails/PostDetails'
+import ProtectedRoute from './components/misc/ProtectedRoute'
+import Login from './pages/Auth/Login'
+import Register from './pages/Auth/Register'
 
 const App = () => {
   const history = useHistory()
   const [display, setDisplay] = useState(true)
-  const [headerToggle, setHeaderToggle] = useState(true)
   const [currentUser, setCurrentUser] = useState()
+  const [currentPage, setCurrentPage] = useState(0)
+  const [headerToggle, setHeaderToggle] = useState(true)
   const [authenticated, setAuthenticated] = useState(false)
   const [posts, setPosts] = useState([])
-  const [currentPage, setCurrentPage] = useState(0)
   const prevPostState = usePrevious(posts)
-
 
   const goBack = () => {
     setHeaderToggle(true)
@@ -126,14 +124,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar
-        setPosts={setPosts}
-        setDisplay={setDisplay}
-        currentPage={currentPage}
-        handleLogout={handleLogout}
-        authenticated={authenticated}
-        setHeaderToggle={setHeaderToggle}
-      ></NavBar>
+      <NavBar handleLogout={handleLogout} authenticated={authenticated}></NavBar>
 
       <Switch>
         <Route exact path="/" component={(props) => (<Landing {...props} />)} />
@@ -155,16 +146,17 @@ const App = () => {
 
         <Route path="/home" component={(props) => (
           <Layout
-            currentUser={currentUser}
             display={display}
             setPosts={setPosts}
             setDisplay={setDisplay}
+            currentUser={currentUser}
             handleLogout={handleLogout}
             setHeaderToggle={setHeaderToggle}
           >
             <Home
               {...props}
               posts={posts}
+              goBack={goBack}
               display={display}
               setDisplay={setDisplay}
               changePage={changePage}
@@ -174,17 +166,16 @@ const App = () => {
               handleCreatePost={handleCreatePost}
               handleDeletePost={handleDeletePost}
               markPostResolved={markPostResolved}
-              goBack={goBack}
             ></Home>
           </Layout>
         )} />
 
         <Route path="/post/:id" component={(props) => (
           <Layout
-            currentUser={currentUser}
             display={display}
             setPosts={setPosts}
             setDisplay={setDisplay}
+            currentUser={currentUser}
             handleLogout={handleLogout}
             setHeaderToggle={setHeaderToggle}
           >

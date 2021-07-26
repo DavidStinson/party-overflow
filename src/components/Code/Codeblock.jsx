@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import Prism from "prismjs"
-import '../../styles/prism.css'
+import './prism.css'
 
 const Codeblock = (props) => {
 

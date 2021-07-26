@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../../styles/PostCard.css'
+import '../../styles/Card.css'
 
 //Components
-import UserCard from '../misc/UserCard'
+import UserCard from '../misc/UserCard/UserCard'
 import Codeblock from '../Code/Codeblock'
 import PostInteractions from './PostInteractions'
 

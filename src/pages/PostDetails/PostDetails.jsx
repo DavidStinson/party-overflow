@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import '../styles/PostCard.css'
+import './PostDetails.css'
 
 // Components
-import CommentSection from '../components/Comment/CommentSection'
-import PostCard from '../components/Post/PostCard'
+import PostDetailsHeader from './PostDetailsHeader'
+import PostCard from '../../components/Post/PostCard'
+import CommentSection from '../../components/Comment/CommentSection'
 
 //Services
-import { getPostById } from '../services/postService'
+import { getPostById } from '../../services/postService'
 
 const PostDetails = (props) => {
     const { id } = props.match.params
     const [post, setPost] = useState()
-
 
     useEffect(() => {
         const fetchUserPosts = async () => {
@@ -29,16 +29,7 @@ const PostDetails = (props) => {
 
     return (
         <div className="layout">
-
-            <div className="hidden-container">
-                <div className="pagination">
-                    <h3>Post Details</h3>
-                    <div className="pagination-buttons">
-                        <button onClick={(e) => props.history.push('/home')}>Back</button>
-                    </div>
-                </div>
-            </div>
-
+            <PostDetailsHeader {...props}></PostDetailsHeader>
             <div className="post-details">
                 {post ?
                     <>

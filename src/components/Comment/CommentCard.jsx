@@ -1,8 +1,8 @@
 import React from "react"
-import '../../styles/PostCard.css'
+import '../../styles/Card.css'
 
 //Components
-import UserCard from '../misc/UserCard'
+import UserCard from '../misc/UserCard/UserCard'
 import Codeblock from '../Code/Codeblock'
 import CommentInteractions from './CommentInteractions'
 

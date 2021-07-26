@@ -1,9 +1,6 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import '../../styles/NavBar.css'
-
-//Components
-// import SearchBar from './SearchBar'
+import './NavBar.css'
 
 const NavBar = (props) => {
     const { authenticated, handleLogout } = props
@@ -14,7 +11,6 @@ const NavBar = (props) => {
         const nav = navRef.current
         nav.classList.toggle('open')
     }
-
 
     return (
         <div className="nav-bar">

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/PostCard.css'
+import '../../styles/Card.css'
 
 const CommentInteractions = (props) => {
 

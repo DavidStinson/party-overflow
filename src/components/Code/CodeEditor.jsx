@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import Prism from "prismjs"
-import '../../styles/prism.css'
-import '../../styles/CodeEditor.css'
+import './prism.css'
+import './CodeEditor.css'
 
 
 const CodeEditor = (props) => {

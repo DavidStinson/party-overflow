@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import '../styles/Profile.css'
+import './Profile.css'
 
 //Services
-import { getUserPosts } from '../services/postService'
+import { getUserPosts } from '../../services/postService'
 
 //Components
-import PostList from '../components/Post/PostList'
+import PostList from '../../components/Post/PostList'
 
 
 const Profile = (props) => {

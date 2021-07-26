@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Leaderboard.css'
 
 // Components
-import UserCard from '../../misc/UserCard'
+import UserCard from '../../misc/UserCard/UserCard'
 import GreetingCard from '../../misc/GreetingCard/GreetingCard'
 
 //Services

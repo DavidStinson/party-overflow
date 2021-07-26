@@ -3,7 +3,7 @@ import '../styles/App.css'
 
 // Components
 import Feed from '../components/Layout/Feed'
-import CreatePost from '../components/Forms/CreatePost/CreatePost'
+import CreatePost from '../components/CreateForms/CreatePost/CreatePost'
 
 const Home = (props) => {
 

@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import '../styles/Register.css'
+import './Auth.css'
 
 //Assets
-import coder from '../assets/coder.json'
+import coder from '../../assets/coder.json'
 
 //Components
-import Animation from '../components/Lottie/Animation'
-import AvatarSelection from '../components/misc/AvatarSelection/AvatarSelection'
+import Animation from '../../components/Lottie/Animation'
+import AvatarSelection from './AvatarSelection/AvatarSelection'
 
 //Services
-import { signup } from '../services/authService'
+import { signup } from '../../services/authService'
 
 const Register = (props) => {
     const [popup, setPopup] = useState(false)

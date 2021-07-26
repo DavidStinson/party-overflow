@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 // Components
 import CommentList from './CommentList'
-import CreateComment from '../Forms/CreateComment/CreateComment'
+import CreateComment from '../CreateForms/CreateComment/CreateComment'
 
 // Services
 import { createComment, deleteComment, updateComment } from '../../services/commentService'

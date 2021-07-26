@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import './Auth.css'
 
 //Assets
-import coder from '../assets/coder.json'
+import coder from '../../assets/coder.json'
 
 //Components
-import Animation from '../components/Lottie/Animation'
+import Animation from '../../components/Lottie/Animation'
 
 //Services
-import { login } from '../services/authService'
+import { login } from '../../services/authService'
 
 
 const Login = (props) => {

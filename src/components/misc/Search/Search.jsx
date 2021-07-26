@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
-import '../../styles/Search.css'
+import './Search.css'
 
 //Services
-import { search } from '../../services/postService'
+import { search } from '../../../services/postService'
 
 const SearchBar = (props) => {
   const [keyword, setKeyword] = useState('')
