@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom'
+import { usePrevious } from './hooks/usePrevious'
 import './styles/App.css'
 
 //Services
@@ -24,31 +25,15 @@ const App = () => {
   const [headerToggle, setHeaderToggle] = useState(true)
   const [currentUser, setCurrentUser] = useState()
   const [authenticated, setAuthenticated] = useState(false)
-
   const [posts, setPosts] = useState([])
   const [currentPage, setCurrentPage] = useState(0)
-
-
-
-
-  const usePrevious = (prev) => {
-    const ref = useRef()
-    useEffect(() => {
-      ref.current = prev
-    }, [prev])
-    return ref.current
-  }
-  
   const prevPostState = usePrevious(posts)
+
 
   const goBack = () => {
     setHeaderToggle(true)
     setPosts(prevPostState)
   }
-
-
-
-
 
   const changePage = (e) => {
     e.preventDefault()
