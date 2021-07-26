@@ -7,7 +7,7 @@ import coder from '../assets/coder.json'
 
 //Components
 import Animation from '../components/Lottie/Animation'
-import AvatarSelection from '../components/misc/AvatarSelection'
+import AvatarSelection from '../components/misc/AvatarSelection/AvatarSelection'
 
 //Services
 import { signup } from '../services/authService'

@@ -1,11 +1,11 @@
 import React from 'react'
-import '../../styles/AvatarSelection.css'
+import './AvatarSelection.css'
 
 
 const AvatarSelection = (props) => {
 
     return (
-        <div className="popup">
+        <div className="popup-container">
             <div className="popup-menu">
                 <div className="popup-header">
                     <h3>Select Your Avatar</h3>

@@ -5,7 +5,6 @@ import '../styles/App.css'
 import PostForm from '../components/Post/PostForm'
 import Feed from '../components/Layout/Feed'
 
-
 const Home = (props) => {
 
     return (
@@ -26,8 +25,8 @@ const Home = (props) => {
                 :
                 <PostForm
                     setDisplay={props.setDisplay}
-                    handleCreatePost={props.handleCreatePost}
                     currentUser={props.currentUser}
+                    handleCreatePost={props.handleCreatePost}
                 />
             }
         </div>
