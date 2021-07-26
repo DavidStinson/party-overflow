@@ -1,4 +1,4 @@
-/* .hidden-container {
+.hidden-container {
     background: #0b0b12;
     position: fixed;
     width: inherit;
@@ -6,6 +6,7 @@
     border-radius: 0px 0px 24px 24px;
     box-sizing: border-box;
     margin-bottom: 50px;
+
 }
 
 .pagination{
@@ -40,4 +41,4 @@
     border: 1px solid #292934;
     color: rgb(200, 200, 200);
 }
- */
+

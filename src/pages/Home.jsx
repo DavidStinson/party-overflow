@@ -2,30 +2,27 @@ import React from 'react'
 import '../styles/App.css'
 
 //Components
-import PostList from '../components/Post/PostList'
 import PostForm from '../components/Post/PostForm'
-import Pagination from '../components/misc/Pagination'
+import Feed from '../components/Layout/Feed'
+
 
 const Home = (props) => {
 
     return (
         <div className="layout">
             {props.display ?
-                <>
-                    <Pagination
-                        changePage={props.changePage}
-                        posts={props.posts}
-                        goBack={props.goBack}
-                        headerToggle={props.headerToggle}
-                    />
-                    <div className="spacing-block"/>
-                    <PostList
-                        posts={props.posts}
-                        markPostResolved={props.markPostResolved}
-                        handleDeletePost={props.handleDeletePost}
-                        currentUser={props.currentUser}
-                    />
-                </>
+                <Feed
+                    posts={props.posts}
+                    currentUser={props.currentUser}
+
+                    goBack={props.goBack}
+                    changePage={props.changePage}
+                    currentPage={props.currentPage}
+                    headerToggle={props.headerToggle}
+
+                    markPostResolved={props.markPostResolved}
+                    handleDeletePost={props.handleDeletePost}
+                />
                 :
                 <PostForm
                     setDisplay={props.setDisplay}
@@ -38,3 +35,5 @@ const Home = (props) => {
 }
 
 export default Home
+
+

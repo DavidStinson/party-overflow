@@ -5,10 +5,9 @@ import '../../styles/App.css'
 //Components
 import SearchBar from '../misc/SearchBar'
 
-const SideMenu = (props) => {
-    const history = useHistory()
+const SidePanel = (props) => {
     const { display, setDisplay, currentUser } = props
-    const menuText = display ? 'Create Post' : 'Feed'
+    const history = useHistory()
 
     const handleRedirect = () => {
         setDisplay(!display)
@@ -16,8 +15,8 @@ const SideMenu = (props) => {
     }
 
     return (
-        <div className="side-menu">
-            <div className="menu-panel">
+        <div className="side-panel">
+            <div className="menu">
 
                 <div className="menu-header">
                     <h3>Menu</h3>
@@ -32,7 +31,7 @@ const SideMenu = (props) => {
                                 setHeaderToggle={props.setHeaderToggle}
                             ></SearchBar>
                             <Link to="/profile"><button>Profile</button></Link>
-                            <button onClick={() => handleRedirect()}>{menuText}</button>
+                            <button onClick={() => handleRedirect()}>{display ? 'Create Post' : 'Feed'}</button>
                             <button onClick={props.handleLogout}>Sign Out</button>
                         </>
                         :
@@ -40,10 +39,9 @@ const SideMenu = (props) => {
                     }
 
                 </div>
-
             </div>
         </div>
     )
 }
 
-export default SideMenu
+export default SidePanel

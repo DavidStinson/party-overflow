@@ -3,7 +3,7 @@ import '../../styles/App.css'
 
 // Components
 import UserCard from '../misc/UserCard'
-import GreetingCard from '../misc/GreetingCard'
+import GreetingCard from '../misc/GreetingCard/GreetingCard'
 
 //Services
 import { getTopUsers } from '../../services/authService'
@@ -29,9 +29,11 @@ const Leaderboard = () => {
         <div className="leaderboard">
             <GreetingCard></GreetingCard>
             <div className="user-list-container">
+
                 <div className="user-list-header">
                     <h3>Top Users</h3>
                 </div>
+
                 {userList &&
                     userList.map((user, index) => (
                         <div className="leader-card" key={index} style={{ display: 'flex' }}>

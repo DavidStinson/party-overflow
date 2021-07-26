@@ -10,9 +10,7 @@ const Layout = (props) => {
 
     return (
         <div className="home-page">
-            <SideMenu
-                {...props}
-            ></SideMenu>
+            <SideMenu {...props}></SideMenu>
             {children}
             <Leaderboard></Leaderboard>
         </div>
