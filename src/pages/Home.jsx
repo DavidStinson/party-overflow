@@ -1,9 +1,9 @@
 import React from 'react'
 import '../styles/App.css'
 
-//Components
-import CreatePost from '../components/Post/CreatePost/CreatePost'
+// Components
 import Feed from '../components/Layout/Feed'
+import CreatePost from '../components/Forms/CreatePost/CreatePost'
 
 const Home = (props) => {
 

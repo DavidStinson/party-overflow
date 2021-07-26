@@ -2,8 +2,7 @@ import React, { useState } from "react"
 
 // Components
 import CommentList from './CommentList'
-import CommentForm from './CommentForm'
-import Header from '../misc/Header/Header'
+import CreateComment from '../Forms/CreateComment/CreateComment'
 
 // Services
 import { createComment, deleteComment, updateComment } from '../../services/commentService'
@@ -67,11 +66,11 @@ const CommentSection = (props) => {
 
 
             {showNewComment &&
-                <CommentForm
+                <CreateComment
                     post={props.post}
                     handleCreateComment={handleCreateComment}
                     currentUser={props.currentUser}
-                ></CommentForm>
+                ></CreateComment>
             }
 
             <CommentList

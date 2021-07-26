@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './CreatePost.css'
+import '../CreateForm.css'
 
 // Components
 import PostForm from './PostForm'

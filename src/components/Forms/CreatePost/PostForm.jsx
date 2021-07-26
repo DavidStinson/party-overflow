@@ -1,5 +1,5 @@
 import React from 'react'
-import './CreatePost.css'
+import '../CreateForm.css'
 
 // Components
 import CodeEditor from '../../Code/CodeEditor'
@@ -7,8 +7,8 @@ import CodeEditor from '../../Code/CodeEditor'
 const PostForm = (props) => {
 
     return (
-            <div className="post-form-container">
-                <form onSubmit={props.handleSubmit} className="post-form" style={{ marginTop: '50px' }}>
+            <div className="create-form-container">
+                <form onSubmit={props.handleSubmit} className="create-form" style={{ marginTop: '50px' }}>
                     <div className="question-prompt">
                         <label>Enter your question</label>
                     </div>

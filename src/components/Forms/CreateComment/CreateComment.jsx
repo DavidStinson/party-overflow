@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 // Components
-import CodeEditor from '../Code/CodeEditor'
+import CodeEditor from '../../Code/CodeEditor'
 
 const CommentForm = (props) => {
     const [text, setText] = useState('')
@@ -20,7 +20,7 @@ const CommentForm = (props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="post-form">
+        <form onSubmit={handleSubmit} className="create-form">
             <div className="question-prompt">
                 <label>Enter your Comment</label>
             </div>

@@ -1,8 +1,8 @@
-.post-form-container {
+.create-form-container {
     padding: 10px;    
 }
 
-.post-form {
+.create-form {
     border-radius: 0px 0px 8px 8px;
     border: 1px solid #292934;
     border-top: none;
@@ -48,7 +48,7 @@
     margin: 20px 0px 5px 0px;
 }
 
-.post-form input{
+.create-form input{
     padding: 15px 10px 15px 10px;
     border-radius: 8px;
     border: 1px solid #292934;
@@ -57,7 +57,7 @@
     background: #0b0b12;
 }
 
-.post-form button {
+.create-form button {
     border: none;
     color: white;
     font-weight: 600;
