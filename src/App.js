@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom'
 import './styles/App.css'
 
@@ -29,11 +29,31 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(0)
 
 
+
+
+  const usePrevious = (prev) => {
+    const ref = useRef()
+    useEffect(() => {
+      ref.current = prev
+    }, [prev])
+    return ref.current
+  }
+  
+  const prevPostState = usePrevious(posts)
+
+  const goBack = () => {
+    setHeaderToggle(true)
+    setPosts(prevPostState)
+  }
+
+
+
+
+
   const changePage = (e) => {
     e.preventDefault()
     setCurrentPage(currentPage + parseInt(e.target.value))
   }
-
 
   const handleCreatePost = async (formData) => {
     try {
@@ -165,11 +185,15 @@ const App = () => {
               changePage={changePage}
               currentUser={currentUser}
               currentPage={currentPage}
+
               headerToggle={headerToggle}
+
               setHeaderToggle={setHeaderToggle}
               handleCreatePost={handleCreatePost}
               handleDeletePost={handleDeletePost}
               markPostResolved={markPostResolved}
+
+              goBack={goBack}
             ></Home>
           </Layout>
         )} />

@@ -48,7 +48,6 @@ const Profile = (props) => {
                         ></PostList>
                     }
                 </div>
-
             </div>
         </div>
     )

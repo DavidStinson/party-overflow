@@ -78,7 +78,7 @@ const Register = (props) => {
             </div>
 
             <div className="right-container">
-                <Animation animData={coder}></Animation>
+                <Animation animData={coder}/>
             </div>
 
         </div>

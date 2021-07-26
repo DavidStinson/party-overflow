@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../../styles/NavBar.css'
 
 //Components
-import SearchBar from './SearchBar'
+// import SearchBar from './SearchBar'
 
 const NavBar = (props) => {
     const { authenticated, handleLogout } = props

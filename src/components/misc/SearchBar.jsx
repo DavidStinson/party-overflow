@@ -26,6 +26,7 @@ const SearchBar = (props) => {
   const handleChange = (e) => {
     setKeyword(e.target.value)
   }
+  
 
   return (
     <form className="search" onSubmit={handleSearch}>

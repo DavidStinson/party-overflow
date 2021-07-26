@@ -11,6 +11,7 @@ const CommentCard = (props) => {
     return (
         props.comment &&
         <div className="comment-card">
+            
             <div className="card-header">
                 <UserCard user={props.comment.commenter}></UserCard>
                 <CommentInteractions
@@ -26,9 +27,11 @@ const CommentCard = (props) => {
                 <p> {props.comment.is_solution && '[SOLUTION]'} {props.comment.comment_text}</p>
             </div>
 
-            <div className="code-container">
-                <Codeblock codeblock={props.comment.codeblock}></Codeblock>
-            </div>
+            {props.comment.codeblock &&
+                <div className="code-container">
+                    <Codeblock codeblock={props.comment.codeblock}></Codeblock>
+                </div>
+            }
 
         </div>
     )

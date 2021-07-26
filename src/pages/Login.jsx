@@ -65,7 +65,7 @@ const Login = (props) => {
                 </div>
             </div>
             <div className="right-container">
-                <Animation animData={coder}></Animation>
+                <Animation animData={coder} />
             </div>
         </div>
     )

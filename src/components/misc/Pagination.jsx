@@ -2,7 +2,7 @@ import React from 'react'
 import '../../styles/Pagination.css'
 
 
-const Pagination = (props) => { //rename
+const Pagination = (props) => {
 
     return (
         <div className="hidden-container">
@@ -18,7 +18,7 @@ const Pagination = (props) => { //rename
                 <div className="pagination">
                     <h3>Search Results</h3>
                     <div className="pagination-buttons">
-                        <button onClick={() => props.setHeaderToggle(true)}>Back</button>
+                        <button onClick={() => props.goBack()}>Back</button>
                     </div>
                 </div>}
         </div>

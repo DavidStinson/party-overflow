@@ -29,7 +29,7 @@ const PostDetails = (props) => {
 
     return (
         <div className="layout">
-            
+
             <div className="hidden-container">
                 <div className="pagination">
                     <h3>Post Details</h3>
@@ -48,9 +48,12 @@ const PostDetails = (props) => {
                             handleDeletePost={props.handleDeletePost}
                             currentUser={props.currentUser}
                         />
-                        <CommentSection post={post} setPost={setPost} currentUser={props.currentUser}></CommentSection>
+                        <CommentSection
+                            post={post}
+                            setPost={setPost}
+                            currentUser={props.currentUser}
+                        ></CommentSection>
                     </>
-
                     :
                     <div>Oops</div>
                 }
