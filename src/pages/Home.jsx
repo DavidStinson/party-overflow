@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/App.css'
 
 //Components
-import PostForm from '../components/Post/PostForm'
+import CreatePost from '../components/Post/CreatePost/CreatePost'
 import Feed from '../components/Layout/Feed'
 
 const Home = (props) => {
@@ -18,12 +18,12 @@ const Home = (props) => {
                     changePage={props.changePage}
                     currentPage={props.currentPage}
                     headerToggle={props.headerToggle}
-
+                    
                     markPostResolved={props.markPostResolved}
                     handleDeletePost={props.handleDeletePost}
                 />
                 :
-                <PostForm
+                <CreatePost
                     setDisplay={props.setDisplay}
                     currentUser={props.currentUser}
                     handleCreatePost={props.handleCreatePost}

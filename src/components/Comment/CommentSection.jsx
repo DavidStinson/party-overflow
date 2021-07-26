@@ -3,6 +3,7 @@ import React, { useState } from "react"
 // Components
 import CommentList from './CommentList'
 import CommentForm from './CommentForm'
+import Header from '../misc/Header/Header'
 
 // Services
 import { createComment, deleteComment, updateComment } from '../../services/commentService'
@@ -57,12 +58,13 @@ const CommentSection = (props) => {
     return (
         <div className="comment-section">
 
-            <div className="pagination">
+            <div className="header">
                 <h3>Comment Section</h3>
-                <div className="pagination-buttons">
+                <div className="header-buttons">
                     {props.currentUser && <button onClick={() => setShowNewComment(!showNewComment)}>New Comment</button>}
                 </div>
             </div>
+
 
             {showNewComment &&
                 <CommentForm
