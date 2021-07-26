@@ -13,12 +13,10 @@ const Home = (props) => {
             {props.display ?
                 <>
                     <Pagination
-                        headerToggle={props.headerToggle}
                         changePage={props.changePage}
-                        currentPage={props.currentPage}
-                        setHeaderToggle={props.setHeaderToggle}
                         posts={props.posts}
                         goBack={props.goBack}
+                        headerToggle={props.headerToggle}
                     />
                     <div className="spacing-block"/>
                     <PostList

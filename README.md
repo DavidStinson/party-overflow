@@ -8,6 +8,12 @@ TBD
 
 ---
 
+### Mockups
+
+![desktop](https://i.imgur.com/ZqWqbOm.png)
+
+---
+
 ### Technologies Used
 
 • React
@@ -37,7 +43,6 @@ TBD
 ---
 
 ### Credits
-
 
 Lottie
 Max Shturma

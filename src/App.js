@@ -143,7 +143,7 @@ const App = () => {
         <ProtectedRoute
           authenticated={authenticated}
           path='/profile'
-          component={(props) => (
+          component={() => (
             <Profile
               posts={posts}
               currentUser={currentUser}
@@ -170,14 +170,10 @@ const App = () => {
               changePage={changePage}
               currentUser={currentUser}
               currentPage={currentPage}
-
               headerToggle={headerToggle}
-
-              setHeaderToggle={setHeaderToggle}
               handleCreatePost={handleCreatePost}
               handleDeletePost={handleDeletePost}
               markPostResolved={markPostResolved}
-
               goBack={goBack}
             ></Home>
           </Layout>
