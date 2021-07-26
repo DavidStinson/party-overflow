@@ -3,7 +3,6 @@ import '../../styles/App.css'
 
 //Components
 import PostList from '../../components/Post/PostList'
-// import PostForm from '../components/Post/PostForm'
 import Pagination from '../misc/Pagination/Pagination'
 
 const Feed = (props) => {

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import '../../styles/App.css'
+import './SidePanel.css'
 
 //Components
-import SearchBar from '../misc/SearchBar'
+import SearchBar from '../../misc/SearchBar'
 
 const SidePanel = (props) => {
     const { display, setDisplay, currentUser } = props

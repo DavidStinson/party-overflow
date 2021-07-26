@@ -2,15 +2,15 @@ import React from 'react'
 import '../../styles/App.css'
 
 //Components
-import Leaderboard from '../Layout/Leaderboard'
-import SideMenu from '../Layout/SideMenu'
+import Leaderboard from '../Layout/Leaderboard/Leaderboard'
+import SidePanel from '../Layout/SidePanel/SidePanel'
 
 const Layout = (props) => {
     const { children } = props
 
     return (
         <div className="home-page">
-            <SideMenu {...props}></SideMenu>
+            <SidePanel {...props}></SidePanel>
             {children}
             <Leaderboard></Leaderboard>
         </div>

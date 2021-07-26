@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import '../../styles/App.css'
+import './Leaderboard.css'
 
 // Components
-import UserCard from '../misc/UserCard'
-import GreetingCard from '../misc/GreetingCard/GreetingCard'
+import UserCard from '../../misc/UserCard'
+import GreetingCard from '../../misc/GreetingCard/GreetingCard'
 
 //Services
-import { getTopUsers } from '../../services/authService'
+import { getTopUsers } from '../../../services/authService'
 
 const Leaderboard = () => {
     const [userList, setUserList] = useState([])

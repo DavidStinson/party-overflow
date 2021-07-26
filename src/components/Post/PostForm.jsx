@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../../styles/PostForm.css'
 import '../../styles/prism.css'
-import '../../styles/Pagination.css'
+// import '../../styles/Pagination.css'
 
 // Components
 import CodeEditor from '../Code/CodeEditor'

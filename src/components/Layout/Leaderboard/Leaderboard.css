@@ -1,0 +1,28 @@
+/* LEADERBOARD CSS */
+
+.user-list-container {
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #292934;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .user-list-header {
+    border-bottom: 1px solid #292934;
+    background: #12121b;
+    color: rgb(200, 200, 200);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+  
+  }
+  
+  .leader-card {
+    border: 1px solid #292934;
+    border-radius: 8px;
+    margin: 10px;
+    background: #0b0b12;
+  }
+  
