@@ -16,7 +16,10 @@ export const getPostById = async (id) => {
     try {
         const res = await fetch(`${BASE_URL}details/${id}`, {
             method: "GET",
-            headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': 'Bearer ' + tokenService.getToken()
+            },
         }, { mode: "cors" })
         const data = await res.json()
         return data
@@ -29,7 +32,10 @@ export const getUserPosts = async (id) => {
     try {
         const res = await fetch(`${BASE_URL}user/${id}`, {
             method: "GET",
-            headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': 'Bearer ' + tokenService.getToken()
+            },
         }, { mode: "cors" })
         const data = await res.json()
         return data
@@ -70,7 +76,10 @@ export const updatePost = async (post) => {
     try {
         const res = await fetch(`${BASE_URL}${post._id}`, {
             method: "PUT",
-            headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': 'Bearer ' + tokenService.getToken()
+            },
             body: JSON.stringify(post)
         }, { mode: "cors" })
         const data = await res.json()

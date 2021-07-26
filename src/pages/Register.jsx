@@ -23,8 +23,8 @@ const Register = (props) => {
         avatar: 'https://i.imgur.com/Wdyo4ow.png'
     })
 
-    const handleChange = ({ target }) => {
-        setFormData({ ...formData, [target.name]: target.value })
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
     const handlePopup = () => {
@@ -61,12 +61,12 @@ const Register = (props) => {
                         {registerError ? <h3>Oops! Invalid Credentials</h3> : <h3>Social media for developers.</h3>}
                     </div>
 
-                    <form name="register" onSubmit={handleSubmit}>
-                        <input required name="handle" type="text" placeholder="Username" onChange={handleChange} value={formData.handle}></input>
-                        <input required name="email" type="email" placeholder="Email" onChange={handleChange} value={formData.email}></input>
-                        <input required name="password" type="password" placeholder="Password" onChange={handleChange} value={formData.password}></input>
-                        <button id="avatar-button" onClick={handlePopup}>Select Avatar</button>
-                        <button id="submit-button" type="submit">SIGN UP</button>
+                    <form className="register-form" onSubmit={handleSubmit}>
+                        <input autoComplete="off" required name="handle" type="text" placeholder="Username" onChange={handleChange} value={formData.handle}></input>
+                        <input autoComplete="off" required name="email" type="email" placeholder="Email" onChange={handleChange} value={formData.email}></input>
+                        <input autoComplete="off" required name="password" type="password" placeholder="Password" onChange={handleChange} value={formData.password}></input>
+                        <button autoComplete="off" id="avatar-button" onClick={handlePopup} type="button">Select Avatar</button>
+                        <button autoComplete="off" id="submit-button" type="submit">SIGN UP</button>
                     </form>
 
                     <div className="redirect-container">

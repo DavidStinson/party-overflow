@@ -24,7 +24,7 @@ const AvatarSelection = (props) => {
                         <option value='https://i.imgur.com/ut1szAk.png'>Panda</option>
                         <option value='https://i.imgur.com/MULaROr.png'>Wolf</option>
                     </select>
-                    <button onClick={props.handlePopup}>Confirm</button>
+                    <button onClick={props.handlePopup} type="button">Confirm</button>
                 </div>
             </div>
         </div>

@@ -33,7 +33,7 @@ const PostForm = (props) => {
             </div>
 
             <div className="post-form-container">
-                <div className="post-form" style={{marginTop: '50px'}}>
+                <form onSubmit={handleSubmit} className="post-form" style={{ marginTop: '50px' }}>
                     <div className="question-prompt">
                         <label>Enter your question</label>
                     </div>
@@ -50,7 +50,7 @@ const PostForm = (props) => {
 
                     <div className="code-prompt">
                         <label>Codeblock</label>
-                        <button id="plus-button" onClick={() => setToggle(!toggle)}>+</button>
+                        <button type="button" id="plus-button" onClick={() => setToggle(!toggle)}>+</button>
                     </div>
 
                     {toggle &&
@@ -58,9 +58,9 @@ const PostForm = (props) => {
                     }
 
                     <div className="border"></div>
-                    
-                    <button onClick={handleSubmit}>Submit</button>
-                </div>
+
+                    <button type="submit">Submit</button>
+                </form>
 
             </div>
         </>

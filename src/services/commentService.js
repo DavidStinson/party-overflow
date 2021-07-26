@@ -22,7 +22,10 @@ export const updateComment = async (commentId, postId, userId) => {
     try {
         const res = await fetch(`${BASE_URL}${commentId}/${postId}/${userId}`, {
             method: "PUT",
-            headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': 'Bearer ' + tokenService.getToken()
+            },
         }, { mode: "cors" })
         const data = await res.json()
         return data

@@ -50,11 +50,14 @@ const Login = (props) => {
                         <h1>Login</h1>
                         {loginError ? <h3>Oops! Invalid Credentials</h3> : <h3>Please enter your login information</h3>}
                     </div>
-                    <form name="register" onSubmit={handleSubmit}>
-                        <input name="email" type="email" placeholder="Email" value={email} onChange={handleEmail}></input>
-                        <input name="password" type="password" placeholder="Password" value={password} onChange={handlePassword}></input>
-                        <button id="submit-button" type="submit">SIGN IN</button>
+
+                    <form className="register-form" onSubmit={handleSubmit} >
+                        <input required autoComplete="off" name="email" type="email" placeholder="Email" value={email} onChange={handleEmail}></input>
+                        <input required autoComplete="off" name="password" type="password" placeholder="Password" value={password} onChange={handlePassword}></input>
+                        <button autoComplete="off" id="submit-button" type="submit">SIGN IN</button>
                     </form>
+
+
                     <div className="redirect-container">
                         <p>Already have an account?</p>
                         <Link className="redirect-link" to="/register"><p>Sign Up</p></Link>

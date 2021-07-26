@@ -130,7 +130,6 @@ const App = () => {
         setHeaderToggle={setHeaderToggle}
       ></NavBar>
 
-
       <Switch>
         <Route exact path="/" component={(props) => (<Landing {...props} />)} />
         <Route path="/login" component={(props) => (<Login {...props} handleSignupOrLogin={handleSignupOrLogin} />)} />

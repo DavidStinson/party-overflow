@@ -20,10 +20,11 @@ const CommentForm = (props) => {
     }
 
     return (
-        <div className="post-form">
+        <form onSubmit={handleSubmit} className="post-form">
             <div className="question-prompt">
                 <label>Enter your Comment</label>
             </div>
+            
             <input
                 required
                 autoComplete='off'
@@ -37,7 +38,7 @@ const CommentForm = (props) => {
 
             <div className="code-prompt">
                 <label>Codeblock</label>
-                <button id="plus-button" onClick={() => setToggle(!toggle)}>+</button>
+                <button type="button" id="plus-button" onClick={() => setToggle(!toggle)}>+</button>
             </div>
 
             {toggle &&
@@ -49,9 +50,9 @@ const CommentForm = (props) => {
             }
 
             <div className="border"></div>
-            
-            <button onClick={handleSubmit}>Submit</button>
-        </div>
+
+            <button type="submit">Submit</button>
+        </form>
     )
 }
 
