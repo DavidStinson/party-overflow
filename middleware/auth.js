@@ -1,7 +1,8 @@
-const jwt = require('jsonwebtoken')
+import jwt from 'jsonwebtoken'
+
 const SECRET = process.env.SECRET
 
-module.exports = (req, res, next) => {
+function decodeUserFromToken(req, res, next) {
     let token = req.get('Authorization') || req.query.token || req.body.token
     if (token) {
         token = token.replace('Bearer ', '')
@@ -16,4 +17,8 @@ module.exports = (req, res, next) => {
     } else {
         next()
     }
+}
+
+export {
+  decodeUserFromToken
 }

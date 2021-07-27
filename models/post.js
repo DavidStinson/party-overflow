@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
+
 const Schema = mongoose.Schema
 
 
@@ -37,6 +38,8 @@ const postSchema = new Schema({
     comments: [commentSchema]
 }, { timestamps: true })
 
+const Post = mongoose.model('Post', postSchema)
 
-
-module.exports = mongoose.model('Post', postSchema)
+export {
+    Post
+}

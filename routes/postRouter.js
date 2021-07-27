@@ -1,5 +1,8 @@
-const router = require('express').Router()
-const postCtrl = require('../controllers/post')
+import { Router } from 'express'
+import * as postCtrl from '../controllers/post.js'
+import { decodeUserFromToken } from '../middleware/auth.js'
+
+const router = Router()
 
 // ========= Public Routes ========= 
 
@@ -9,7 +12,7 @@ router.get('/details/:id', postCtrl.getPostById)
 
 // ========= Protected Routes ========= 
 
-router.use(require('../config/auth'))
+router.use(decodeUserFromToken)
 router.post('/', checkAuth, postCtrl.createPost)
 router.put('/:id', checkAuth, postCtrl.updatePost)
 router.delete('/:id', checkAuth, postCtrl.deletePost)
@@ -20,4 +23,6 @@ function checkAuth(req, res, next) {
     return req.user ? next() : res.status(401).json({ msg: 'Not Authorized' })
 }
 
-module.exports = router
+export {
+    router
+}
