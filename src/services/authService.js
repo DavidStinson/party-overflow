@@ -5,16 +5,6 @@ export function getUser() {
     return tokenService.getUserFromToken()
 }
 
-export const getTopUsers = async () => {
-    try {
-        const res = await fetch(BASE_URL, { mode: "cors" })
-        const data = await res.json()
-        return data
-    } catch (error) {
-        throw error
-    }
-}
-
 export const signup = async (user) => {
     try {
         const res = await fetch(`${BASE_URL}signup`, {

@@ -6,7 +6,7 @@ import UserCard from '../../misc/UserCard/UserCard'
 import GreetingCard from '../../misc/GreetingCard/GreetingCard'
 
 //Services
-import { getTopUsers } from '../../../services/authService'
+import { getTopUsers } from '../../../services/userService'
 
 const Leaderboard = () => {
     const [userList, setUserList] = useState([])

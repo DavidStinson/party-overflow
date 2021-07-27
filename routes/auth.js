@@ -6,7 +6,6 @@ const router = Router()
 
 /*---------- Public Routes ----------*/
 
-router.get('/', authCtrl.getTopUsers)
 router.post('/signup', authCtrl.register)
 router.post('/login', authCtrl.login)
 
