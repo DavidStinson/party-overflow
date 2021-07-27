@@ -31,7 +31,6 @@ const Home = (props) => {
         try {
             const response = await createPost(formData)
             response.post.added_by = props.currentUser
-
             if (posts.length < 8) {
                 setPosts((posts) => [response.post, ...posts])
             } else {
@@ -39,7 +38,6 @@ const Home = (props) => {
                 duplicate.splice(duplicate.length - 1, 1)
                 setPosts(() => [response.post, ...duplicate])
             }
-
             props.setDisplay(true)
         } catch (error) {
             throw error
@@ -80,8 +78,6 @@ const Home = (props) => {
         fetchAllPosts(currentPage)
         return () => { setPosts([]) }
     }, [currentPage])
-
-
 
 
     return (
