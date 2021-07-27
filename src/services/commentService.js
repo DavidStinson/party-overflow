@@ -1,4 +1,4 @@
-import tokenService from '../services/tokenService'
+import * as tokenService from '../services/tokenService'
 const BASE_URL = '/api/comments/'
 
 export const createComment = async (postId, comment) => {
