@@ -17,6 +17,8 @@ import PostDetails from './pages/PostDetails/PostDetails'
 import ProtectedRoute from './components/misc/ProtectedRoute'
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
+import PageNotFound from './pages/PageNotFound'
+
 
 const App = () => {
   const history = useHistory()
@@ -187,6 +189,8 @@ const App = () => {
             />
           </Layout>
         )} />
+
+        <Route path="*" component={() => (<PageNotFound/>)} />
 
       </Switch>
     </div>
