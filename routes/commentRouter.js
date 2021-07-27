@@ -1,10 +1,11 @@
-const router = require('express').Router()
-const commentCtrl = require('../controllers/comment')
+import { Router } from 'express'
+import * as commentCtrl from '../controllers/comment.js'
+
+const router = Router()
 
 // ========= Public Routes ========= 
 
 // ========= Protected Routes ========= 
-
 router.use(require('../config/auth'))
 router.post('/:post_id', checkAuth, commentCtrl.createComment)
 router.delete('/:post_id/:comment_id', checkAuth, commentCtrl.deleteComment)
@@ -14,4 +15,6 @@ function checkAuth(req, res, next) {
     return req.user ? next() : res.status(401).json({ msg: 'Not Authorized' })
 }
 
-module.exports = router
+export {
+    router
+}
