@@ -1,5 +1,5 @@
-const Post = require('../models/post')
-const User = require('../models/user')
+import { User } from '../models/user.js'
+import { Post } from '../models/post.js'
 
 const createComment = async (req, res) => {
     try {
@@ -42,10 +42,8 @@ const updateComment = async(req, res) => {
     }
 }
 
-module.exports = {
+export {
     createComment,
     deleteComment,
     updateComment
 }
-
-
