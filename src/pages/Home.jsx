@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {  useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { usePrevious } from '../hooks/usePrevious'
 import '../styles/App.css'
 
