@@ -38,7 +38,7 @@ const Register = (props) => {
             props.handleSignupOrLogin()
             props.history.push('/profile')
         } catch (error) {
-            setRegisterError(true)
+            setRegisterError(error.message)
             setFormData({
                 handle: '',
                 email: '',
@@ -58,7 +58,7 @@ const Register = (props) => {
                 <div className='form-container'>
                     <div className="title-container">
                         <h1>Create an Account</h1>
-                        {registerError ? <h3>Oops! Invalid Credentials</h3> : <h3>Social media for developers.</h3>}
+                        {registerError ? <h3>{registerError}</h3> : <h3>Social media for developers.</h3>}
                     </div>
 
                     <form className="register-form" onSubmit={handleSubmit}>

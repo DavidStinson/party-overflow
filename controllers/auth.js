@@ -23,7 +23,15 @@ const register = async (req, res) => {
         const token = createJWT(user)
         res.json({ token })
     } catch (error) {
-        res.status(400).send(error.message)
+        let errMsg
+        if (error.errors.email) {
+            errMsg = "This email already exists"
+        } else if (error.errors.handle) {
+            errMsg = "This Username already exists"
+        } else {
+            errMsg = "Something went wrong!"
+        }
+        res.status(400).send({"err": errMsg})
     }
 }
 

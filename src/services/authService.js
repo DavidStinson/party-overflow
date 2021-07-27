@@ -26,10 +26,10 @@ export const signup = async (user) => {
         if (data.token) {
             tokenService.setToken(data.token)
         } else {
-            console.log('error')
+            throw Error(data.err)
         }
     } catch (error) {
-        throw error
+        throw Error(error)
     }
 }
 
