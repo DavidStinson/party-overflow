@@ -89,9 +89,10 @@ export const updatePost = async (post) => {
     }
 }
 
-export const deletePost = async (id) => {
+
+export const deletePost = async (userId, postId) => {
     try {
-        await fetch(`${BASE_URL}${id}`, {
+        await fetch(`${BASE_URL}${userId}/${postId}`, {
             method: 'DELETE',
             headers: { 'Authorization': 'Bearer ' + tokenService.getToken() }
         }, { mode: "cors" })
@@ -99,4 +100,3 @@ export const deletePost = async (id) => {
         throw error
     }
 }
-

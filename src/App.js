@@ -59,9 +59,9 @@ const App = () => {
     }
   }
 
-  const handleDeletePost = async (postData) => {
+  const handleDeletePost = async (userId, postData) => {
     try {
-      await deletePost(postData._id)
+      await deletePost(userId, postData._id)
       setPosts(posts.filter((post) => post._id !== postData._id))
       history.push('/home')
     } catch (error) {
@@ -190,7 +190,7 @@ const App = () => {
           </Layout>
         )} />
 
-        <Route path="*" component={() => (<PageNotFound/>)} />
+        <Route path="*" component={() => (<PageNotFound />)} />
 
       </Switch>
     </div>
