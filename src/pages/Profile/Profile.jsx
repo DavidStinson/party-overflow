@@ -39,7 +39,7 @@ const Profile = (props) => {
                             <h3>Your Posts</h3>
                         </div>
                     </div>
-                    {userPosts.length &&
+                    {userPosts.length !== 0 &&
                         <PostList
                             posts={userPosts}
                             markPostResolved={props.markPostResolved}
