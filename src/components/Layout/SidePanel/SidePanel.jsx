@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import './SidePanel.css'
 
 //Components
-import Search from '../../misc/Search/Search'
+// import Search from '../../misc/Search/Search'
 
 const SidePanel = (props) => {
     const { display, setDisplay, currentUser } = props
@@ -25,11 +25,11 @@ const SidePanel = (props) => {
                 <div className="menu-items">
                     {currentUser ?
                         <>
-                            <Search
+                            {/* <Search
                                 setPosts={props.setPosts}
                                 setDisplay={props.setDisplay}
                                 setHeaderToggle={props.setHeaderToggle}
-                            ></Search>
+                            ></Search> */}
 
                             <Link to="/profile"><button>Profile</button></Link>
                             <button onClick={() => handleRedirect()}>{display ? 'Create Post' : 'Feed'}</button>

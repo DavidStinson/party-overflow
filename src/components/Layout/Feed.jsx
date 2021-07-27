@@ -15,6 +15,10 @@ const Feed = (props) => {
                 goBack={props.goBack}
                 headerToggle={props.headerToggle}
                 currentPage={props.currentPage}
+
+                setPosts={props.setPosts}
+                setDisplay={props.setDisplay}
+                setHeaderToggle={props.setHeaderToggle}
             />
             <div className="spacing-block" />
             <PostList

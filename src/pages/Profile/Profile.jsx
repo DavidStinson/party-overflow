@@ -10,6 +10,8 @@ import PostList from '../../components/Post/PostList'
 
 
 const Profile = (props) => {
+    //move markResolved and handleDelete here - specific to profile
+
     const { _id, avatar, handle, solution_count } = props.currentUser
     const [userPosts, setUserPosts] = useState([])
     const history = useHistory()

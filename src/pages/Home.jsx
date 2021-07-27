@@ -21,6 +21,10 @@ const Home = (props) => {
                     
                     markPostResolved={props.markPostResolved}
                     handleDeletePost={props.handleDeletePost}
+
+                    setPosts={props.setPosts}
+                    setDisplay={props.setDisplay}
+                    setHeaderToggle={props.setHeaderToggle}
                 />
                 :
                 <CreatePost

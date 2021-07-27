@@ -138,7 +138,7 @@ const App = () => {
           path='/profile'
           component={() => (
             <Profile
-              posts={posts}
+              // posts={posts}
               currentUser={currentUser}
               handleDeletePost={handleDeletePost}
               markPostResolved={markPostResolved}
@@ -170,6 +170,8 @@ const App = () => {
               handleCreatePost={handleCreatePost}
               handleDeletePost={handleDeletePost}
               markPostResolved={markPostResolved}
+              setHeaderToggle={setHeaderToggle}
+              setPosts={setPosts}
             ></Home>
           </Layout>
         )} />
