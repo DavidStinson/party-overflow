@@ -12,7 +12,7 @@ router.get('/details/:id', postCtrl.getPostById)
 
 // ========= Protected Routes ========= 
 
-router.use(require('../config/auth'))
+router.use(require(decodeUserFromToken)
 router.post('/', checkAuth, postCtrl.createPost)
 router.put('/:id', checkAuth, postCtrl.updatePost)
 router.delete('/:id', checkAuth, postCtrl.deletePost)
