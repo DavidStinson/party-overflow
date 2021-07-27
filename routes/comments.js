@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import * as commentCtrl from '../controllers/comment.js'
+import * as commentCtrl from '../controllers/comments.js'
 import { decodeUserFromToken } from '../middleware/auth.js'
 
 
