@@ -5,10 +5,10 @@ import '../styles/App.css'
 // Components
 import Animation from '../components/Lottie/Animation'
 
+// Assets
 import notFound from '../assets/404.json'
 
 const PageNotFound = () => {
-
 
     return (
         <div className="not-found">

@@ -15,7 +15,7 @@ router.get('/details/:id', postCtrl.getPostById)
 router.use(decodeUserFromToken)
 router.post('/', checkAuth, postCtrl.createPost)
 router.put('/:id', checkAuth, postCtrl.updatePost)
-router.delete('/:id', checkAuth, postCtrl.deletePost)
+router.delete('/:user_id/:post_id', checkAuth, postCtrl.deletePost)
 router.get('/user/:user_id', checkAuth, postCtrl.getPostsByUserId)
 
 

@@ -38,13 +38,15 @@ TBD
 
 ### Component Hierarchy Diagram
 
-TBD
+![comp-diagram](https://i.imgur.com/O9xp3Yc.png)
+
 
 ---
 
 ### Credits
 
-Lottie
+Lottie Files
+
 Max Shturma
 https://assets7.lottiefiles.com/packages/lf20_bp5lntrf.json
 
@@ -56,12 +58,13 @@ https://assets8.lottiefiles.com/packages/lf20_jaejabqz.json
 Yao Ottersan
 https://lottiefiles.com/9965-loading-spinner
 
+
+Kaden Wesley
+https://lottiefiles.com/69552-404-page
+
 ---
 
 
 
-
-Kaden Wesley
-https://lottiefiles.com/69552-404-page
 
 

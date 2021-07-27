@@ -98,12 +98,18 @@ const updatePost = async (req, res) => {
 
 const deletePost = async (req, res) => {
     try {
-        const post = await Post.findByIdAndDelete(req.params.id)
-        res.send(post)
+        const removedPost = await Post.findByIdAndDelete(req.params.post_id)
+ 
+        const user = await User.findById(req.params.user_id)
+        user.posts.remove({_id: req.params.post_id})
+        await user.save()
+
+        res.send(removedPost)
     } catch (error) {
         throw error
     }
 }
+
 
 export {
     createPost,
