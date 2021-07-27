@@ -7,15 +7,6 @@ const createJWT = (user) => {
     return jwt.sign({ user }, SECRET, { expiresIn: '24h' })
 }
 
-const getTopUsers = async (req, res) => {
-    try {
-        const users = await User.find().select('_id handle avatar solution_count').limit(5).sort({ solution_count: -1 })
-        res.send(users)
-    } catch (error) {
-        return res.status(500).send(error.message, 'Could not find users.')
-    }
-}
-
 const register = async (req, res) => {
     const user = new User(req.body)
     try {
@@ -55,5 +46,4 @@ const login = async (req, res) => {
 export {
     register,
     login,
-    getTopUsers,
 }
