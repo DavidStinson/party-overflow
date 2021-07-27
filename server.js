@@ -5,9 +5,9 @@ import { fileURLToPath } from 'url'
 import logger from 'morgan'
 import cors from 'cors'
 
-import { router as authRouter } from './routes/authRouter.js'
-import { router as postRouter } from './routes/postRouter.js'
-import { router as commentRouter } from './routes/commentRouter.js'
+import { router as authRouter } from './routes/auth.js'
+import { router as postsRouter } from './routes/posts.js'
+import { router as commentsRouter } from './routes/comments.js'
 
 const app = express()
 
@@ -24,8 +24,8 @@ app.use(
 )
 
 app.use('/api/auth', authRouter)
-app.use('/api/posts', postRouter)
-app.use('/api/comments', commentRouter)
+app.use('/api/posts', postsRouter)
+app.use('/api/comments', commentsRouter)
 
 
 app.get('/*', (req, res) => {

@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import * as postCtrl from '../controllers/post.js'
+import * as postCtrl from '../controllers/posts.js'
 import { decodeUserFromToken } from '../middleware/auth.js'
 
 const router = Router()
