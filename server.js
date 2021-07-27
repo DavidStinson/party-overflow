@@ -11,7 +11,7 @@ import { router as commentRouter } from './routes/commentRouter.js'
 
 const app = express()
 
-import('./config/database')
+import('./config/database.js')
 
 app.use(cors())
 app.use(logger('dev'))
