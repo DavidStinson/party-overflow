@@ -1,5 +1,7 @@
-const router = require('express').Router()
-const postCtrl = require('../controllers/post')
+import { Router } from 'express'
+import * as postCtrl from '../controllers/post.js'
+
+const router = Router()
 
 // ========= Public Routes ========= 
 
@@ -20,4 +22,6 @@ function checkAuth(req, res, next) {
     return req.user ? next() : res.status(401).json({ msg: 'Not Authorized' })
 }
 
-module.exports = router
+export {
+    router
+}
