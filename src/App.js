@@ -142,6 +142,8 @@ const App = () => {
               currentUser={currentUser}
               handleDeletePost={handleDeletePost}
               markPostResolved={markPostResolved}
+              handleLogout={handleLogout}
+              setDisplay={setDisplay}
             />
           )}>
         </ProtectedRoute>
