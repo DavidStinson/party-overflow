@@ -1,5 +1,5 @@
-const Post = require('../models/post')
-const User = require('../models/user')
+import { User } from '../models/user.js'
+import { Post } from '../models/post.js'
 
 const getPostById = async (req, res) => {
     try {
@@ -105,7 +105,7 @@ const deletePost = async (req, res) => {
     }
 }
 
-module.exports = {
+export {
     createPost,
     getRecent,
     updatePost,
