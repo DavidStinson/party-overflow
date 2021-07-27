@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import uniqueValidator from 'mongoose-unique-validator'
 import bcrypt from 'bcrypt'
 
 const SALT_ROUNDS = 6
@@ -14,15 +15,15 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
         index: true,
-        lowercase: true
+        lowercase: true,
     },
     password: {
         type: String,
-        required: true
+        required: true,
     },
     avatar: {
         type: String,
-        required: true
+        required: true,
     },
     solution_count: {
         type: Number,
@@ -38,6 +39,8 @@ const userSchema = new mongoose.Schema({
 }, {
     timestamps: true
 })
+
+userSchema.plugin(uniqueValidator, {message: "{PATH} must be unique."})
 
 userSchema.set('toJSON', {
     transform: function (doc, ret) {
