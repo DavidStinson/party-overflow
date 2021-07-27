@@ -5,6 +5,7 @@ import './PostDetails.css'
 import PostDetailsHeader from './PostDetailsHeader'
 import PostCard from '../../components/Post/PostCard'
 import CommentSection from '../../components/Comment/CommentSection'
+import Layout from '../../components/Layout/Layout'
 
 //Services
 import { getPostById } from '../../services/postService'
@@ -28,28 +29,30 @@ const PostDetails = (props) => {
 
 
     return (
-        <div className="layout">
-            <PostDetailsHeader {...props}></PostDetailsHeader>
-            <div className="post-details">
-                {post ?
-                    <>
-                        <PostCard
-                            post={post}
-                            markPostResolved={props.markPostResolved}
-                            handleDeletePost={props.handleDeletePost}
-                            currentUser={props.currentUser}
-                        />
-                        <CommentSection
-                            post={post}
-                            setPost={setPost}
-                            currentUser={props.currentUser}
-                        ></CommentSection>
-                    </>
-                    :
-                    <div>Oops</div>
-                }
+        <Layout {...props}>
+            <div className="layout">
+                <PostDetailsHeader {...props}></PostDetailsHeader>
+                <div className="post-details">
+                    {post ?
+                        <>
+                            <PostCard
+                                post={post}
+                                markPostResolved={props.markPostResolved}
+                                handleDeletePost={props.handleDeletePost}
+                                currentUser={props.currentUser}
+                            />
+                            <CommentSection
+                                post={post}
+                                setPost={setPost}
+                                currentUser={props.currentUser}
+                            ></CommentSection>
+                        </>
+                        :
+                        <div>Oops</div>
+                    }
+                </div>
             </div>
-        </div>
+        </Layout>
     )
 }
 

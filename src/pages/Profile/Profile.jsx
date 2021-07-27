@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import './Profile.css'
 
 //Services
-import { getUserPosts } from '../../services/postService'
+import { getUserPosts, updatePost, deletePost, } from '../../services/postService'
 
 //Components
 import PostList from '../../components/Post/PostList'
@@ -15,6 +15,36 @@ const Profile = (props) => {
     const { _id, avatar, handle, solution_count } = props.currentUser
     const [userPosts, setUserPosts] = useState([])
     const history = useHistory()
+
+
+  const handleDeletePost = async (userId, postData) => {
+    try {
+      await deletePost(userId, postData._id)
+    //   setPosts(posts.filter((post) => post._id !== postData._id))
+      history.push('/home')
+    } catch (error) {
+      throw error
+    }
+  }
+
+
+
+  const markPostResolved = async (postData) => {
+    try {
+      const updatedPost = await updatePost(postData)
+    //   updatedPost.added_by = currentUser
+    //   const updatedPostArray = posts.map((post) => {
+    //     if (post._id === postData._id) {
+    //       return updatedPost
+    //     }
+    //     return post
+    //   })
+    //   setPosts(updatedPostArray)
+    } catch (error) {
+      throw error
+    }
+  }
+
 
     const handleRedirect = () => {
         props.setDisplay(false)
@@ -51,8 +81,8 @@ const Profile = (props) => {
                     {userPosts.length !== 0 &&
                         <PostList
                             posts={userPosts}
-                            markPostResolved={props.markPostResolved}
-                            handleDeletePost={props.handleDeletePost}
+                            // markPostResolved={props.markPostResolved}
+                            // handleDeletePost={props.handleDeletePost}
                             currentUser={props.currentUser}
                         ></PostList>
                     }
