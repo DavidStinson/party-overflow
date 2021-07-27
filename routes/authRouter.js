@@ -1,6 +1,7 @@
-const express = require('express')
-const router = express.Router()
-const authCtrl = require('../controllers/auth')
+import { Router } from 'express'
+import * as authCtrl from '../controllers/auth.js' 
+
+const router = Router()
 
 /*---------- Public Routes ----------*/
 
@@ -17,4 +18,6 @@ function checkAuth(req, res, next) {
 }
 
 
-module.exports = router
+export {
+   router 
+}
