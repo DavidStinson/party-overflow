@@ -17,9 +17,17 @@ router.get('/users/:id', checkAuth, postCtrl.getPostsByUserId)
 router.post('/', checkAuth, postCtrl.create)
 router.post('/:id', checkAuth, postCtrl.createComment)
 router.put('/:id', checkAuth, postCtrl.update)
-router.put('/:comment_id/:post_id/', checkAuth, postCtrl.markCommentAsSolution)
+router.put(
+    '/:post_id/comments/:comment_id',
+    checkAuth,
+    postCtrl.markCommentAsSolution
+)
 router.delete('/:id', checkAuth, postCtrl.delete)
-router.delete('/:post_id/:comment_id', checkAuth, postCtrl.deleteComment)
+router.delete(
+    '/:post_id/comments/:comment_id',
+    checkAuth,
+    postCtrl.deleteComment
+)
 
 export {
     router
