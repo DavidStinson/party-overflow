@@ -90,7 +90,7 @@ export const updatePost = async (post) => {
 }
 
 
-export const deletePost = async (userId, postId) => {
+export const deletePost = async (postId) => {
     try {
         await fetch(`${BASE_URL}${postId}`, {
             method: 'DELETE',
