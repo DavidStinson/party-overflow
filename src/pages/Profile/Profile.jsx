@@ -14,9 +14,9 @@ const Profile = (props) => {
   const [userPosts, setUserPosts] = useState([])
   const history = useHistory()
 
-  const handleDeletePost = async (userId, postData) => {
+  const handleDeletePost = async (postData) => {
     try {
-      await deletePost(userId, postData._id)
+      await deletePost(postData._id)
       setUserPosts(userPosts.filter((post) => post._id !== postData._id))
       history.push('/home')
     } catch (error) {
