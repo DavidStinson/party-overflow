@@ -5,7 +5,6 @@ import '../../../styles/Header.css'
 import Search from '../../misc/Search/Search'
 
 const Pagination = (props) => {
-    console.log(props)
 
     return (
         <div className="hidden-container">

@@ -1,13 +1,19 @@
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .search {
+    width: 100%;
+    max-width: 250px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     border: 1px solid #292934;
     border-radius: 50px;
-    /* margin: 0px 0px 12px 0px; */
-    /* padding: 10px 10px 10px 15px ; */
-    padding: 5px 5px 5px 5px;
-  
+    background: #0e0e16;
+    padding: 5px 5px 5px 12px;
   }
   
   .search-icon{

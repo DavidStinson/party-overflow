@@ -7,7 +7,7 @@ import { search } from '../../../services/postService'
 
 const SearchBar = (props) => {
   const [keyword, setKeyword] = useState('')
-  const history =  useHistory()
+  const history = useHistory()
 
   const handleSearch = async (e) => {
     e.preventDefault()
@@ -26,20 +26,21 @@ const SearchBar = (props) => {
   const handleChange = (e) => {
     setKeyword(e.target.value)
   }
-  
+
 
   return (
-    <form className="search" onSubmit={handleSearch}>
-      <img className="search-icon" src="https://i.imgur.com/iuEJ77t.png" alt="magnifying glass"></img>
-      <input
-        autoComplete="off"
-        placeholder="Search"
-        name="keyword"
-        value={keyword}
-        onChange={handleChange}
-      ></input>
-
-    </form>
+    <div className="search-container">
+      <form className="search" onSubmit={handleSearch}>
+        <img className="search-icon" src="https://i.imgur.com/iuEJ77t.png" alt="magnifying glass"></img>
+        <input
+          autoComplete="off"
+          placeholder="Search"
+          name="keyword"
+          value={keyword}
+          onChange={handleChange}
+        ></input>
+      </form>
+    </div>
   )
 }
 
