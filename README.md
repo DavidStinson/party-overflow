@@ -40,7 +40,6 @@ TBD
 
 ![comp-diagram](https://i.imgur.com/O9xp3Yc.png)
 
-
 ---
 
 ### Credits

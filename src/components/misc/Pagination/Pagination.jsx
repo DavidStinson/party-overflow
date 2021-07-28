@@ -10,7 +10,7 @@ const Pagination = (props) => {
     return (
         <div className="hidden-container">
             <div className="header">
-                <h3>{props.headerToggle ? 'Recent Posts' : 'Search Results'}</h3>
+                <h3>{props.headerToggle ? 'Recent' : 'Results'}</h3>
                 <Search
                     setPosts={props.setPosts}
                     setDisplay={props.setDisplay}

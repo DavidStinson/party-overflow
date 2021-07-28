@@ -10,7 +10,7 @@
 }
 
 .landing-elements{
-    height: 80%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,6 +32,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    margin: 50px;
 }
 
 .landing-button-container button {
@@ -41,9 +42,20 @@
     font-weight: 600;
     border-radius: 7px;
     max-width: 200px;
+    padding: 8px;
     margin: 10px;
-
 }
+
+.landing-button-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.landing-elements h3{
+    margin: 20px;
+}
+
+
 
 
 @media only screen and (max-width: 850px) {
