@@ -1,5 +1,5 @@
 import * as tokenService from '../services/tokenService'
-const BASE_URL = '/api/comments/'
+const BASE_URL = '/api/posts/'
 
 export const createComment = async (postId, comment) => {
     try {
@@ -20,7 +20,7 @@ export const createComment = async (postId, comment) => {
 
 export const markCommentAsSolution = async (commentId, postId) => {
     try {
-        const res = await fetch(`${BASE_URL}${commentId}/${postId}`, {
+        const res = await fetch(`${BASE_URL}${postId}/comments/${commentId}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json',
@@ -36,7 +36,7 @@ export const markCommentAsSolution = async (commentId, postId) => {
 
 export const deleteComment = async (postId, commentId) => {
     try {
-        const res = await fetch(`${BASE_URL}${postId}/${commentId}`, {
+        const res = await fetch(`${BASE_URL}${postId}/comments/${commentId}`, {
             method: 'DELETE',
             headers: { 'Authorization': 'Bearer ' + tokenService.getToken() }
         }, { mode: "cors" })
