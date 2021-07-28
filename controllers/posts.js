@@ -81,9 +81,10 @@ const updatePost = async (req, res) => {
 }
 
 const deletePost = async (req, res) => {
+    console.log(req.user)
     try {
         const removedPost = await Post.findByIdAndDelete(req.params.post_id)
-        const user = await User.findById(req.params.user_id)
+        const user = await User.findById(req.user._id)
         user.posts.remove({ _id: req.params.post_id })
         await user.save()
         res.send(removedPost)
