@@ -42,7 +42,7 @@ const createPost = async (req, res) => {
         const post = await new Post(req.body)
         await post.save()
         await User.updateOne(
-            { _id: req.body.added_by },
+            { _id: req.user._id },
             { $push: { posts: post } }
         )
         return res.status(201).json({ post })
