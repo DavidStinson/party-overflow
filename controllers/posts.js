@@ -1,7 +1,7 @@
 import { User } from '../models/user.js'
 import { Post } from '../models/post.js'
 
-const getPostById = async (req, res) => {
+const show = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id)
         .populate('added_by')
@@ -37,7 +37,7 @@ const searchPosts = async (req, res) => {
     }
 }
 
-const createPost = async (req, res) => {
+const create = async (req, res) => {
     try {
         const post = await new Post(req.body)
         await post.save()
@@ -51,7 +51,7 @@ const createPost = async (req, res) => {
     }
 }
 
-const getRecent = async (req, res) => {
+const paginatedIndex = async (req, res) => {
     const limitNum = 8
     const skipCount = parseInt(req.params.page) * parseInt(limitNum)
     try {
@@ -66,7 +66,7 @@ const getRecent = async (req, res) => {
     }
 }
 
-const updatePost = async (req, res) => {
+const update = async (req, res) => {
     try {
         const updateData = { is_resolved: true }
         const post = await Post.findByIdAndUpdate(
@@ -118,7 +118,7 @@ const deleteComment = async (req, res) => {
     }
 }
 
-const updateComment = async (req, res) => {
+const markCommentAsSolution = async (req, res) => {
     try {
         const post = await Post.findById(req.params.post_id)
         const idx = post.comments.findIndex((comment) =>
@@ -138,14 +138,14 @@ const updateComment = async (req, res) => {
 }
 
 export {
-    createPost,
-    getRecent,
-    updatePost,
-    deletePost,
+    create,
+    paginatedIndex,
+    update,
+    deletePost as delete,
     getPostsByUserId,
     searchPosts,
-    getPostById,
+    show,
     createComment,
     deleteComment,
-    updateComment,
+    markCommentAsSolution,
 }
