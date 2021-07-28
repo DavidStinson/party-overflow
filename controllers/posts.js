@@ -14,7 +14,7 @@ const getPostById = async (req, res) => {
 
 const getPostsByUserId = async (req, res) => {
     try {
-        const posts = await Post.find({added_by: { $eq: req.params.user_id },})
+        const posts = await Post.find({added_by: { $eq: req.params.id },})
         .populate('added_by')
         return res.status(200).json({ posts })
     } catch (error) {
@@ -83,9 +83,9 @@ const updatePost = async (req, res) => {
 const deletePost = async (req, res) => {
     console.log(req.user)
     try {
-        const removedPost = await Post.findByIdAndDelete(req.params.post_id)
+        const removedPost = await Post.findByIdAndDelete(req.params.id)
         const user = await User.findById(req.user._id)
-        user.posts.remove({ _id: req.params.post_id })
+        user.posts.remove({ _id: req.params.id })
         await user.save()
         res.send(removedPost)
     } catch (error) {
