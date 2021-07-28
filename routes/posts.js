@@ -6,8 +6,8 @@ const router = Router()
 
 // ========== Public Routes ===========
 
+router.get('/search', postCtrl.searchPosts)
 router.get('/:page', postCtrl.paginatedIndex)
-router.get('/questions/search', postCtrl.searchPosts)
 router.get('/details/:id', postCtrl.show)
 
 // ========= Protected Routes ========= 
