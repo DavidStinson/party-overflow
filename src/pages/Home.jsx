@@ -44,9 +44,9 @@ const Home = (props) => {
         }
     }
 
-    const handleDeletePost = async (userId, postData) => {
+    const handleDeletePost = async (postData) => {
         try {
-            await deletePost(userId, postData._id)
+            await deletePost(postData._id)
             setPosts(posts.filter((post) => post._id !== postData._id))
             history.push('/home')
         } catch (error) {
