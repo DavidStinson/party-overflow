@@ -18,7 +18,7 @@ router.post('/', checkAuth, postCtrl.create)
 router.post('/:id', checkAuth, postCtrl.createComment)
 router.put('/:id', checkAuth, postCtrl.update)
 router.put(
-    '/:post_id/comments/:comment_id',
+    '/:post_id/comments/:comment_id/mark-as-solution',
     checkAuth,
     postCtrl.markCommentAsSolution
 )

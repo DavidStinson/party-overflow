@@ -20,13 +20,16 @@ export const createComment = async (postId, comment) => {
 
 export const markCommentAsSolution = async (commentId, postId) => {
     try {
-        const res = await fetch(`${BASE_URL}${postId}/comments/${commentId}`, {
+        const res = await fetch(
+          `${BASE_URL}${postId}/comments/${commentId}/mark-as-solution`, 
+          {
             method: "PUT",
             headers: {
                 'content-type': 'application/json',
                 'Authorization': 'Bearer ' + tokenService.getToken()
             },
-        }, { mode: "cors" })
+          }, { mode: "cors" }
+        )
         const data = await res.json()
         return data
     } catch (error) {
