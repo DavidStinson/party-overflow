@@ -6,17 +6,20 @@ const router = Router()
 
 // ========== Public Routes ===========
 
-router.get('/:page', postCtrl.getRecent)
+router.get('/:page', postCtrl.paginatedIndex)
 router.get('/questions/search', postCtrl.searchPosts)
-router.get('/details/:id', postCtrl.getPostById)
+router.get('/details/:id', postCtrl.show)
 
 // ========= Protected Routes ========= 
 
 router.use(decodeUserFromToken)
-router.post('/', checkAuth, postCtrl.createPost)
-router.put('/:id', checkAuth, postCtrl.updatePost)
-router.delete('/:id', checkAuth, postCtrl.deletePost)
 router.get('/users/:id', checkAuth, postCtrl.getPostsByUserId)
+router.post('/', checkAuth, postCtrl.create)
+router.post('/:id', checkAuth, postCtrl.createComment)
+router.put('/:id', checkAuth, postCtrl.update)
+router.put('/:comment_id/:post_id/', checkAuth, postCtrl.markCommentAsSolution)
+router.delete('/:id', checkAuth, postCtrl.delete)
+router.delete('/:post_id/:comment_id', checkAuth, postCtrl.deleteComment)
 
 export {
     router
