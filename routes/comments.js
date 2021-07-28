@@ -10,7 +10,7 @@ const router = Router()
 router.use(decodeUserFromToken)
 router.post('/:post_id', checkAuth, commentCtrl.createComment)
 router.delete('/:post_id/:comment_id', checkAuth, commentCtrl.deleteComment)
-router.put('/:comment_id/:post_id/:user_id', checkAuth, commentCtrl.updateComment)
+router.put('/:comment_id/:post_id/', checkAuth, commentCtrl.updateComment)
 
 export {
     router

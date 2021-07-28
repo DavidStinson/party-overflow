@@ -9,7 +9,7 @@ const PostInteractions = (props) => {
                 {!props.post.is_resolved &&
                     <button onClick={() => props.markPostResolved(props.post)}>Resolve</button>
                 }
-                <button onClick={() => props.handleDeletePost(props.post.added_by._id, props.post)}>Delete</button>
+                <button onClick={() => props.handleDeletePost(props.post)}>Delete</button>
             </div>
             :
             null

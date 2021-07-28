@@ -35,9 +35,8 @@ const CommentSection = (props) => {
     const handleSolution = async (comment) => {
         try {
             const commentId = comment._id
-            const userId = comment.commenter._id
             const user = comment.commenter
-            const updatedPost = await updateComment(commentId, props.post._id, userId)
+            const updatedPost = await updateComment(commentId, props.post._id)
             const updatedCommentArray = updatedPost.comments.map((comment) => {
                 if (comment._id === commentId) {
                     comment.is_solution = true
