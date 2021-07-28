@@ -18,7 +18,7 @@ export const createComment = async (postId, comment) => {
     }
 }
 
-export const updateComment = async (commentId, postId, userId) => {
+export const updateComment = async (commentId, postId) => {
     try {
         const res = await fetch(`${BASE_URL}${commentId}/${postId}`, {
             method: "PUT",
