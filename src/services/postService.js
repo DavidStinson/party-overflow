@@ -45,7 +45,7 @@ export const getUserPosts = async (id) => {
 }
 
 
-export const getRecent = async (page) => {
+export const getPaginatedPosts = async (page) => {
     try {
         const res = await fetch(`${BASE_URL}${page}`, { mode: "cors" })
         const data = await res.json()

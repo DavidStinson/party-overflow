@@ -8,7 +8,12 @@ import CreatePost from '../components/CreateForms/CreatePost/CreatePost'
 import Layout from '../components/Layout/Layout'
 
 // Services
-import { getRecent, updatePost, deletePost, createPost } from '../services/postService'
+import { 
+    getPaginatedPosts, 
+    updatePost, 
+    deletePost, 
+    createPost,
+} from '../services/postService'
 
 const Home = (props) => {
     const history = useHistory()
@@ -72,7 +77,7 @@ const Home = (props) => {
 
     useEffect(() => {
         const fetchAllPosts = async (page) => {
-            const res = await getRecent(page)
+            const res = await getPaginatedPosts(page)
             setPosts(res)
             prevPostState.current = res
         }
