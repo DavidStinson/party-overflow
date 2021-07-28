@@ -12,9 +12,11 @@ const Feed = (props) => {
             <Pagination
                 changePage={props.changePage}
                 posts={props.posts}
-                goBack={props.goBack}
                 headerToggle={props.headerToggle}
                 currentPage={props.currentPage}
+                
+                goBack={props.goBack}
+                prevPostState={props.prevPostState}
 
                 setPosts={props.setPosts}
                 setDisplay={props.setDisplay}

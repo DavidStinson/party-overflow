@@ -20,7 +20,6 @@ import PageNotFound from './pages/PageNotFound'
 const App = () => {
   const [display, setDisplay] = useState(true)
   const [currentUser, setCurrentUser] = useState()
-  const [headerToggle, setHeaderToggle] = useState(true)
   const [authenticated, setAuthenticated] = useState(false)
 
 
@@ -54,6 +53,7 @@ const App = () => {
   }, [authenticated])
 
 
+
   return (
     <div className="App">
       <NavBar handleLogout={handleLogout} authenticated={authenticated}></NavBar>
@@ -81,8 +81,6 @@ const App = () => {
             display={display}
             setDisplay={setDisplay}
             currentUser={currentUser}
-            headerToggle={headerToggle}
-            setHeaderToggle={setHeaderToggle}
             handleLogout={handleLogout}
           ></Home>
         )} />
@@ -93,9 +91,6 @@ const App = () => {
             currentUser={currentUser}
             display={display}
             setDisplay={setDisplay}
-            currentUser={currentUser}
-            headerToggle={headerToggle}
-            setHeaderToggle={setHeaderToggle}
             handleLogout={handleLogout}
           />
         )} />

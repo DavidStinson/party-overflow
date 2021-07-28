@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
-import { usePrevious } from '../hooks/usePrevious'
 import '../styles/App.css'
 
 // Components
@@ -13,15 +12,16 @@ import { getRecent, updatePost, deletePost, createPost } from '../services/postS
 
 const Home = (props) => {
     const history = useHistory()
+    const prevPostState = useRef()
     const [currentPage, setCurrentPage] = useState(0)
+    const [headerToggle, setHeaderToggle] = useState(true)
     const [posts, setPosts] = useState([])
-    const prevPostState = usePrevious(posts)
 
     const goBack = () => {
-        props.setHeaderToggle(true)
-        setPosts(prevPostState)
+        setPosts(prevPostState.current)
+        setHeaderToggle(true)
     }
-
+ 
     const changePage = (e) => {
         e.preventDefault()
         setCurrentPage(currentPage + parseInt(e.target.value))
@@ -74,6 +74,7 @@ const Home = (props) => {
         const fetchAllPosts = async (page) => {
             const res = await getRecent(page)
             setPosts(res)
+            prevPostState.current = res
         }
         fetchAllPosts(currentPage)
         return () => { setPosts([]) }
@@ -85,20 +86,24 @@ const Home = (props) => {
             <div className="layout">
                 {props.display ?
                     <Feed
-                        posts={posts}
                         currentUser={props.currentUser}
 
+                        prevPostState={prevPostState}
                         goBack={goBack}
+
                         changePage={changePage}
                         currentPage={currentPage}
-                        headerToggle={props.headerToggle}
+
+                        headerToggle={headerToggle}
+                        setHeaderToggle={setHeaderToggle}
+                        setDisplay={props.setDisplay}
 
                         markPostResolved={markPostResolved}
                         handleDeletePost={handleDeletePost}
 
+                        posts={posts}
                         setPosts={setPosts}
-                        setDisplay={props.setDisplay}
-                        setHeaderToggle={props.setHeaderToggle}
+                        
                     />
                     :
                     <CreatePost

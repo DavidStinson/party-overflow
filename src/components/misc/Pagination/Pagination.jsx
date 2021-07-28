@@ -14,6 +14,8 @@ const Pagination = (props) => {
                     setPosts={props.setPosts}
                     setDisplay={props.setDisplay}
                     setHeaderToggle={props.setHeaderToggle}
+                    headerToggle={props.headerToggle}
+
                 ></Search>
                 {props.headerToggle ?
                     <div className="header-buttons">
@@ -31,4 +33,3 @@ const Pagination = (props) => {
 }
 
 export default Pagination
-

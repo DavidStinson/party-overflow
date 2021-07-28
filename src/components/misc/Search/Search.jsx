@@ -6,8 +6,8 @@ import './Search.css'
 import { search } from '../../../services/postService'
 
 const SearchBar = (props) => {
-  const [keyword, setKeyword] = useState('')
   const history = useHistory()
+  const [keyword, setKeyword] = useState('')
 
   const handleSearch = async (e) => {
     e.preventDefault()

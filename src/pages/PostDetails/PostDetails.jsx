@@ -48,7 +48,7 @@ const PostDetails = (props) => {
                             ></CommentSection>
                         </>
                         :
-                        <div>Oops</div>
+                        <div>Oops!</div>
                     }
                 </div>
             </div>
