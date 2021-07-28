@@ -3,7 +3,7 @@ import * as usersCtrl from '../controllers/users.js'
 
 const router = Router()
 
-/*---------- Public Routes ----------*/
+// ========== Public Routes ===========
 
 router.get('/top-users', usersCtrl.getTopUsers)
 

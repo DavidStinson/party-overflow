@@ -3,19 +3,9 @@ import { Post } from '../models/post.js'
 
 const getPostById = async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id).populate([
-            {
-                path: 'added_by',
-                model: 'User',
-            },
-            {
-                path: 'comments',
-                populate: {
-                    path: 'commenter',
-                    model: 'User',
-                }
-            }
-        ])
+        const post = await Post.findById(req.params.id)
+        .populate('added_by')
+        .populate('comments.commenter')
         return res.status(200).json({ post })
     } catch (error) {
         return res.status(500).send(error.message, 'Could not locate post')
@@ -24,11 +14,8 @@ const getPostById = async (req, res) => {
 
 const getPostsByUserId = async (req, res) => {
     try {
-        const posts = await Post.find({ added_by: { $eq: req.params.user_id } }).populate(
-            {
-                path: 'added_by',
-                model: 'User',
-            })
+        const posts = await Post.find({added_by: { $eq: req.params.user_id },})
+        .populate('added_by')
         return res.status(200).json({ posts })
     } catch (error) {
         return res.status(500).send(error.message, 'No Posts Were Found')
@@ -37,12 +24,13 @@ const getPostsByUserId = async (req, res) => {
 
 const searchPosts = async (req, res) => {
     try {
-        const posts = await Post.find({ question: { $regex: req.query.keyword, $options: "i" } })
-            .populate([
-                {
-                    path: 'added_by',
-                    model: 'User',
-                }])
+        const posts = await Post.find({
+            question: { 
+                $regex: req.query.keyword,
+                $options: 'i'
+            }
+        })
+        .populate('added_by')
         return res.status(200).json({ posts })
     } catch (error) {
         return res.status(500).send(error.message, 'No Results Found')
@@ -68,18 +56,10 @@ const getRecent = async (req, res) => {
     const skipCount = parseInt(req.params.page) * parseInt(limitNum)
     try {
         const posts = await Post.find({})
-            .populate([
-                {
-                    path: 'added_by',
-                    model: 'User',
-                },
-                {
-                    path: 'comments',
-                }
-            ])
-            .limit(limitNum)
-            .skip(skipCount)
-            .sort({ createdAt: 'desc' })
+        .populate('added_by')
+        .limit(limitNum)
+        .skip(skipCount)
+        .sort({ createdAt: 'desc' })
         res.send(posts)
     } catch (error) {
         throw error
@@ -89,7 +69,11 @@ const getRecent = async (req, res) => {
 const updatePost = async (req, res) => {
     try {
         const updateData = { is_resolved: true }
-        const post = await Post.findByIdAndUpdate(req.params.id, updateData, { new: true })
+        const post = await Post.findByIdAndUpdate(
+            req.params.id,
+            updateData,
+            { new: true }
+        )
         res.send(post)
     } catch (error) {
         throw error
@@ -99,17 +83,14 @@ const updatePost = async (req, res) => {
 const deletePost = async (req, res) => {
     try {
         const removedPost = await Post.findByIdAndDelete(req.params.post_id)
- 
         const user = await User.findById(req.params.user_id)
-        user.posts.remove({_id: req.params.post_id})
+        user.posts.remove({ _id: req.params.post_id })
         await user.save()
-
         res.send(removedPost)
     } catch (error) {
         throw error
     }
 }
-
 
 export {
     createPost,
@@ -118,7 +99,5 @@ export {
     deletePost,
     getPostsByUserId,
     searchPosts,
-    getPostById
+    getPostById,
 }
-
-

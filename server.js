@@ -18,17 +18,10 @@ app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
 
-app.use(
-    express.static(
-        path.join(path.dirname(fileURLToPath(import.meta.url)), 'build')
-    )
-)
-
 app.use('/api/auth', authRouter)
 app.use('/api/posts', postsRouter)
 app.use('/api/comments', commentsRouter)
 app.use('/api/users', usersRouter)
-
 
 app.get('/*', (req, res) => {
     res.sendFile(

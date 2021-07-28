@@ -13,10 +13,12 @@ const createComment = async (req, res) => {
     }
 }
 
-const deleteComment = async(req, res) => {
+const deleteComment = async (req, res) => {
     try {
         const post = await Post.findById(req.params.post_id)
-        const idx = post.comments.findIndex((comment) => comment._id.equals(req.params.comment_id))
+        const idx = post.comments.findIndex((comment) =>
+            comment._id.equals(req.params.comment_id)
+        )
         const removedComment = post.comments.splice(idx, 1)
         await post.save()
         res.json(removedComment)
@@ -25,10 +27,12 @@ const deleteComment = async(req, res) => {
     }
 }
 
-const updateComment = async(req, res) => {
+const updateComment = async (req, res) => {
     try {
         const post = await Post.findById(req.params.post_id)
-        const idx = post.comments.findIndex((comment) => comment._id.equals(req.params.comment_id))
+        const idx = post.comments.findIndex((comment) =>
+            comment._id.equals(req.params.comment_id)
+        )
         post.is_resolved = true
         post.comments[idx].is_solution = true
         await User.updateOne(
@@ -42,8 +46,8 @@ const updateComment = async(req, res) => {
     }
 }
 
-export {
+export { 
     createComment,
     deleteComment,
-    updateComment
+    updateComment,
 }
