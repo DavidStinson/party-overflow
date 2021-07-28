@@ -36,7 +36,7 @@ const updateComment = async (req, res) => {
         post.is_resolved = true
         post.comments[idx].is_solution = true
         await User.updateOne(
-            { _id: req.params.user_id },
+            { _id: req.user._id },
             { $inc: { solution_count: 1 } }
         )
         await post.save()
