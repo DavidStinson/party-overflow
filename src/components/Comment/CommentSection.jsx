@@ -5,7 +5,11 @@ import CommentList from './CommentList'
 import CreateComment from '../CreateForms/CreateComment/CreateComment'
 
 // Services
-import { createComment, deleteComment, updateComment } from '../../services/commentService'
+import { 
+    createComment, 
+    deleteComment, 
+    markCommentAsSolution,
+} from '../../services/commentService'
 
 
 const CommentSection = (props) => {
@@ -36,7 +40,7 @@ const CommentSection = (props) => {
         try {
             const commentId = comment._id
             const user = comment.commenter
-            const updatedPost = await updateComment(commentId, props.post._id)
+            const updatedPost = await markCommentAsSolution(commentId, props.post._id)
             const updatedCommentArray = updatedPost.comments.map((comment) => {
                 if (comment._id === commentId) {
                     comment.is_solution = true
